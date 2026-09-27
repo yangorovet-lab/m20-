@@ -362,3 +362,19 @@ footer{margin-top:56px;color:var(--muted);font-size:14px;display:flex;gap:16px;f
 kbd{font-family:"IBM Plex Mono",monospace;font-size:12px;border:1px solid var(--line);border-radius:5px;padding:1px 6px;background:var(--bg)}
 .kbd-list{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14px;color:var(--muted)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* sticker maker */
+.st-wrap{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:900px){.st-wrap{grid-template-columns:minmax(0,1fr)}}
+.st-panel{gap:14px}
+.st-stage-wrap{position:relative;width:320px;max-width:100%;aspect-ratio:1;margin:0 auto;background-image:linear-gradient(45deg,#d4d4de 25%,transparent 25%),linear-gradient(-45deg,#d4d4de 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#d4d4de 75%),linear-gradient(-45deg,transparent 75%,#d4d4de 75%);background-size:20px 20px;background-position:0 0,0 10px,10px -10px,-10px 0;background-color:#f4f4f8;border-radius:12px;overflow:hidden;touch-action:none}
+.st-stage-wrap canvas{display:block;width:100%;height:100%}
+.st-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600;text-align:center;padding:20px;background:rgba(244,244,248,.7)}
+.st-tpls{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.st-tpl{border:2px solid var(--line);border-radius:10px;background:transparent;padding:6px 4px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11px;font-weight:700;color:var(--muted)}
+.st-tpl[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+.st-tpl canvas{width:56px;height:56px}
+.st-pack{margin-top:20px}
+.st-pack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px}
+.st-item{display:flex;flex-direction:column;align-items:center;gap:4px}
+.st-item img{width:100%;aspect-ratio:1;object-fit:contain;background-image:linear-gradient(45deg,#d4d4de 25%,transparent 25%),linear-gradient(-45deg,#d4d4de 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#d4d4de 75%),linear-gradient(-45deg,transparent 75%,#d4d4de 75%);background-size:16px 16px;background-position:0 0,0 8px,8px -8px,-8px 0;border-radius:10px}

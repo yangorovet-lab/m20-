@@ -25,6 +25,7 @@
       <span data-i18n="brand">Листай</span>
     </div>
     <div class="top-actions">
+      <a class="btn ghost small" href="#stickers" data-i18n="st_nav">Стикеры</a>
       <button class="btn ghost small" id="btn-projects" data-i18n="my">Мои карусели</button>
       <button class="btn ghost small" id="btn-install" data-i18n="install" hidden>Установить</button>
       <span class="pill pro" id="pro-badge" hidden>Pro</span>
@@ -156,6 +157,12 @@
     </section>
   </main>
 
+  <section class="section" style="max-width:none">
+    <h2 data-i18n="st_title">Стикеры из фото</h2>
+    <p class="hint" style="font-size:16px;max-width:62ch;margin:0 0 18px" data-i18n="st_lead">Загрузите фото, обрежьте, добавьте надпись в одном из шаблонов и скачайте PNG 512×512 для Telegram и WhatsApp. Или соберите целый пак архивом.</p>
+    <div id="stickers"></div>
+  </section>
+
   <section class="section">
     <h2 data-i18n="how">Как это работает</h2>
     <div class="steps">
@@ -187,6 +194,7 @@
 <script src="vendor/jszip.min.js"></script>
 <script src="vendor/jspdf.umd.min.js"></script>
 <script src="config.js"></script>
+<script src="sticker.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

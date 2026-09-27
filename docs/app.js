@@ -159,7 +159,9 @@
   };
   let lang = "ru";
   try { lang = localStorage.getItem("listai.lang") || (navigator.language.startsWith("ru") ? "ru" : "en"); } catch (e) {}
-  const t = (k, ...a) => { const v = I18N[lang][k]; return typeof v === "function" ? v(...a) : (v == null ? k : v); };
+  const EXT = window.LISTAI_I18N_EXT || {};
+  const t = (k, ...a) => { let v = I18N[lang][k]; if (v == null && EXT[lang]) v = EXT[lang][k]; return typeof v === "function" ? v(...a) : (v == null ? k : v); };
+  window.listaiT = t;
 
   /* ───────── themes, fonts, layouts ───────── */
   const THEMES = [
@@ -1031,6 +1033,7 @@
     document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
     els.cta.placeholder = t("cta_default");
     applyPro(); render();
+    document.dispatchEvent(new CustomEvent("listai:lang"));
   }
   document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => {
     const wasSample = els.text.value === I18N[lang].sample;
@@ -1095,4 +1098,5 @@
   syncControls();
   verifyStored().finally(applyLang);
   document.fonts.ready.then(fit);
+  if (window.listaiStickersInit) window.listaiStickersInit();
 })();
