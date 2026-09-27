@@ -12,7 +12,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f9d6e'/%3E%3Crect x='6' y='8' width='9' height='16' rx='2' fill='%23fff'/%3E%3Crect x='18' y='8' width='9' height='16' rx='2' fill='%23fff' opacity='.55'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Manrope:wght@500;700;800&family=Playfair+Display:wght@600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Manrope:wght@500;700;800&family=Playfair+Display:wght@600&family=IBM+Plex+Mono:wght@500;600&family=Oswald:wght@600&display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -40,20 +40,22 @@
   <main class="app">
     <form class="panel" id="form" autocomplete="off">
       <div class="field">
-        <label for="text" data-i18n="text_label">Текст карусели</label>
+        <div class="label-row"><label for="text" data-i18n="text_label">Текст карусели</label>
+          <select id="tpl" aria-label="Template"><option value="" data-i18n="tpl_pick">Шаблон структуры…</option><option value="list" data-i18n="tpl_list">Список: N ошибок / советов</option><option value="howto" data-i18n="tpl_howto">Инструкция по шагам</option><option value="myths" data-i18n="tpl_myths">Мифы и факты</option><option value="story" data-i18n="tpl_story">История: было → стало</option><option value="quotes" data-i18n="tpl_quotes">Цитаты и тезисы</option></select>
+        </div>
         <textarea id="text" spellcheck="false"></textarea>
-        <span class="hint" data-i18n="text_hint">Пустая строка — новый слайд. Первая строка слайда — заголовок. Строки с «- » становятся списком.</span>
+        <span class="hint" data-i18n="text_hint">Пустая строка — новый слайд. Первая строка слайда — заголовок. «- » в начале строки — список. ==слово== выделит цветом, **слово** сделает жирным.</span>
       </div>
       <div class="row">
         <div class="field">
-          <label for="handle" data-i18n="handle_label">Подпись / @ник</label>
+          <label for="handle" data-i18n="handle_label">@ник</label>
           <input type="text" id="handle" placeholder="@yourname">
         </div>
         <div class="field">
           <label for="format" data-i18n="format_label">Формат</label>
           <select id="format">
-            <option value="1080x1350">4:5 · 1080×1350 (Instagram)</option>
-            <option value="1080x1080">1:1 · 1080×1080 (LinkedIn, VK)</option>
+            <option value="1080x1350">4:5 · 1080×1350 (Instagram, LinkedIn)</option>
+            <option value="1080x1080">1:1 · 1080×1080 (Telegram, VK)</option>
             <option value="1080x1920">9:16 · 1080×1920 (Stories, Shorts)</option>
           </select>
         </div>
@@ -62,6 +64,56 @@
         <label data-i18n="theme_label">Тема</label>
         <div class="themes" id="themes"></div>
       </div>
+
+      <details class="group">
+        <summary data-i18n="g_brand">Цвета и шрифты</summary>
+        <div class="group-body">
+          <div class="row3">
+            <label class="color"><input type="color" id="c-bg" value="#0d0d0f"><span data-i18n="c_bg">Фон</span></label>
+            <label class="color"><input type="color" id="c-ink" value="#f5f5f2"><span data-i18n="c_ink">Текст</span></label>
+            <label class="color"><input type="color" id="c-accent" value="#22c38a"><span data-i18n="c_accent">Акцент</span></label>
+          </div>
+          <div class="row">
+            <div class="field"><label for="font" data-i18n="font_label">Шрифты</label>
+              <select id="font"><option value="" data-i18n="font_theme">Как в теме</option><option value="unbounded">Unbounded + Manrope</option><option value="oswald">Oswald + Manrope</option><option value="playfair">Playfair + Manrope</option><option value="manrope">Manrope</option><option value="plex">IBM Plex Mono</option></select></div>
+            <div class="field"><label for="pattern" data-i18n="pattern_label">Узор фона</label>
+              <select id="pattern"><option value="" data-i18n="pat_none">Нет</option><option value="dots" data-i18n="pat_dots">Точки</option><option value="grid" data-i18n="pat_grid">Сетка</option><option value="lines" data-i18n="pat_lines">Штриховка</option></select></div>
+          </div>
+          <div class="toggles">
+            <label><input type="radio" name="align" value="left" checked> <span data-i18n="al_left">Текст слева</span></label>
+            <label><input type="radio" name="align" value="center"> <span data-i18n="al_center">По центру</span></label>
+            <button type="button" class="link" id="brand-reset" data-i18n="brand_reset">Сбросить цвета</button>
+          </div>
+        </div>
+      </details>
+
+      <details class="group">
+        <summary data-i18n="g_author">Автор и логотип</summary>
+        <div class="group-body">
+          <div class="row">
+            <div class="field"><label for="name" data-i18n="name_label">Имя автора</label><input type="text" id="name" placeholder="Анна Иванова"></div>
+            <div class="field"><label data-i18n="avatar_label">Аватар</label>
+              <div class="inline"><label class="btn ghost file-btn small"><span data-i18n="logo_upload">Загрузить</span><input type="file" id="avatar-file" accept="image/*" hidden></label><button type="button" class="btn ghost small" id="avatar-remove" data-i18n="remove" hidden>Убрать</button></div></div>
+          </div>
+          <span class="hint" data-i18n="author_hint">Аватар и имя появятся в шапке слайдов и на последнем слайде в карточке «Подписаться».</span>
+          <div class="field">
+            <label data-i18n="logo_label">Логотип на всех слайдах</label>
+            <div class="logo-row">
+              <label class="btn ghost file-btn"><span data-i18n="logo_upload">Загрузить</span><input type="file" id="logo-file" accept="image/*" hidden></label>
+              <select id="logo-pos" aria-label="Logo position">
+                <option value="tl" data-i18n="lp_tl">Сверху слева</option>
+                <option value="tr" data-i18n="lp_tr">Сверху справа</option>
+                <option value="bl" data-i18n="lp_bl">Снизу слева</option>
+                <option value="br" data-i18n="lp_br" selected>Снизу справа</option>
+              </select>
+              <input type="range" id="logo-size" min="40" max="200" value="80" aria-label="Logo size">
+              <button type="button" class="btn ghost" id="logo-remove" data-i18n="remove" hidden>Убрать</button>
+            </div>
+            <span class="hint" data-i18n="logo_hint">PNG с прозрачным фоном смотрится лучше всего. Картинку на конкретный слайд добавляют в редакторе: нажмите на слайд в предпросмотре.</span>
+          </div>
+        </div>
+      </details>
+
       <div class="field">
         <label for="cta" data-i18n="cta_label">Текст на последнем слайде</label>
         <input type="text" id="cta">
@@ -72,8 +124,14 @@
         <label><input type="checkbox" id="opt-cover" checked> <span data-i18n="opt_cover">Первый слайд — обложка</span></label>
       </div>
       <div class="actions">
-        <button type="button" class="btn primary" id="btn-zip" data-i18n="btn_zip">Скачать все (ZIP)</button>
+        <button type="button" class="btn primary" id="btn-zip" data-i18n="btn_zip">Скачать PNG (ZIP)</button>
+        <button type="button" class="btn" id="btn-pdf" data-i18n="btn_pdf">PDF для LinkedIn</button>
         <button type="button" class="btn ghost" id="btn-sample" data-i18n="btn_sample">Пример</button>
+      </div>
+      <div class="actions small-actions">
+        <button type="button" class="link" id="btn-save" data-i18n="btn_save">Сохранить проект</button>
+        <label class="link file-btn"><span data-i18n="btn_open">Открыть проект</span><input type="file" id="open-file" accept=".json,application/json" hidden></label>
+        <button type="button" class="link" id="btn-clear" data-i18n="btn_clear">Очистить</button>
       </div>
       <div class="status" id="status" aria-live="polite"></div>
     </form>
@@ -91,8 +149,8 @@
     <h2 data-i18n="how">Как это работает</h2>
     <div class="steps">
       <div class="step"><b data-i18n="s1t">1. Вставьте текст</b><p data-i18n="s1p">Пост, заметку из Telegram, тезисы из поста в LinkedIn. Слайды разделяются пустой строкой.</p></div>
-      <div class="step"><b data-i18n="s2t">2. Выберите тему и формат</b><p data-i18n="s2p">Шесть тем и три формата. Размер шрифта подбирается автоматически под объём текста.</p></div>
-      <div class="step"><b data-i18n="s3t">3. Скачайте PNG</b><p data-i18n="s3p">Все слайды одним архивом в 1080 px. Ничего не загружается на сервер: файлы собираются в вашем браузере.</p></div>
+      <div class="step"><b data-i18n="s2t">2. Настройте слайды</b><p data-i18n="s2p">Шесть тем, три формата, логотип. Нажмите на слайд, чтобы добавить картинку, подвинуть и растянуть её или сделать фоном.</p></div>
+      <div class="step"><b data-i18n="s3t">3. Скачайте PNG или PDF</b><p data-i18n="s3p">PNG-архив для Instagram, Telegram и VK, PDF-документ для LinkedIn. Ничего не загружается на сервер: файлы собираются в вашем браузере.</p></div>
     </div>
   </section>
 
@@ -100,7 +158,7 @@
     <h2>FAQ</h2>
     <details><summary data-i18n="q1">Это бесплатно?</summary><p data-i18n="a1">Да. Бесплатная версия делает карусели без ограничений по количеству. Pro убирает водяной знак и открывает дополнительные темы.</p></details>
     <details><summary data-i18n="q2">Куда попадает мой текст?</summary><p data-i18n="a2">Никуда. Картинки собираются прямо в браузере, на сервер ничего не отправляется.</p></details>
-    <details><summary data-i18n="q3">Какие форматы подходят для Telegram?</summary><p data-i18n="a3">Для альбомов в Telegram лучше 1:1 или 4:5. Для сторис и Shorts — 9:16.</p></details>
+    <details><summary data-i18n="q3">Какие форматы подходят для Telegram и LinkedIn?</summary><p data-i18n="a3">Для альбомов в Telegram лучше 1:1 или 4:5. Для сторис и Shorts — 9:16. LinkedIn с 2024 года принимает карусели только документом: нажмите «PDF для LinkedIn» и загрузите файл как документ в пост.</p></details>
     <details><summary data-i18n="q4">Можно ли использовать слайды в коммерческих целях?</summary><p data-i18n="a4">Да, всё что вы сделали — ваше. Ссылка на сервис не обязательна.</p></details>
   </section>
 
@@ -115,6 +173,7 @@
 
 <script src="vendor/html2canvas.min.js"></script>
 <script src="vendor/jszip.min.js"></script>
+<script src="vendor/jspdf.umd.min.js"></script>
 <script src="config.js"></script>
 <script src="app.js"></script>
 </body>
