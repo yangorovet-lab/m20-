@@ -10,6 +10,16 @@
       brand: "Листай", h1: "Карусель из текста за минуту",
       lead: "Вставьте текст поста, выберите тему и скачайте готовые слайды для Instagram, Telegram, LinkedIn и VK. Без регистрации, всё считается в браузере.",
       my: "Мои карусели", install: "Установить", ideas: "Идеи", shortcuts: "Горячие клавиши",
+      designs: "Готовые макеты", design_title: "Готовые макеты", design_hint: "Макет задаёт тему, компоновку и украшения сразу для всех слайдов. Текст остаётся вашим.", design_applied: (n) => "Макет применён: " + n,
+      tool_icon: "Иконка", tool_qr: "QR-код", qr_url: "Ссылка для QR-кода", qr_add: "Добавить QR", qr_label: "QR-код на последнем слайде", qr_hint: "Вставьте ссылку: QR появится в правом нижнем углу последнего слайда.",
+      opt_arrownum: "Номер на стрелке", btn_pptx: "PPTX", btn_docx: "DOCX", btn_video: "Видео", done_file: "Готово: файл скачан.",
+      video_title: "Видео из карусели", video_hint: "Слайды сменяются с плавным переходом. Подходит для Reels, Shorts и TikTok.", video_dur: "Секунд на слайд", video_fade: "Переход, с", video_vert: "Вертикальное 9:16 с полями под Reels", video_make: "Собрать видео",
+      video_progress: (p) => "Кодирую: " + p + "%", video_done: (f) => "Готово: " + f + " скачан.", video_unsupported: "Этот браузер не умеет кодировать видео. Попробуйте Chrome, Edge или Safari.",
+      hist: "История версий", hist_title: "История версий", hist_note: "Версии сохраняются автоматически, не чаще раза в две минуты. Картинки в историю не входят.", hist_empty: "Пока нет сохранённых версий.", hist_restore: "Восстановить", hist_restored: "Версия восстановлена.",
+      share: "Ссылка на проект", share_copied: "Ссылка скопирована. Текст и настройки внутри ссылки, картинки нет.", share_imported: "Проект открыт по ссылке.",
+      hooks_pick: "Формула хука для обложки…",
+      hooks: ["5 ошибок, которые мешают [результат]", "Как [сделать X] без [боль]", "Почему у вас не получается [цель]", "Что я понял за [срок] в [сфера]", "[Число] инструментов, которые экономят [ресурс]", "Никто не скажет вам этого про [тема]", "Хватит делать [ошибка]. Делайте так", "Один приём, который удвоил [метрика]", "Мифы о [тема], в которые верят до сих пор", "Чек-лист: [задача] за [время]", "До и после: как я [результат]", "[Тема] за 60 секунд", "Самая дорогая ошибка в [сфера]", "Что делать, если [ситуация]", "Как я [результат] с нуля", "Разбор: почему [пример] сработал"],
+      ctas: ["Сохрани, чтобы не потерять", "Поделись с тем, кому это нужно", "Напиши в комментариях, что думаешь", "Подпишись, дальше будет полезнее", "Ссылка в шапке профиля", "Отправь другу", "Забирай и применяй", "Продолжение в следующем посте"],
       text_all: "Весь текст целиком", cards_hint: "Заголовок и текст каждого слайда редактируются прямо под карточкой в предпросмотре.", st_nav: "Стикеры",
       st_promo_t: "Стикеры из фото", st_promo_p: "Обрезать, убрать фон, подписать и скачать PNG 512×512 для Telegram и WhatsApp.",
       new_slide: "Новый слайд", c_add: "+ Слайд после", c_edit: "Редактор", c_up: "↑", c_down: "↓", c_del: "Удалить", c_body_ph: "Текст слайда. «- » — список, ==слово== — выделение.",
@@ -37,7 +47,7 @@
       empty: "Введите текст — слайды появятся здесь.", rendering: (i, n) => "Собираю слайд " + i + " из " + n + "…", done: "Готово: архив скачан.", done_pdf: "Готово: PDF скачан. Загрузите его в LinkedIn как документ.",
       err_font: "Не удалось собрать картинку. Обновите страницу и попробуйте ещё раз.", saved: "Проект сохранён в файл.", opened: "Проект открыт.", err_open: "Это не файл проекта Листай.", cleared: "Очищено.",
       pro_btn: (p) => "Pro · " + p, pro_title: "Листай Pro", pro_lead: "Разовая оплата, навсегда, без подписки.",
-      pro_f1: "Без водяного знака", pro_f2: "Все темы, включая закрытые", pro_f3: "Экспорт в PDF для LinkedIn", pro_f4: "Все будущие темы и форматы",
+      pro_f1: "Без водяного знака", pro_f2: "Все темы, включая закрытые", pro_f3: "Экспорт в PDF, PPTX, DOCX и видео", pro_f4: "Все будущие темы и форматы",
       pro_buy: (p) => "Купить за " + p, pro_have: "Уже есть ключ", act_title: "Активация Pro", act_lead: "Введите e-mail, на который оформлена покупка, и ключ из письма.",
       act_email: "E-mail", act_key: "Ключ", act_btn: "Активировать", act_bad: "Ключ не подходит к этому e-mail. Проверьте написание.", act_ok: "Pro активирован. Спасибо!",
       act_contact: (c) => "Вопросы по ключу: " + c, locked: "Эта тема доступна в Pro.", locked_pdf: "Экспорт в PDF доступен в Pro.", lock: "PRO",
@@ -88,6 +98,16 @@
       brand: "Listai", h1: "Text to carousel in a minute",
       lead: "Paste your post, pick a theme and download ready slides for Instagram, Telegram, LinkedIn and X. No sign-up, everything runs in your browser.",
       my: "My carousels", install: "Install app", ideas: "Ideas", shortcuts: "Keyboard shortcuts",
+      designs: "Design templates", design_title: "Design templates", design_hint: "A template sets the theme, layout and decoration for every slide at once. Your text stays.", design_applied: (n) => "Template applied: " + n,
+      tool_icon: "Icon", tool_qr: "QR code", qr_url: "Link for the QR code", qr_add: "Add QR", qr_label: "QR code on the last slide", qr_hint: "Paste a link: the QR appears in the bottom right corner of the last slide.",
+      opt_arrownum: "Number on the arrow", btn_pptx: "PPTX", btn_docx: "DOCX", btn_video: "Video", done_file: "Done: file downloaded.",
+      video_title: "Video from the carousel", video_hint: "Slides change with a smooth fade. Works for Reels, Shorts and TikTok.", video_dur: "Seconds per slide", video_fade: "Fade, s", video_vert: "Vertical 9:16 with bars for Reels", video_make: "Build video",
+      video_progress: (p) => "Encoding: " + p + "%", video_done: (f) => "Done: " + f + " downloaded.", video_unsupported: "This browser cannot encode video. Try Chrome, Edge or Safari.",
+      hist: "Version history", hist_title: "Version history", hist_note: "Versions are saved automatically, at most once every two minutes. Images are not included.", hist_empty: "No saved versions yet.", hist_restore: "Restore", hist_restored: "Version restored.",
+      share: "Project link", share_copied: "Link copied. It holds the text and settings, not the images.", share_imported: "Project opened from the link.",
+      hooks_pick: "Hook formula for the cover…",
+      hooks: ["5 mistakes that hold back [result]", "How to [do X] without [pain]", "Why you can't reach [goal]", "What [time] in [field] taught me", "[Number] tools that save [resource]", "Nobody tells you this about [topic]", "Stop doing [mistake]. Do this instead", "One trick that doubled my [metric]", "Myths about [topic] people still believe", "Checklist: [task] in [time]", "Before and after: how I [result]", "[Topic] in 60 seconds", "The most expensive mistake in [field]", "What to do when [situation]", "How I [result] from scratch", "Breakdown: why [example] worked"],
+      ctas: ["Save this for later", "Share with someone who needs it", "Tell me what you think in the comments", "Follow for more", "Link in bio", "Send to a friend", "Take it and use it", "Continued in the next post"],
       text_all: "Whole text", cards_hint: "Edit each slide's heading and text right under its card in the preview.", st_nav: "Stickers",
       st_promo_t: "Stickers from photos", st_promo_p: "Crop, remove the background, caption and download a 512×512 PNG for Telegram and WhatsApp.",
       new_slide: "New slide", c_add: "+ Slide after", c_edit: "Editor", c_up: "↑", c_down: "↓", c_del: "Delete", c_body_ph: "Slide text. “- ” makes a list, ==word== highlights.",
@@ -115,7 +135,7 @@
       empty: "Type some text and slides will appear here.", rendering: (i, n) => "Rendering slide " + i + " of " + n + "…", done: "Done: archive downloaded.", done_pdf: "Done: PDF downloaded. Upload it to LinkedIn as a document.",
       err_font: "Could not render the image. Reload the page and try again.", saved: "Project saved to a file.", opened: "Project opened.", err_open: "This is not a Listai project file.", cleared: "Cleared.",
       pro_btn: (p) => "Pro · " + p, pro_title: "Listai Pro", pro_lead: "One-time payment, forever, no subscription.",
-      pro_f1: "No watermark", pro_f2: "All themes, including locked ones", pro_f3: "PDF export for LinkedIn", pro_f4: "All future themes and formats",
+      pro_f1: "No watermark", pro_f2: "All themes, including locked ones", pro_f3: "PDF, PPTX, DOCX and video export", pro_f4: "All future themes and formats",
       pro_buy: (p) => "Buy for " + p, pro_have: "I have a key", act_title: "Activate Pro", act_lead: "Enter the e-mail you used to purchase and the key from the e-mail.",
       act_email: "E-mail", act_key: "Key", act_btn: "Activate", act_bad: "This key does not match the e-mail. Check the spelling.", act_ok: "Pro activated. Thank you!",
       act_contact: (c) => "Questions about your key: " + c, locked: "This theme is available in Pro.", locked_pdf: "PDF export is available in Pro.", lock: "PRO",
@@ -209,7 +229,8 @@
     avatarFile: $("#avatar-file"), avatarRemove: $("#avatar-remove"),
     cBg: $("#c-bg"), cInk: $("#c-ink"), cAccent: $("#c-accent"), font: $("#font"), pattern: $("#pattern"), brandReset: $("#brand-reset"), brandSave: $("#brand-save"),
     save: $("#btn-save"), open: $("#open-file"), clear: $("#btn-clear"), caption: $("#btn-caption"), projects: $("#btn-projects"), install: $("#btn-install"), ideas: $("#btn-ideas"), keys: $("#btn-keys"),
-    auditScore: $("#audit-score"), auditList: $("#audit-list")
+    auditScore: $("#audit-score"), auditList: $("#audit-list"),
+    arrownum: $("#opt-arrownum"), qr: $("#qr"), hooks: $("#hooks"), ctaList: $("#cta-list"), designs: $("#btn-designs"), pptx: $("#btn-pptx"), docx: $("#btn-docx"), video: $("#btn-video"), history: $("#btn-history"), share: $("#btn-share")
   };
 
   /* ───────── parsing / formatting ───────── */
@@ -257,7 +278,7 @@
   function renderLayer(L, idx, W, H) {
     let st = absStyle(L, W, H) + "z-index:" + (10 + idx) + ";opacity:" + (L.op == null ? 1 : L.op) + ";" + (L.rot ? "transform:rotate(" + L.rot + "deg);" : "");
     const d = ' data-el="layer" data-idx="' + idx + '"';
-    if (L.type === "image") return '<img class="s-layer s-limg' + (L.round ? " round" : "") + '" src="' + L.src + '" style="' + st + '" alt=""' + d + ">";
+    if (L.type === "image") return '<img class="s-layer s-limg' + (L.round ? " round" : "") + '" src="' + (L.icon || L.qr ? layerSrc(L) : L.src) + '" style="' + st + '" alt=""' + d + ">";
     if (L.type === "text") {
       st += "font-size:" + (L.size || 48) + "px;font-weight:" + (L.weight || 700) + ";text-align:" + (L.align || "left") + ";" + (L.color ? "color:" + L.color + ";" : "") + (L.font ? "font-family:'" + L.font + "',sans-serif;" : "");
       if (L.hl) st += "background:" + (L.hlColor || "var(--s-accent)") + ";color:" + (L.color || "var(--s-on-accent,#0d0d0f)") + ";";
@@ -282,7 +303,7 @@
     const handle = esc(opts.handle || "");
     const ava = state.avatar ? '<img class="s-ava" src="' + state.avatar + '" alt="">' : "";
     const num = opts.num ? (i + 1) + "/" + n : "";
-    const hint = isLast ? "" : (opts.arrow ? t("swipe") + " →" : "");
+    const hint = isLast ? "" : (opts.arrow ? t("swipe") + " →" + (opts.arrownum ? " " + (i + 2) + "/" + n : "") : "");
     const cta = isLast && opts.cta ? '<div><span class="s-cta">' + fmt(opts.cta) + "</span>" + (opts.handle ? '<div class="s-cta-sub">' + esc(opts.handle) + "</div>" : "") + "</div>" : "";
     const logo = state.logo ? '<img class="s-logo" src="' + state.logo.src + '" style="height:' + (state.logo.size || 80) + 'px" alt="">' : "";
     const lp = state.logo ? (state.logo.pos || "br") : "";
@@ -309,7 +330,7 @@
       layers + '<div class="s-bar"></div>' +
       '<div class="s-top"><span class="grp">' + (lp === "tl" ? logo : "") + ava + '<span class="s-handle">' + handle + '</span></span><span class="grp"><span class="s-num">' + num + "</span>" + (lp === "tr" ? logo : "") + "</span></div>" +
       '<div class="s-main' + (mainEmpty ? " empty" : "") + '" style="justify-content:' + just + '">' + main + "</div>" +
-      '<div class="s-bot"><span class="grp">' + (lp === "bl" ? logo : "") + '<span class="s-hint">' + hint + '</span></span><span class="grp">' + (lp === "br" ? logo : "") + "</span></div>" +
+      '<div class="s-bot"><span class="grp">' + (lp === "bl" ? logo : "") + '<span class="s-hint">' + hint + '</span></span><span class="grp">' + (lp === "br" ? logo : "") + (isLast && opts.qr && window.qrcode ? '<img class="s-qr" src="' + qrSvg(opts.qr, "#0E0E14") + '" alt="">' : "") + "</span></div>" +
       titleAbs + bodyAbs +
       (opts.watermark ? '<div class="s-wm">' + esc(opts.watermark) + "</div>" : "");
     return el;
@@ -317,7 +338,7 @@
   function options() {
     return {
       handle: els.handle.value.trim(), name: els.name.value.trim(), cta: els.cta.value.trim() || t("cta_default"),
-      num: els.num.checked, arrow: els.arrow.checked, cover: els.cover.checked,
+      num: els.num.checked, arrow: els.arrow.checked, arrownum: els.arrownum.checked, cover: els.cover.checked, qr: els.qr.value.trim(),
       watermark: monetized && !state.pro ? (CFG.watermark || "listai") : ""
     };
   }
@@ -483,7 +504,7 @@
     const ex = {};
     Object.keys(state.extras).forEach((k) => {
       const e = JSON.parse(JSON.stringify(state.extras[k]));
-      if (!withImages) { delete e.bg; e.layers = (e.layers || []).filter((L) => L.type !== "image"); }
+      if (!withImages) { delete e.bg; e.layers = (e.layers || []).filter((L) => L.type !== "image" || L.obj || L.icon || L.qr).map((L) => { if (L.obj || L.icon || L.qr) { const c = Object.assign({}, L); delete c.src; return c; } return L; }); }
       if (e.layers && !e.layers.length) delete e.layers;
       if (Object.keys(e).length) ex[k] = e;
     });
@@ -502,7 +523,7 @@
         else { const w = e.w || 0.6, ar = e.ar || 1, ih = (w * W / ar) / H; e.layers = [{ id: uid(), type: "image", src: e.img, ar: ar, x: (e.x == null ? 0.5 : e.x) - w / 2, y: (e.y == null ? 0.3 : e.y) - ih / 2, w: w, round: !!e.round }]; }
         delete e.img; delete e.mode; delete e.dim; delete e.x; delete e.y; delete e.w; delete e.ar; delete e.round;
       }
-      if (e && e.layers) e.layers.forEach((L) => { if (!L.id) L.id = uid(); });
+      if (e && e.layers) e.layers.forEach((L) => { if (!L.id) L.id = uid(); if (!L.src && (L.obj || L.icon || L.qr)) L.src = L.obj ? svgObject(L.obj, L.color) : L.icon ? iconSvg(L.icon, L.color) : qrSvg(L.qr, L.color); });
     });
     return ex;
   }
@@ -531,7 +552,9 @@
       const all = lsGet("listai.projects", {});
       const meta = { title: projectTitle(), updated: Date.now(), theme: state.theme, n: slides.length, format: state.format };
       if (!els.text.value.trim() && !Object.keys(state.extras).length) { delete all[state.id]; lsSet("listai.projects", all); return; }
-      all[state.id] = { meta, data: snapshot(true) };
+      const prevV = all[state.id] && all[state.id].versions;
+      all[state.id] = { meta, data: snapshot(true), versions: prevV || [] };
+      recordVersion(all);
       if (!lsSet("listai.projects", all)) { all[state.id] = { meta, data: snapshot(false) }; if (!lsSet("listai.projects", all)) { pruneProjects(all); lsSet("listai.projects", all); } }
       lsSet("listai.current", state.id);
     }, 300);
@@ -645,7 +668,7 @@
       '<div class="ed-main"><div class="ed-rail">' +
       rail("r-text", "T", t("tool_text")) + rail("r-head", "H", t("tool_head")) +
       '<label><span class="ic">🖼</span>' + esc(t("tool_img")) + '<input type="file" id="ed-add-img" accept="image/*" hidden></label>' +
-      rail("r-shape", "▭", t("tool_shape")) + rail("r-obj", "◉", t("tool_obj")) + rail("r-emoji", "☺", t("tool_emoji")) +
+      rail("r-shape", "▭", t("tool_shape")) + rail("r-obj", "◉", t("tool_obj")) + rail("r-icon", "★", t("tool_icon")) + rail("r-emoji", "☺", t("tool_emoji")) + rail("r-qr", "▦", t("tool_qr")) +
       '<label><span class="ic">▨</span>' + esc(t("tool_bg")) + '<input type="file" id="pp-bgfile" accept="image/*" hidden></label>' +
       "</div>" +
       '<div class="ed-canvas" id="ed-canvas"><div class="ed-stage" id="ed-stage"><div class="stage" id="ed-inner"></div><div class="ed-grid" id="ed-gridov" hidden></div><div class="ed-safe" id="ed-safe-top" hidden></div><div class="ed-safe" id="ed-safe-bot" hidden></div>' +
@@ -809,6 +832,13 @@
     q("#r-obj").onclick = () => { const c = objectColor(); openPop(t("tool_obj"), '<div class="obj-grid">' + OBJECTS.map((o) => '<button type="button" data-k="' + o + '"><img src="' + svgObject(o, c) + '" alt="">' + esc(t("obj_" + o)) + "</button>").join("") + "</div>", (b) => {
       addLayer({ type: "image", src: svgObject(b.dataset.k, c), ar: 240 / 260, obj: b.dataset.k, color: c, x: 0.55, y: 0.08, w: 0.38 });
     }); };
+    q("#r-icon").onclick = () => { const c = objectColor(); openPop(t("tool_icon"), '<div class="icon-grid">' + Object.keys(ICONS).map((n) => '<button type="button" data-k="' + n + '" title="' + n + '"><img src="' + iconSvg(n, c) + '" alt=""></button>').join("") + "</div>", (b) => {
+      addLayer({ type: "image", src: iconSvg(b.dataset.k, c), ar: 1, icon: b.dataset.k, color: c, x: 0.1, y: 0.1, w: 0.14 });
+    }); };
+    q("#r-qr").onclick = () => { openPop(t("tool_qr"), '<div class="pfield"><label>' + esc(t("qr_url")) + '</label><input type="text" id="qr-in" placeholder="https://" value="' + esc(els.qr.value) + '"></div><div class="pops" style="margin-top:8px"><button type="button" class="btn primary" data-k="add">' + esc(t("qr_add")) + "</button></div>", (b) => {
+      const url = M.querySelector("#qr-in").value.trim(); if (!url) return;
+      addLayer({ type: "image", src: qrSvg(url, "#0E0E14"), ar: 1, qr: url, color: "#0E0E14", x: 0.66, y: 0.66, w: 0.26 });
+    }); const inp = M.querySelector("#qr-in"); if (inp) { inp.focus(); inp.addEventListener("keydown", (e) => { if (e.key === "Enter") M.querySelector('[data-k="add"]').click(); }); } };
     q("#r-emoji").onclick = () => openPop(t("tool_emoji"), '<div class="emoji-grid">' + EMOJIS.map((e) => '<button type="button">' + e + "</button>").join("") + "</div>", (b) => addLayer({ type: "text", text: b.textContent, size: 180, align: "center", x: 0.35, y: 0.3, w: 0.3 }));
     q("#ed-add-img").addEventListener("change", async (e) => {
       const f = e.target.files[0]; e.target.value = ""; if (!f) return;
@@ -839,7 +869,7 @@
             '<label class="toggles" style="align-self:end"><input type="checkbox" id="pp-hl"' + (L.hl ? " checked" : "") + "> " + esc(t("p_hl")) + "</label></div>";
         } else if (L.type === "image") {
           h += '<div class="pops"><label class="btn ghost file-btn">' + esc(t("p_replace")) + '<input type="file" id="pp-replace" accept="image/*" hidden></label><button type="button" class="btn ghost" id="pp-asbg">' + esc(t("p_as_bg")) + "</button></div>" +
-            (L.obj ? fld(t("p_obj_color"), '<div class="pcolor"><input type="color" id="pp-objcolor" value="' + (L.color || "#1F3DFF") + '"></div>') : "") +
+            ((L.obj || L.icon || L.qr) ? fld(t("p_obj_color"), '<div class="pcolor"><input type="color" id="pp-objcolor" value="' + (L.color || "#1F3DFF") + '"></div>') : "") +
             '<label class="toggles"><input type="checkbox" id="pp-round"' + (L.round ? " checked" : "") + "> " + esc(t("p_round")) + "</label>";
         } else {
           h += fld(t("p_fill"), '<div class="pcolor"><input type="color" id="pp-fill" value="' + (L.fill || "#1F3DFF") + '"><button type="button" class="link" id="pp-fill-reset">' + esc(t("p_theme_color")) + "</button></div>");
@@ -888,7 +918,7 @@
       bind("#pp-font", (e) => { L.font = e.target.value; }, "onchange");
       bind("#pp-hl", (e) => { L.hl = e.target.checked; }, "onchange");
       bind("#pp-round", (e) => { L.round = e.target.checked; }, "onchange");
-      bind("#pp-objcolor", (e) => { L.color = e.target.value; L.src = svgObject(L.obj, L.color); });
+      bind("#pp-objcolor", (e) => { L.color = e.target.value; L.src = layerSrc(L); });
       bind("#pp-fill", (e) => { L.fill = e.target.value; });
       bind("#pp-fill-reset", () => { push(); delete L.fill; }, "onclick");
       bind("#pp-radius", (e) => { L.r = Number(e.target.value); });
@@ -1068,6 +1098,7 @@
     document.querySelectorAll("[data-i18n]").forEach((n) => { n.textContent = t(n.dataset.i18n); });
     document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
     els.cta.placeholder = t("cta_default");
+    fillPresets();
     applyPro(); render();
   }
   document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => {
@@ -1110,6 +1141,233 @@
     if ((e.ctrlKey || e.metaKey) && e.key === "Enter") { e.preventDefault(); exportZip(); }
   });
 
+  /* ───────── icons + QR as SVG layers ───────── */
+  const ICONS = window.LISTAI_ICONS || {};
+  function iconSvg(name, color) {
+    const body = ICONS[name] || ""; const c = color || "#1F3DFF";
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="' + c + '" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + body + "</svg>";
+    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+  }
+  function qrSvg(text, color, bg) {
+    if (!window.qrcode) return null;
+    const q = window.qrcode(0, "M"); q.addData(text); q.make();
+    const n = q.getModuleCount(), cell = 10, m = 3, S = (n + m * 2) * cell;
+    let rects = "";
+    for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (q.isDark(r, c)) rects += '<rect x="' + ((c + m) * cell) + '" y="' + ((r + m) * cell) + '" width="' + cell + '" height="' + cell + '" rx="2"/>';
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + S + " " + S + '"><rect width="' + S + '" height="' + S + '" rx="' + (cell * 2) + '" fill="' + (bg || "#fff") + '"/><g fill="' + (color || "#0E0E14") + '">' + rects + "</g></svg>";
+    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+  }
+  function layerSrc(L) { if (L.icon) return iconSvg(L.icon, L.color); if (L.qr) return qrSvg(L.qr, L.color); if (L.obj) return svgObject(L.obj, L.color); return L.src; }
+
+  /* ───────── design templates (theme + layout + decoration) ───────── */
+  const DESIGNS = [
+    { id: "neuro-sphere", name: { ru: "Нейро · шар", en: "Neuro · sphere" }, theme: "neuro", layout: "default", cover: [{ obj: "sphere", x: 0.52, y: 0.06, w: 0.46 }, { obj: "chrome", x: 0.4, y: 0.34, w: 0.14 }] },
+    { id: "neuro-torus", name: { ru: "Нейро · карточка", en: "Neuro · card" }, theme: "neuro", layout: "card", cover: [{ obj: "torus", x: 0.55, y: 0.05, w: 0.42 }] },
+    { id: "neuro-spring", name: { ru: "Нейро · номера", en: "Neuro · numbered" }, theme: "neuro", layout: "number", cover: [{ obj: "spring", x: 0.6, y: 0.08, w: 0.32 }] },
+    { id: "coal-min", name: { ru: "Уголь · минимал", en: "Coal · minimal" }, theme: "coal", layout: "default" },
+    { id: "coal-cube", name: { ru: "Уголь · куб", en: "Coal · cube" }, theme: "coal", layout: "card", cover: [{ obj: "cube", x: 0.58, y: 0.06, w: 0.36 }] },
+    { id: "paper-quote", name: { ru: "Бумага · цитаты", en: "Paper · quotes" }, theme: "paper", layout: "quote" },
+    { id: "swiss-grid", name: { ru: "Швейцария · сетка", en: "Swiss · grid" }, theme: "swiss", layout: "split", pattern: "grid" },
+    { id: "swiss-quote", name: { ru: "Швейцария · цитата", en: "Swiss · quote" }, theme: "swiss", layout: "quote" },
+    { id: "bank-stat", name: { ru: "Банк · цифры", en: "Bank · numbers" }, theme: "bank", layout: "stat" },
+    { id: "corp-check", name: { ru: "Корпорат · чеклист", en: "Corporate · checklist" }, theme: "corp", layout: "check" },
+    { id: "corp-number", name: { ru: "Корпорат · номера", en: "Corporate · numbered" }, theme: "corp", layout: "number" },
+    { id: "pastel-card", name: { ru: "Пастель · карточка", en: "Pastel · card" }, theme: "pastel", layout: "card", pattern: "dots", cover: [{ obj: "pill", x: 0.5, y: 0.04, w: 0.5 }] },
+    { id: "news-rules", name: { ru: "Газета", en: "Newspaper" }, theme: "news", layout: "rules" },
+    { id: "neon-spark", name: { ru: "Неон · молния", en: "Neon · spark" }, theme: "neon", layout: "default", cover: [{ type: "text", text: "⚡️", size: 220, x: 0.6, y: 0.08, w: 0.3, align: "center" }] },
+    { id: "sunset-center", name: { ru: "Закат · по центру", en: "Sunset · centered" }, theme: "sunset", layout: "default", align: "center" },
+    { id: "insta-stat", name: { ru: "Градиент · цифры", en: "Gradient · numbers" }, theme: "insta", layout: "stat", align: "center" },
+    { id: "gloss-quote", name: { ru: "Глянец · цитаты", en: "Gloss · quotes" }, theme: "gloss", layout: "quote", align: "center" },
+    { id: "sport-number", name: { ru: "Спорт · номера", en: "Sport · numbered" }, theme: "sport", layout: "number", pattern: "lines" },
+    { id: "brutal", name: { ru: "Бруталь", en: "Brutal" }, theme: "brutal", layout: "default" },
+    { id: "ocean-check", name: { ru: "Океан · чеклист", en: "Ocean · checklist" }, theme: "ocean", layout: "check", cover: [{ obj: "cube", x: 0.56, y: 0.06, w: 0.38 }] },
+    { id: "cream-split", name: { ru: "Крем · колонки", en: "Cream · columns" }, theme: "cream", layout: "split" },
+    { id: "mint-check", name: { ru: "Мята · список", en: "Mint · list" }, theme: "mint", layout: "check", pattern: "dots" },
+    { id: "plex-card", name: { ru: "Плекс · код", en: "Plex · code" }, theme: "plex", layout: "card", pattern: "grid" },
+    { id: "coal-number", name: { ru: "Уголь · номера", en: "Coal · numbered" }, theme: "coal", layout: "number", cover: [{ obj: "torus", x: 0.58, y: 0.05, w: 0.38 }] }
+  ];
+  function applyDesign(d, silent) {
+    state.theme = d.theme; state.brand = { bg: "", ink: "", accent: "", font: d.font || "" }; state.pattern = d.pattern || ""; state.align = d.align || "left";
+    const color = objectColor();
+    slides.forEach((_, j) => {
+      const e = ext(j); e.layout = d.layout || "default";
+      e.layers = (e.layers || []).filter((L) => !L.tpl);
+      const deco = j === 0 ? (d.cover || []) : (d.all || []);
+      deco.forEach((L0) => {
+        const L = Object.assign({ id: uid(), tpl: true, type: "image" }, L0);
+        if (L.obj) { L.color = color; L.src = svgObject(L.obj, color); L.ar = 240 / 260; }
+        if (L.type === "text") { L.weight = L.weight || 700; }
+        e.layers.push(L);
+      });
+    });
+    if (!silent) { syncControls(); renderThemes(); render(); }
+  }
+  function openDesigns() {
+    const q = modalShell("<h3>" + esc(t("design_title")) + "</h3><p>" + esc(t("design_hint")) + '</p><div class="designs" id="designs"></div>', true);
+    const box = q("#designs"), { w, h } = dims();
+    const keep = JSON.stringify({ theme: state.theme, brand: state.brand, pattern: state.pattern, align: state.align, extras: state.extras });
+    DESIGNS.forEach((d) => {
+      applyDesign(d, true);
+      const card = document.createElement("button"); card.type = "button"; card.className = "design";
+      const th = document.createElement("div"); th.className = "thumb"; th.style.aspectRatio = w + "/" + h;
+      const stage = document.createElement("div"); stage.className = "stage"; stage.appendChild(buildSlide(slides[0] || { title: d.name[lang], body: "" }, 0, Math.max(1, slides.length), options()));
+      th.appendChild(stage); card.appendChild(th);
+      const nm = document.createElement("span"); nm.textContent = d.name[lang]; card.appendChild(nm);
+      card.addEventListener("click", () => { closeModal(); applyDesign(d); status(t("design_applied", d.name[lang])); });
+      box.appendChild(card);
+      const kd = JSON.parse(keep); state.theme = kd.theme; state.brand = kd.brand; state.pattern = kd.pattern; state.align = kd.align; state.extras = kd.extras;
+    });
+    requestAnimationFrame(() => box.querySelectorAll(".thumb").forEach(fitOne));
+  }
+
+  /* ───────── lazy libraries ───────── */
+  const loaded = {};
+  function loadScript(src) { return loaded[src] || (loaded[src] = new Promise((res, rej) => { const s = document.createElement("script"); s.src = src; s.onload = res; s.onerror = () => { delete loaded[src]; rej(new Error(src)); }; document.head.appendChild(s); })); }
+  function proGate() { if (locked()) { openPro(t("locked")); return true; } if (monetized && !state.pro) { openPro(t("locked_pdf")); return true; } return false; }
+
+  /* ───────── PPTX / DOCX ───────── */
+  async function exportPptx() {
+    if (!slides.length || proGate()) return;
+    els.pptx.disabled = true;
+    try {
+      await loadScript("vendor/pptxgen.bundle.js");
+      const { w, h } = dims(), P = new window.PptxGenJS();
+      P.defineLayout({ name: "C", width: w / 108, height: h / 108 }); P.layout = "C";
+      for (let i = 0; i < slides.length; i++) { status(t("rendering", i + 1, slides.length)); const c = await renderCanvas(i); P.addSlide().addImage({ data: c.toDataURL("image/jpeg", 0.92), x: 0, y: 0, w: w / 108, h: h / 108 }); }
+      await P.writeFile({ fileName: "carousel.pptx" }); status(t("done_file"));
+    } catch (e) { console.error(e); status(t("err_font"), true); }
+    els.pptx.disabled = false;
+  }
+  async function exportDocx() {
+    if (!slides.length || proGate()) return;
+    els.docx.disabled = true;
+    try {
+      await loadScript("vendor/docx.iife.js");
+      const D = window.docx, { w, h } = dims(), sections = [];
+      for (let i = 0; i < slides.length; i++) {
+        status(t("rendering", i + 1, slides.length));
+        const c = await renderCanvas(i); const blob = await new Promise((r) => c.toBlob(r, "image/png")); const buf = await blob.arrayBuffer();
+        sections.push({ properties: { page: { size: { width: w * 15, height: h * 15 }, margin: { top: 0, right: 0, bottom: 0, left: 0 } } }, children: [new D.Paragraph({ children: [new D.ImageRun({ data: buf, type: "png", transformation: { width: w, height: h } })] })] });
+      }
+      const doc = new D.Document({ sections }); save(await D.Packer.toBlob(doc), "carousel.docx"); status(t("done_file"));
+    } catch (e) { console.error(e); status(t("err_font"), true); }
+    els.docx.disabled = false;
+  }
+
+  /* ───────── video (Reels) ───────── */
+  function openVideo() {
+    if (!slides.length || proGate()) return;
+    const q = modalShell("<h3>" + esc(t("video_title")) + "</h3><p>" + esc(t("video_hint")) + "</p>" +
+      '<div class="row"><div class="field"><label for="v-dur">' + esc(t("video_dur")) + '</label><input type="range" id="v-dur" min="1" max="6" step="0.5" value="2.5"><span class="hint" id="v-dur-v">2.5 s</span></div>' +
+      '<div class="field"><label for="v-fade">' + esc(t("video_fade")) + '</label><input type="range" id="v-fade" min="0" max="1" step="0.1" value="0.4"><span class="hint" id="v-fade-v">0.4 s</span></div></div>' +
+      '<label class="toggles"><input type="checkbox" id="v-vert" checked> ' + esc(t("video_vert")) + "</label>" +
+      '<button type="button" class="btn primary" id="v-make">' + esc(t("video_make")) + '</button><div class="status" id="v-status"></div>');
+    q("#v-dur").oninput = (e) => { q("#v-dur-v").textContent = e.target.value + " s"; }; q("#v-fade").oninput = (e) => { q("#v-fade-v").textContent = e.target.value + " s"; };
+    q("#v-make").onclick = async () => {
+      const dur = Number(q("#v-dur").value), fade = Number(q("#v-fade").value), vert = q("#v-vert").checked, st = q("#v-status");
+      q("#v-make").disabled = true;
+      try { await makeVideo(dur, fade, vert, (m) => { st.textContent = m; }); } catch (e) { console.error(e); st.textContent = t("video_unsupported"); }
+      q("#v-make").disabled = false;
+    };
+  }
+  async function makeVideo(dur, fade, vert, progress) {
+    const { w, h } = dims();
+    const OW = vert ? 1080 : w, OH = vert ? 1920 : h, fps = 30;
+    const frames = [];
+    for (let i = 0; i < slides.length; i++) { progress(t("rendering", i + 1, slides.length)); frames.push(await renderCanvas(i)); }
+    const out = document.createElement("canvas"); out.width = OW; out.height = OH; const x = out.getContext("2d");
+    const th = THEMES.find((z) => z.id === state.theme) || THEMES[0], bgc = state.brand.bg || th.c[0];
+    const sw = Math.min(OW, w * Math.min(OW / w, OH / h)), sh = h * (sw / w), sx = (OW - sw) / 2, sy = (OH - sh) / 2;
+    const drawAt = (i, alpha) => { x.globalAlpha = alpha; x.drawImage(frames[i], sx, sy, sw, sh); x.globalAlpha = 1; };
+    const total = Math.round(slides.length * dur * fps), fadeF = Math.round(fade * fps), perSlide = Math.round(dur * fps);
+    const frameAt = (n) => {
+      x.fillStyle = bgc; x.fillRect(0, 0, OW, OH);
+      const i = Math.min(slides.length - 1, Math.floor(n / perSlide)), into = n - i * perSlide;
+      if (i > 0 && into < fadeF && fadeF > 0) { drawAt(i - 1, 1); drawAt(i, into / fadeF); } else drawAt(i, 1);
+    };
+    // 1. WebCodecs + mp4 muxer
+    let codec = null, mux = null;
+    if ("VideoEncoder" in window) {
+      await loadScript("vendor/mp4-muxer.js");
+      for (const c of [["avc1.640028", "avc"], ["avc1.4d002a", "avc"], ["avc1.42001f", "avc"], ["vp09.00.10.08", "vp9"], ["av01.0.08M.08", "av1"]]) {
+        try { const s = await VideoEncoder.isConfigSupported({ codec: c[0], width: OW, height: OH, bitrate: 8e6, framerate: fps }); if (s.supported) { codec = c; break; } } catch (e) {}
+      }
+    }
+    if (codec) {
+      const target = new window.Mp4Muxer.ArrayBufferTarget();
+      mux = new window.Mp4Muxer.Muxer({ target, video: { codec: codec[1], width: OW, height: OH }, fastStart: "in-memory", firstTimestampBehavior: "offset" });
+      const enc = new VideoEncoder({ output: (chunk, meta) => mux.addVideoChunk(chunk, meta), error: (e) => { throw e; } });
+      enc.configure({ codec: codec[0], width: OW, height: OH, bitrate: 8e6, framerate: fps, latencyMode: "quality" });
+      for (let n = 0; n < total; n++) {
+        frameAt(n);
+        const vf = new VideoFrame(out, { timestamp: Math.round(n * 1e6 / fps), duration: Math.round(1e6 / fps) });
+        enc.encode(vf, { keyFrame: n % (fps * 2) === 0 }); vf.close();
+        if (n % 15 === 0) { progress(t("video_progress", Math.round(n / total * 100))); await new Promise((r) => setTimeout(r, 0)); }
+        if (enc.encodeQueueSize > 8) await new Promise((r) => setTimeout(r, 30));
+      }
+      await enc.flush(); enc.close(); mux.finalize();
+      save(new Blob([target.buffer], { type: "video/mp4" }), "carousel.mp4"); progress(t("video_done", "MP4"));
+      return;
+    }
+    // 2. fallback: MediaRecorder (webm, real time)
+    if (!window.MediaRecorder) throw new Error("unsupported");
+    const stream = out.captureStream(fps), rec = new MediaRecorder(stream, { mimeType: MediaRecorder.isTypeSupported("video/webm;codecs=vp9") ? "video/webm;codecs=vp9" : "video/webm", videoBitsPerSecond: 8e6 });
+    const chunks = []; rec.ondataavailable = (e) => chunks.push(e.data);
+    const done = new Promise((r) => { rec.onstop = r; }); rec.start(200);
+    for (let n = 0; n < total; n++) { frameAt(n); if (n % 15 === 0) progress(t("video_progress", Math.round(n / total * 100))); await new Promise((r) => setTimeout(r, 1000 / fps)); }
+    rec.stop(); await done;
+    save(new Blob(chunks, { type: "video/webm" }), "carousel.webm"); progress(t("video_done", "WebM"));
+  }
+
+  /* ───────── version history + share link ───────── */
+  function recordVersion(all) {
+    const p = all[state.id]; if (!p) return;
+    p.versions = p.versions || [];
+    const last = p.versions[p.versions.length - 1], snap = snapshot(false), key = JSON.stringify([snap.text, snap.theme, snap.extras, snap.format]);
+    if (last && last.key === key) return;
+    if (last && Date.now() - last.ts < 120000) { p.versions[p.versions.length - 1] = { ts: Date.now(), key, data: snap }; return; }
+    p.versions.push({ ts: Date.now(), key, data: snap }); while (p.versions.length > 12) p.versions.shift();
+  }
+  function openHistory() {
+    const all = lsGet("listai.projects", {}), p = all[state.id], vs = (p && p.versions || []).slice().reverse();
+    const fmtT = (ts) => new Date(ts).toLocaleString(lang === "ru" ? "ru-RU" : "en-US", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+    const q = modalShell("<h3>" + esc(t("hist_title")) + "</h3><p>" + esc(t("hist_note")) + "</p>" +
+      (vs.length ? '<div class="hist">' + vs.map((v, i) => '<div class="hist-row"><div><b>' + esc((v.data.text.split("\n")[0] || "").replace(/==|\*\*/g, "").slice(0, 60)) + '</b><span class="meta">' + fmtT(v.ts) + " · " + esc(t("counting", parseSlides(v.data.text).length)) + '</span></div><button type="button" class="btn ghost small" data-i="' + i + '">' + esc(t("hist_restore")) + "</button></div>").join("") + "</div>" : "<p>" + esc(t("hist_empty")) + "</p>"), true);
+    els.modal.querySelectorAll("[data-i]").forEach((b) => b.addEventListener("click", () => { const v = vs[Number(b.dataset.i)]; const logo = state.logo, ava = state.avatar; restore(v.data); state.logo = logo; state.avatar = ava; closeModal(); renderThemes(); render(); status(t("hist_restored")); }));
+  }
+  async function shareLink() {
+    if (!window.LZString) return;
+    const payload = LZString.compressToEncodedURIComponent(JSON.stringify(snapshot(false)));
+    const url = location.origin + location.pathname + "#p=" + payload;
+    try { await navigator.clipboard.writeText(url); status(t("share_copied")); } catch (e) { const ta = document.createElement("textarea"); ta.value = url; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); status(t("share_copied")); } catch (e2) { status(url); } ta.remove(); }
+  }
+  function importFromHash() {
+    if (!location.hash.startsWith("#p=") || !window.LZString) return false;
+    try {
+      const d = JSON.parse(LZString.decompressFromEncodedURIComponent(location.hash.slice(3)));
+      if (!d || typeof d.text !== "string") return false;
+      restore(d); state.id = uid(); history.replaceState(null, "", location.pathname); status(t("share_imported")); return true;
+    } catch (e) { return false; }
+  }
+
+  /* ───────── hooks and CTA presets ───────── */
+  function fillPresets() {
+    els.hooks.innerHTML = '<option value="">' + esc(t("hooks_pick")) + "</option>" + I18N[lang].hooks.map((h, i) => '<option value="' + i + '">' + esc(h) + "</option>").join("");
+    els.ctaList.innerHTML = I18N[lang].ctas.map((c) => '<option value="' + esc(c) + '">').join("");
+  }
+  els.hooks.addEventListener("change", () => {
+    const i = els.hooks.value; if (i === "") return;
+    const hook = I18N[lang].hooks[Number(i)]; els.hooks.value = "";
+    if (!slides.length) els.text.value = hook; else { slides[0].title = hook; els.text.value = serialize(slides); }
+    render(); const first = els.grid.querySelector(".c-title"); if (first) { first.focus(); first.select(); }
+  });
+  els.designs.addEventListener("click", openDesigns);
+  els.pptx.addEventListener("click", exportPptx);
+  els.docx.addEventListener("click", exportDocx);
+  els.video.addEventListener("click", openVideo);
+  els.history.addEventListener("click", openHistory);
+  els.share.addEventListener("click", shareLink);
+
   /* ───────── PWA ───────── */
   let installEvt = null;
   window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installEvt = e; els.install.hidden = false; });
@@ -1127,7 +1385,8 @@
   }
 
   /* ───────── boot ───────── */
-  const restored = loadDraft();
+  fillPresets();
+  const restored = importFromHash() || loadDraft();
   if (!restored) { applyBrandKit(lsGet("listai.brand", null)); state.id = uid(); }
   if (!els.text.value.trim()) els.text.value = I18N[lang].sample;
   syncControls();

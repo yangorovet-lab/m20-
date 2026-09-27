@@ -47,6 +47,7 @@
       <div class="field">
         <div class="label-row"><label for="text" data-i18n="text_label">Текст карусели</label>
           <span class="inline"><button type="button" class="link" id="btn-ideas" data-i18n="ideas">Идеи</button>
+          <select id="hooks" aria-label="Hook"></select>
           <select id="tpl" aria-label="Template"><option value="" data-i18n="tpl_pick">Шаблон структуры…</option><option value="list" data-i18n="tpl_list">Список: N ошибок / советов</option><option value="howto" data-i18n="tpl_howto">Инструкция по шагам</option><option value="myths" data-i18n="tpl_myths">Мифы и факты</option><option value="story" data-i18n="tpl_story">История: было → стало</option><option value="quotes" data-i18n="tpl_quotes">Цитаты и тезисы</option></select></span>
         </div>
         <details class="group" id="text-details"><summary data-i18n="text_all">Весь текст целиком</summary><div class="group-body">
@@ -70,7 +71,7 @@
         </div>
       </div>
       <div class="field">
-        <label data-i18n="theme_label">Тема</label>
+        <div class="label-row"><label data-i18n="theme_label">Тема</label><button type="button" class="link" id="btn-designs" data-i18n="designs">Готовые макеты</button></div>
         <div class="themes" id="themes"></div>
       </div>
 
@@ -126,22 +127,33 @@
 
       <div class="field">
         <label for="cta" data-i18n="cta_label">Текст на последнем слайде</label>
-        <input type="text" id="cta">
+        <input type="text" id="cta" list="cta-list"><datalist id="cta-list"></datalist>
+      </div>
+      <div class="field">
+        <label for="qr" data-i18n="qr_label">QR-код на последнем слайде</label>
+        <input type="text" id="qr" placeholder="https://" inputmode="url">
+        <span class="hint" data-i18n="qr_hint">Вставьте ссылку: QR появится в правом нижнем углу последнего слайда.</span>
       </div>
       <div class="toggles">
         <label><input type="checkbox" id="opt-num" checked> <span data-i18n="opt_num">Нумерация</span></label>
         <label><input type="checkbox" id="opt-arrow" checked> <span data-i18n="opt_arrow">Стрелка «листай»</span></label>
+        <label><input type="checkbox" id="opt-arrownum"> <span data-i18n="opt_arrownum">Номер на стрелке</span></label>
         <label><input type="checkbox" id="opt-cover" checked> <span data-i18n="opt_cover">Первый слайд — обложка</span></label>
       </div>
       <div class="actions">
         <button type="button" class="btn primary" id="btn-zip" data-i18n="btn_zip">Скачать PNG (ZIP)</button>
         <button type="button" class="btn" id="btn-pdf" data-i18n="btn_pdf">PDF для LinkedIn</button>
+        <button type="button" class="btn ghost" id="btn-pptx" data-i18n="btn_pptx">PPTX</button>
+        <button type="button" class="btn ghost" id="btn-docx" data-i18n="btn_docx">DOCX</button>
+        <button type="button" class="btn ghost" id="btn-video" data-i18n="btn_video">Видео</button>
         <button type="button" class="btn ghost" id="btn-sample" data-i18n="btn_sample">Пример</button>
       </div>
       <div class="actions small-actions">
         <button type="button" class="link" id="btn-save" data-i18n="btn_save">Сохранить проект</button>
         <label class="link file-btn"><span data-i18n="btn_open">Открыть проект</span><input type="file" id="open-file" accept=".json,application/json" hidden></label>
         <button type="button" class="link" id="btn-caption" data-i18n="btn_caption">Подпись к посту</button>
+        <button type="button" class="link" id="btn-share" data-i18n="share">Ссылка на проект</button>
+        <button type="button" class="link" id="btn-history" data-i18n="hist">История версий</button>
         <button type="button" class="link" id="btn-clear" data-i18n="btn_clear">Очистить</button>
       </div>
       <div class="status" id="status" aria-live="polite"></div>
@@ -192,6 +204,9 @@
 <script src="vendor/html2canvas.min.js"></script>
 <script src="vendor/jszip.min.js"></script>
 <script src="vendor/jspdf.umd.min.js"></script>
+<script src="vendor/qrcode.js"></script>
+<script src="vendor/lz-string.min.js"></script>
+<script src="icons.js"></script>
 <script src="config.js"></script>
 <script src="app.js"></script>
 </body>

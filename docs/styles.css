@@ -406,3 +406,18 @@ kbd{font-family:"IBM Plex Mono",monospace;font-size:12px;border:1px solid var(--
 .add-slide{align-self:flex-start}
 @media (max-width:900px){.app>section{order:-1}}
 #text-details textarea{min-height:200px}
+
+/* designs gallery, icons, qr, history */
+.designs{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;max-height:65vh;overflow:auto;padding:2px}
+.design{border:2px solid var(--line);border-radius:12px;background:var(--bg);padding:8px;cursor:pointer;display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:var(--muted);text-align:left}
+.design:hover{border-color:var(--accent);color:var(--accent)}
+.design .thumb{width:100%;pointer-events:none}
+.icon-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;max-height:280px;overflow:auto}
+.icon-grid button{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:5px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.icon-grid button img{width:22px;height:22px}
+.icon-grid button:hover{border-color:var(--accent)}
+.slide .s-qr{width:200px;height:200px;display:block}
+.hist{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow:auto}
+.hist-row{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.hist-row b{display:block;font-size:14px}.hist-row .meta{font-size:12px;color:var(--muted)}
+#hooks{max-width:170px}
