@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Листай — стикеры из фото для Telegram и WhatsApp</title>
+<meta name="description" content="Загрузите фото, обрежьте, уберите фон, добавьте надпись и скачайте стикер PNG 512×512 для Telegram и WhatsApp. Бесплатно, в браузере.">
+<meta property="og:title" content="Листай — стикеры из фото">
+<meta property="og:description" content="Текст → готовые PNG-слайды для Instagram, Telegram, LinkedIn и VK. Без регистрации.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1F3DFF">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231F3DFF'/%3E%3Crect x='6' y='8' width='9' height='16' rx='2' fill='%23fff'/%3E%3Crect x='18' y='8' width='9' height='16' rx='2' fill='%23fff' opacity='.55'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;900&family=Manrope:wght@500;700;800&family=Playfair+Display:wght@600&family=IBM+Plex+Mono:wght@500;600&family=Oswald:wght@600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./" style="text-decoration:none;color:inherit">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#1F3DFF"/><rect x="6" y="8" width="9" height="16" rx="2" fill="#fff"/><rect x="18" y="8" width="9" height="16" rx="2" fill="#fff" opacity=".55"/></svg>
+      <span>Листай</span>
+    </a>
+    <div class="top-actions">
+      <a class="btn ghost small" href="./" data-i18n="st_back">← Карусели</a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+  <section class="hero">
+    <h1 data-i18n="st_page_title">Стикеры из фото</h1>
+    <p data-i18n="st_lead">Загрузите фото, обрежьте, добавьте надпись в одном из шаблонов и скачайте PNG 512×512 для Telegram и WhatsApp. Или соберите целый пак архивом.</p>
+  </section>
+  <main id="stickers"></main>
+  <footer>
+    <span>© 2026 Листай</span>
+    <a href="./" data-i18n="st_back">← Карусели</a>
+  </footer>
+</div>
+<script src="vendor/jszip.min.js"></script>
+<script src="sticker.js"></script>
+</body>
+</html>

@@ -25,7 +25,7 @@
       <span data-i18n="brand">Листай</span>
     </div>
     <div class="top-actions">
-      <a class="btn ghost small" href="#stickers" data-i18n="st_nav">Стикеры</a>
+      <a class="btn ghost small" href="stickers.html" data-i18n="st_nav">Стикеры</a>
       <button class="btn ghost small" id="btn-projects" data-i18n="my">Мои карусели</button>
       <button class="btn ghost small" id="btn-install" data-i18n="install" hidden>Установить</button>
       <span class="pill pro" id="pro-badge" hidden>Pro</span>
@@ -49,8 +49,11 @@
           <span class="inline"><button type="button" class="link" id="btn-ideas" data-i18n="ideas">Идеи</button>
           <select id="tpl" aria-label="Template"><option value="" data-i18n="tpl_pick">Шаблон структуры…</option><option value="list" data-i18n="tpl_list">Список: N ошибок / советов</option><option value="howto" data-i18n="tpl_howto">Инструкция по шагам</option><option value="myths" data-i18n="tpl_myths">Мифы и факты</option><option value="story" data-i18n="tpl_story">История: было → стало</option><option value="quotes" data-i18n="tpl_quotes">Цитаты и тезисы</option></select></span>
         </div>
+        <details class="group" id="text-details"><summary data-i18n="text_all">Весь текст целиком</summary><div class="group-body">
         <textarea id="text" spellcheck="false"></textarea>
         <span class="hint" data-i18n="text_hint">Пустая строка — новый слайд. Первая строка слайда — заголовок. «- » в начале строки — список. ==слово== выделит цветом, **слово** сделает жирным.</span>
+        </div></details>
+        <span class="hint" data-i18n="cards_hint">Заголовок и текст каждого слайда редактируются прямо под карточкой в предпросмотре.</span>
       </div>
       <div class="row">
         <div class="field">
@@ -149,7 +152,7 @@
         <h2 data-i18n="preview">Предпросмотр</h2>
         <span class="count" id="count"></span>
       </div>
-      <div class="grid" id="grid"></div>
+      <div class="cards-list" id="grid"></div>
       <details class="audit" id="audit" open>
         <summary><span class="score" id="audit-score">—</span><span data-i18n="audit_title">Проверка перед публикацией</span></summary>
         <ul id="audit-list"></ul>
@@ -157,11 +160,7 @@
     </section>
   </main>
 
-  <section class="section" style="max-width:none">
-    <h2 data-i18n="st_title">Стикеры из фото</h2>
-    <p class="hint" style="font-size:16px;max-width:62ch;margin:0 0 18px" data-i18n="st_lead">Загрузите фото, обрежьте, добавьте надпись в одном из шаблонов и скачайте PNG 512×512 для Telegram и WhatsApp. Или соберите целый пак архивом.</p>
-    <div id="stickers"></div>
-  </section>
+  <a class="promo" href="stickers.html"><span class="promo-ic">✂︎</span><span><b data-i18n="st_promo_t">Стикеры из фото</b><span class="hint" data-i18n="st_promo_p">Обрезать, убрать фон, подписать и скачать PNG 512×512 для Telegram и WhatsApp.</span></span><span class="promo-arrow">→</span></a>
 
   <section class="section">
     <h2 data-i18n="how">Как это работает</h2>
@@ -194,7 +193,6 @@
 <script src="vendor/jszip.min.js"></script>
 <script src="vendor/jspdf.umd.min.js"></script>
 <script src="config.js"></script>
-<script src="sticker.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

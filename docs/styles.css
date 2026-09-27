@@ -378,3 +378,31 @@ kbd{font-family:"IBM Plex Mono",monospace;font-size:12px;border:1px solid var(--
 .st-pack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px}
 .st-item{display:flex;flex-direction:column;align-items:center;gap:4px}
 .st-item img{width:100%;aspect-ratio:1;object-fit:contain;background-image:linear-gradient(45deg,#d4d4de 25%,transparent 25%),linear-gradient(-45deg,#d4d4de 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#d4d4de 75%),linear-gradient(-45deg,transparent 75%,#d4d4de 75%);background-size:16px 16px;background-position:0 0,0 8px,8px -8px,-8px 0;border-radius:10px}
+
+/* promo link to stickers */
+.promo{display:flex;align-items:center;gap:16px;margin-top:28px;padding:16px 18px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);text-decoration:none;color:var(--ink);max-width:820px}
+.promo:hover{border-color:var(--accent)}
+.promo-ic{font-size:26px;width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.promo b{display:block;font-family:"Unbounded",sans-serif;font-size:15px;margin-bottom:2px}
+.promo .hint{display:block}
+.promo-arrow{margin-left:auto;font-size:22px;color:var(--accent)}
+
+/* per-card editing rows */
+.cards-list{display:flex;flex-direction:column;gap:12px}
+.crow{display:grid;grid-template-columns:168px minmax(0,1fr);gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px;align-items:start}
+@media (max-width:520px){.crow{grid-template-columns:112px minmax(0,1fr);gap:10px;padding:10px}}
+.crow .thumb{width:100%}
+.cfields{display:flex;flex-direction:column;gap:8px;min-width:0}
+.cfields .c-n{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.cfields input.c-title{font-weight:800;padding:8px 10px}
+.cfields textarea.c-body{min-height:64px;padding:8px 10px;resize:none;overflow:hidden;line-height:1.4}
+.chips{display:flex;gap:4px;flex-wrap:wrap}
+.chips button{border:1px solid var(--line);background:transparent;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.cops{display:flex;gap:4px;flex-wrap:wrap}
+.cops button{border:1px solid var(--line);background:transparent;border-radius:8px;padding:5px 9px;font-size:12px;font-weight:700;cursor:pointer;color:var(--ink)}
+.cops button:hover{border-color:var(--accent);color:var(--accent)}
+.cops button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.add-slide{align-self:flex-start}
+@media (max-width:900px){.app>section{order:-1}}
+#text-details textarea{min-height:200px}

@@ -9,7 +9,7 @@ window.LISTAI_I18N_EXT = {
     st_color: "Цвет текста", st_accent: "Цвет плашки", st_out: "Размер", st_dl: "Скачать PNG", st_add: "В пак", st_pack: "Пак стикеров", st_pack_empty: "Добавляйте стикеры сюда и скачайте пак одним архивом. В Telegram пак загружают через @Stickers.",
     st_pack_dl: "Скачать пак (ZIP)", st_pack_clear: "Очистить пак", st_remove: "Убрать", st_hint: "Тяните фото, чтобы сдвинуть кадр. Колесо мыши или ползунок — масштаб.",
     st_ready: (kb) => "Готово: 512×512, " + kb + " КБ", st_big: (kb) => "PNG " + kb + " КБ. Telegram принимает до 512 КБ: уменьшите обводку или выберите форму без прозрачности.",
-    st_err: "Не удалось прочитать файл. Нужна картинка PNG, JPG или WebP.", st_added: (n) => "В паке: " + n, st_demo: "Пример", st_placeholder: "Загрузите фото, чтобы начать"
+    st_err: "Не удалось прочитать файл. Нужна картинка PNG, JPG или WebP.", st_brush: "Кисть", br_off: "Выкл", br_erase: "Стереть", br_restore: "Вернуть", st_brush_size: "Размер кисти", st_feather: "Мягкость края", st_brush_hint: "Кисть работает в режиме «Вырезать фон»: сотрите лишнее или верните то, что срезалось.", st_back: "← Карусели", st_page_title: "Стикеры из фото", st_added: (n) => "В паке: " + n, st_demo: "Пример", st_placeholder: "Загрузите фото, чтобы начать"
   },
   en: {
     st_nav: "Stickers", st_title: "Stickers from photos", st_lead: "Upload a photo, crop it, add a caption in one of the templates and download a 512×512 PNG for Telegram and WhatsApp. Or build a whole pack as an archive.",
@@ -20,16 +20,26 @@ window.LISTAI_I18N_EXT = {
     st_color: "Text color", st_accent: "Pill color", st_out: "Size", st_dl: "Download PNG", st_add: "Add to pack", st_pack: "Sticker pack", st_pack_empty: "Add stickers here and download the pack as one archive. Telegram packs are uploaded via @Stickers.",
     st_pack_dl: "Download pack (ZIP)", st_pack_clear: "Clear pack", st_remove: "Remove", st_hint: "Drag the photo to move the crop. Mouse wheel or the slider zooms.",
     st_ready: (kb) => "Done: 512×512, " + kb + " KB", st_big: (kb) => "PNG is " + kb + " KB. Telegram accepts up to 512 KB: reduce the outline or pick a shape without transparency.",
-    st_err: "Could not read the file. Use a PNG, JPG or WebP image.", st_added: (n) => "In pack: " + n, st_demo: "Example", st_placeholder: "Upload a photo to start"
+    st_err: "Could not read the file. Use a PNG, JPG or WebP image.", st_brush: "Brush", br_off: "Off", br_erase: "Erase", br_restore: "Restore", st_brush_size: "Brush size", st_feather: "Edge softness", st_brush_hint: "The brush works in “Cut out background” mode: erase leftovers or bring back what was trimmed.", st_back: "← Carousels", st_page_title: "Stickers from photos", st_added: (n) => "In pack: " + n, st_demo: "Example", st_placeholder: "Upload a photo to start"
   }
 };
 (function () {
   "use strict";
   const $ = (s) => document.querySelector(s);
-  const t = (k, ...a) => (window.listaiT ? window.listaiT(k, ...a) : k);
+  const D = window.LISTAI_I18N_EXT;
+  let lang = "ru";
+  try { lang = localStorage.getItem("listai.lang") || (navigator.language.startsWith("ru") ? "ru" : "en"); } catch (e) {}
+  const t = (k, ...a) => { const v = D[lang][k]; return typeof v === "function" ? v(...a) : (v == null ? k : v); };
   const root = $("#stickers"); if (!root) return;
+  function applyLang() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach((n) => { n.textContent = t(n.dataset.i18n); });
+    document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+    labels();
+  }
+  document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => { lang = b.dataset.lang; try { localStorage.setItem("listai.lang", lang); } catch (e) {} applyLang(); }));
   const PREVIEW = 320;
-  const st = { img: null, cut: null, shape: "round", zoom: 1, ox: 0, oy: 0, tol: 40, outline: true, ow: 12, tpl: "meme", text: "", label: "", pos: "bottom", size: 0, color: "#ffffff", accent: "#1F3DFF", out: 512, pack: [] };
+  const st = { img: null, cut: null, shape: "round", zoom: 1, ox: 0, oy: 0, tol: 40, feather: 2, brush: "off", bsize: 24, outline: true, ow: 12, tpl: "meme", text: "", label: "", pos: "bottom", size: 0, color: "#ffffff", accent: "#1F3DFF", out: 512, pack: [] };
   const TPLS = ["none", "meme", "pill", "neuro", "bubble", "stamp", "bar"];
   const SHAPES = ["square", "round", "circle", "cut"];
 
@@ -40,7 +50,10 @@ window.LISTAI_I18N_EXT = {
     '<span class="hint" data-i18n="st_hint"></span>' +
     '<div class="field"><label data-i18n="st_shape"></label><div class="seg" id="st-shape"></div></div>' +
     '<div class="field"><label for="st-zoom" data-i18n="st_zoom"></label><input type="range" id="st-zoom" min="100" max="400" value="100"></div>' +
-    '<div class="field" id="st-tol-f" hidden><label for="st-tol" data-i18n="st_tol"></label><input type="range" id="st-tol" min="5" max="120" value="40"></div>' +
+    '<div id="st-cut-f" hidden><div class="field"><label for="st-tol" data-i18n="st_tol"></label><input type="range" id="st-tol" min="5" max="120" value="40"></div>' +
+    '<div class="field"><label for="st-feather" data-i18n="st_feather"></label><input type="range" id="st-feather" min="0" max="6" value="2"></div>' +
+    '<div class="field"><label data-i18n="st_brush"></label><div class="seg" id="st-brush"><button type="button" data-v="off"></button><button type="button" data-v="erase"></button><button type="button" data-v="restore"></button></div></div>' +
+    '<div class="field"><label for="st-bsize" data-i18n="st_brush_size"></label><input type="range" id="st-bsize" min="6" max="80" value="24"></div><span class="hint" data-i18n="st_brush_hint"></span></div>' +
     '<div class="toggles"><label><input type="checkbox" id="st-outline" checked> <span data-i18n="st_outline"></span></label><input type="range" id="st-ow" min="0" max="30" value="12" style="flex:1" aria-label="outline width"></div>' +
     "</div>" +
     '<div class="panel st-panel">' +
@@ -58,7 +71,7 @@ window.LISTAI_I18N_EXT = {
     '<div class="actions"><button type="button" class="btn primary" id="st-pack-dl" data-i18n="st_pack_dl"></button><button type="button" class="btn ghost" id="st-pack-clear" data-i18n="st_pack_clear"></button></div></div>';
 
   const cv = $("#st-canvas"), ctx = cv.getContext("2d");
-  const E = { file: $("#st-file"), zoom: $("#st-zoom"), tol: $("#st-tol"), tolF: $("#st-tol-f"), outline: $("#st-outline"), ow: $("#st-ow"), text: $("#st-text"), label: $("#st-label"), labelF: $("#st-label-f"), size: $("#st-size"), sizeV: $("#st-size-v"), color: $("#st-color"), accent: $("#st-accent"), out: $("#st-out"), status: $("#st-status"), pack: $("#st-pack"), packN: $("#st-pack-n"), packEmpty: $("#st-pack-empty"), empty: $("#st-empty") };
+  const E = { file: $("#st-file"), zoom: $("#st-zoom"), tol: $("#st-tol"), tolF: $("#st-cut-f"), feather: $("#st-feather"), bsize: $("#st-bsize"), outline: $("#st-outline"), ow: $("#st-ow"), text: $("#st-text"), label: $("#st-label"), labelF: $("#st-label-f"), size: $("#st-size"), sizeV: $("#st-size-v"), color: $("#st-color"), accent: $("#st-accent"), out: $("#st-out"), status: $("#st-status"), pack: $("#st-pack"), packN: $("#st-pack-n"), packEmpty: $("#st-pack-empty"), empty: $("#st-empty") };
 
   /* ── i18n-dependent UI ── */
   function labels() {
@@ -69,11 +82,12 @@ window.LISTAI_I18N_EXT = {
     E.sizeV.textContent = st.size ? st.size : t("st_auto");
     E.labelF.hidden = st.tpl !== "neuro" && st.tpl !== "stamp";
     E.tolF.hidden = st.shape !== "cut";
+    document.querySelectorAll("#st-brush button").forEach((b) => { b.setAttribute("aria-pressed", String(b.dataset.v === st.brush)); b.textContent = t("br_" + b.dataset.v); });
+    cv.style.cursor = st.brush !== "off" && st.shape === "cut" ? "crosshair" : "grab";
     E.packN.textContent = st.pack.length ? t("st_added", st.pack.length) : "";
     E.packEmpty.hidden = st.pack.length > 0;
     thumbs();
   }
-  document.addEventListener("listai:lang", labels);
 
   /* ── image loading + background cut-out ── */
   function loadFile(f) {
@@ -95,28 +109,68 @@ window.LISTAI_I18N_EXT = {
     if (!st.img) return null;
     const w = st.img.width, h = st.img.height, c = document.createElement("canvas"); c.width = w; c.height = h;
     const x = c.getContext("2d"); x.drawImage(st.img, 0, 0);
-    const id = x.getImageData(0, 0, w, h), d = id.data, tol = st.tol * st.tol * 3;
-    const seen = new Uint8Array(w * h), stack = [];
-    const seed = (px, py) => { const i = (py * w + px) * 4; stack.push(px, py, d[i], d[i + 1], d[i + 2]); };
-    seed(0, 0); seed(w - 1, 0); seed(0, h - 1); seed(w - 1, h - 1); seed(w >> 1, 0); seed(w >> 1, h - 1); seed(0, h >> 1); seed(w - 1, h >> 1);
-    while (stack.length) {
-      const b = stack.pop(), g = stack.pop(), r = stack.pop(), py = stack.pop(), px = stack.pop();
-      if (px < 0 || py < 0 || px >= w || py >= h) continue;
-      const p = py * w + px; if (seen[p]) continue;
-      const i = p * 4, dr = d[i] - r, dg = d[i + 1] - g, db = d[i + 2] - b;
-      if (dr * dr + dg * dg + db * db > tol) continue;
-      seen[p] = 1; d[i + 3] = 0;
-      stack.push(px + 1, py, r, g, b, px - 1, py, r, g, b, px, py + 1, r, g, b, px, py - 1, r, g, b);
+    const id = x.getImageData(0, 0, w, h), d = id.data, N = w * h;
+    // 1. background colour = median of the border pixels
+    const rs = [], gs = [], bs = [];
+    const take = (p) => { rs.push(d[p * 4]); gs.push(d[p * 4 + 1]); bs.push(d[p * 4 + 2]); };
+    for (let i = 0; i < w; i += 2) { take(i); take((h - 1) * w + i); }
+    for (let j = 0; j < h; j += 2) { take(j * w); take(j * w + w - 1); }
+    const med = (arr) => { arr.sort((p, q) => p - q); return arr[arr.length >> 1]; };
+    const br = med(rs), bg = med(gs), bb = med(bs);
+    const dist = (p, r, g, b2) => { const dr = d[p * 4] - r, dg = d[p * 4 + 1] - g, db = d[p * 4 + 2] - b2; return (dr * dr * 0.9 + dg * dg * 1.6 + db * db * 0.5); };
+    const tolG = (st.tol * 2.1) * (st.tol * 2.1), tolL = (st.tol * 0.75) * (st.tol * 0.75), tolSeed = (st.tol * 1.4) * (st.tol * 1.4);
+    // 2. region growing from every border pixel that looks like background;
+    //    a neighbour joins if it is close to the pixel it came from (handles gradients and soft shadows)
+    //    and not too far from the global background colour (stops leaks into the subject)
+    const mask = new Uint8Array(N), queue = new Int32Array(N); let qh = 0, qt = 0;
+    const seed = (p) => { if (!mask[p] && dist(p, br, bg, bb) < tolSeed) { mask[p] = 1; queue[qt++] = p; } };
+    for (let i = 0; i < w; i++) { seed(i); seed((h - 1) * w + i); }
+    for (let j = 0; j < h; j++) { seed(j * w); seed(j * w + w - 1); }
+    while (qh < qt) {
+      const p = queue[qh++], px = p % w, r = d[p * 4], g = d[p * 4 + 1], b2 = d[p * 4 + 2];
+      const nb = [p - w, p + w, px > 0 ? p - 1 : -1, px < w - 1 ? p + 1 : -1];
+      for (let k = 0; k < 4; k++) { const n = nb[k]; if (n < 0 || n >= N || mask[n]) continue; if (dist(n, r, g, b2) < tolL && dist(n, br, bg, bb) < tolG) { mask[n] = 1; queue[qt++] = n; } }
     }
-    // soften edge: pixels adjacent to transparent get partial alpha
-    const out = new Uint8ClampedArray(d);
-    for (let py = 1; py < h - 1; py++) for (let px = 1; px < w - 1; px++) {
-      const p = py * w + px; if (seen[p]) continue;
-      let n = 0; if (seen[p - 1]) n++; if (seen[p + 1]) n++; if (seen[p - w]) n++; if (seen[p + w]) n++;
-      if (n) out[p * 4 + 3] = Math.round(255 * (1 - n / 6));
+    // 3. alpha: background 0, subject 255, border pixels get a soft value from their distance to the background colour
+    const alpha = new Uint8ClampedArray(N);
+    for (let p = 0; p < N; p++) {
+      if (mask[p]) { alpha[p] = 0; continue; }
+      const px = p % w, near = (p >= w && mask[p - w]) || (p < N - w && mask[p + w]) || (px > 0 && mask[p - 1]) || (px < w - 1 && mask[p + 1]);
+      if (!near) { alpha[p] = 255; continue; }
+      const k = Math.min(1, Math.max(0, (Math.sqrt(dist(p, br, bg, bb)) - st.tol * 0.75) / (st.tol * 0.9)));
+      alpha[p] = Math.round(255 * (0.25 + 0.75 * k));
     }
-    id.data.set(out); x.putImageData(id, 0, 0);
+    // 4. feather: box blur the alpha channel
+    let out = alpha;
+    for (let pass = 0; pass < st.feather; pass++) {
+      const nx = new Uint8ClampedArray(N);
+      for (let p = 0; p < N; p++) {
+        const px = p % w; let sum = out[p] * 2, cnt = 2;
+        if (px > 0) { sum += out[p - 1]; cnt++; } if (px < w - 1) { sum += out[p + 1]; cnt++; }
+        if (p >= w) { sum += out[p - w]; cnt++; } if (p < N - w) { sum += out[p + w]; cnt++; }
+        nx[p] = Math.round(sum / cnt);
+      }
+      out = nx;
+    }
+    for (let p = 0; p < N; p++) d[p * 4 + 3] = Math.min(d[p * 4 + 3], out[p]);
+    x.putImageData(id, 0, 0);
     return c;
+  }
+  /* brush: erase or restore on the cut-out at source resolution */
+  function toSource(px, py) {
+    const src = source(); if (!src) return null;
+    const S = PREVIEW, bs = Math.max(S / src.width, S / src.height) * st.zoom, w = src.width * bs, h = src.height * bs;
+    return { x: (px - ((S - w) / 2 + st.ox * S)) / bs, y: (py - ((S - h) / 2 + st.oy * S)) / bs, r: st.bsize / 2 / bs };
+  }
+  function brushAt(px, py) {
+    if (st.shape !== "cut" || st.brush === "off") return false;
+    const c = source(); if (!c) return false;
+    const m = toSource(px, py), x = c.getContext("2d");
+    x.save();
+    if (st.brush === "erase") { x.globalCompositeOperation = "destination-out"; x.beginPath(); x.arc(m.x, m.y, m.r, 0, Math.PI * 2); x.fill(); }
+    else { x.globalCompositeOperation = "source-over"; x.beginPath(); x.arc(m.x, m.y, m.r, 0, Math.PI * 2); x.clip(); x.drawImage(st.img, 0, 0); }
+    x.restore();
+    return true;
   }
   function source() { if (st.shape === "cut") { if (!st.cut) st.cut = cutout(); return st.cut; } return st.img; }
 
@@ -245,13 +299,16 @@ window.LISTAI_I18N_EXT = {
     prepare(c); st.text = st.text || (t("tp_meme") === "Meme" ? "when it works" : "когда заработало"); E.text.value = st.text; draw();
   });
   document.addEventListener("click", (e) => {
-    const b = e.target.closest("#st-shape button, #st-tpls .st-tpl, #st-pos button"); if (!b) return;
-    if (b.closest("#st-shape")) { st.shape = b.dataset.v; st.cut = null; }
+    const b = e.target.closest("#st-shape button, #st-tpls .st-tpl, #st-pos button, #st-brush button"); if (!b) return;
+    if (b.closest("#st-brush")) st.brush = b.dataset.v;
+    else if (b.closest("#st-shape")) { st.shape = b.dataset.v; st.cut = null; }
     else if (b.closest("#st-tpls")) st.tpl = b.dataset.v; else st.pos = b.dataset.v;
     labels(); draw();
   });
   E.zoom.addEventListener("input", () => { st.zoom = Number(E.zoom.value) / 100; draw(); });
   E.tol.addEventListener("change", () => { st.tol = Number(E.tol.value); st.cut = null; draw(); });
+  E.feather.addEventListener("change", () => { st.feather = Number(E.feather.value); st.cut = null; draw(); });
+  E.bsize.addEventListener("input", () => { st.bsize = Number(E.bsize.value); });
   E.outline.addEventListener("change", () => { st.outline = E.outline.checked; draw(); });
   E.ow.addEventListener("input", () => { st.ow = Number(E.ow.value); draw(); });
   E.text.addEventListener("input", () => { st.text = E.text.value; draw(); });
@@ -261,11 +318,19 @@ window.LISTAI_I18N_EXT = {
   E.accent.addEventListener("input", () => { st.accent = E.accent.value; draw(); thumbs(); });
   E.out.addEventListener("change", () => { st.out = Number(E.out.value); });
   let drag = null;
-  cv.addEventListener("pointerdown", (e) => { if (!st.img) return; cv.setPointerCapture(e.pointerId); drag = { x: e.clientX, y: e.clientY, ox: st.ox, oy: st.oy }; });
-  cv.addEventListener("pointermove", (e) => { if (!drag) return; st.ox = drag.ox + (e.clientX - drag.x) / PREVIEW; st.oy = drag.oy + (e.clientY - drag.y) / PREVIEW; draw(); });
+  const local = (e) => { const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) * PREVIEW / r.width, (e.clientY - r.top) * PREVIEW / r.height]; };
+  cv.addEventListener("pointerdown", (e) => {
+    if (!st.img) return; cv.setPointerCapture(e.pointerId);
+    if (st.shape === "cut" && st.brush !== "off") { const [px, py] = local(e); brushAt(px, py); draw(); drag = { brush: true }; return; }
+    drag = { x: e.clientX, y: e.clientY, ox: st.ox, oy: st.oy };
+  });
+  cv.addEventListener("pointermove", (e) => {
+    if (!drag) return;
+    if (drag.brush) { const [px, py] = local(e); brushAt(px, py); draw(); return; }
+    st.ox = drag.ox + (e.clientX - drag.x) / PREVIEW; st.oy = drag.oy + (e.clientY - drag.y) / PREVIEW; draw();
+  });
   cv.addEventListener("pointerup", () => { drag = null; }); cv.addEventListener("pointercancel", () => { drag = null; });
   cv.addEventListener("wheel", (e) => { if (!st.img) return; e.preventDefault(); st.zoom = Math.min(4, Math.max(1, st.zoom * (e.deltaY < 0 ? 1.08 : 0.92))); E.zoom.value = Math.round(st.zoom * 100); draw(); }, { passive: false });
-  cv.style.cursor = "grab";
 
   /* ── export + pack ── */
   async function exportBlob() {
@@ -291,5 +356,5 @@ window.LISTAI_I18N_EXT = {
   });
   $("#st-pack-clear").addEventListener("click", () => { st.pack.forEach((p) => URL.revokeObjectURL(p.url)); st.pack = []; renderPack(); });
 
-  window.listaiStickersInit = () => { labels(); draw(); };
+  applyLang(); draw();
 })();

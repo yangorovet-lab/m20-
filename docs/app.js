@@ -10,6 +10,9 @@
       brand: "Листай", h1: "Карусель из текста за минуту",
       lead: "Вставьте текст поста, выберите тему и скачайте готовые слайды для Instagram, Telegram, LinkedIn и VK. Без регистрации, всё считается в браузере.",
       my: "Мои карусели", install: "Установить", ideas: "Идеи", shortcuts: "Горячие клавиши",
+      text_all: "Весь текст целиком", cards_hint: "Заголовок и текст каждого слайда редактируются прямо под карточкой в предпросмотре.", st_nav: "Стикеры",
+      st_promo_t: "Стикеры из фото", st_promo_p: "Обрезать, убрать фон, подписать и скачать PNG 512×512 для Telegram и WhatsApp.",
+      new_slide: "Новый слайд", c_add: "+ Слайд после", c_edit: "Редактор", c_up: "↑", c_down: "↓", c_del: "Удалить", c_body_ph: "Текст слайда. «- » — список, ==слово== — выделение.",
       text_label: "Текст карусели", text_hint: "Пустая строка — новый слайд. Первая строка слайда — заголовок. «- » в начале строки — список. ==слово== выделит цветом, **слово** сделает жирным.",
       tpl_pick: "Шаблон структуры…", tpl_list: "Список: N ошибок / советов", tpl_howto: "Инструкция по шагам", tpl_myths: "Мифы и факты", tpl_story: "История: было → стало", tpl_quotes: "Цитаты и тезисы",
       handle_label: "@ник", format_label: "Формат", theme_label: "Тема", cta_label: "Текст на последнем слайде",
@@ -85,6 +88,9 @@
       brand: "Listai", h1: "Text to carousel in a minute",
       lead: "Paste your post, pick a theme and download ready slides for Instagram, Telegram, LinkedIn and X. No sign-up, everything runs in your browser.",
       my: "My carousels", install: "Install app", ideas: "Ideas", shortcuts: "Keyboard shortcuts",
+      text_all: "Whole text", cards_hint: "Edit each slide's heading and text right under its card in the preview.", st_nav: "Stickers",
+      st_promo_t: "Stickers from photos", st_promo_p: "Crop, remove the background, caption and download a 512×512 PNG for Telegram and WhatsApp.",
+      new_slide: "New slide", c_add: "+ Slide after", c_edit: "Editor", c_up: "↑", c_down: "↓", c_del: "Delete", c_body_ph: "Slide text. “- ” makes a list, ==word== highlights.",
       text_label: "Carousel text", text_hint: "Blank line starts a new slide. First line of a slide is its heading. “- ” starts a list item. ==word== highlights, **word** makes bold.",
       tpl_pick: "Structure template…", tpl_list: "List: N mistakes / tips", tpl_howto: "Step-by-step guide", tpl_myths: "Myths vs facts", tpl_story: "Story: before → after", tpl_quotes: "Quotes and takeaways",
       handle_label: "@handle", format_label: "Format", theme_label: "Theme", cta_label: "Last slide text",
@@ -318,33 +324,63 @@
 
   /* ───────── preview + audit ───────── */
   let slides = [];
+  const CARD_LAYOUTS = ["default", "quote", "stat", "check", "number", "card"];
+  function thumbFor(i) {
+    const { w, h } = dims();
+    const th = document.createElement("div");
+    th.className = "thumb"; th.style.aspectRatio = w + "/" + h;
+    const stage = document.createElement("div"); stage.className = "stage";
+    stage.appendChild(buildSlide(slides[i], i, slides.length, options()));
+    stage.addEventListener("click", () => openEditor(i));
+    th.appendChild(stage);
+    const ex = state.extras[i];
+    if (ex && ((ex.layers && ex.layers.length) || ex.bg)) { const m = document.createElement("span"); m.className = "has-img"; th.appendChild(m); }
+    const dl = document.createElement("button"); dl.type = "button"; dl.className = "dl"; dl.textContent = "PNG"; dl.addEventListener("click", () => exportOne(i)); th.appendChild(dl);
+    return th;
+  }
+  function renderThumb(i) {
+    const row = els.grid.children[i]; if (!row) return;
+    const old = row.querySelector(".thumb"); if (!old) return;
+    const th = thumbFor(i); row.replaceChild(th, old); fitOne(th);
+  }
+  function autoGrow(ta) { ta.style.height = "auto"; ta.style.height = Math.max(64, ta.scrollHeight) + "px"; }
+  function syncText() { els.text.value = serialize(slides); }
+  function cardRow(i) {
+    const s = slides[i], ex = state.extras[i] || {};
+    const row = document.createElement("div"); row.className = "crow";
+    row.appendChild(thumbFor(i));
+    const f = document.createElement("div"); f.className = "cfields";
+    f.innerHTML =
+      '<div class="c-n"><span>' + (i + 1) + " / " + slides.length + '</span><button type="button" class="link c-edit">' + esc(t("c_edit")) + "</button></div>" +
+      '<input type="text" class="c-title" value="' + esc(s.title) + '" placeholder="' + esc(t("p_ttl")) + '">' +
+      '<textarea class="c-body" placeholder="' + esc(t("c_body_ph")) + '">' + esc(s.body) + "</textarea>" +
+      '<div class="chips">' + CARD_LAYOUTS.map((l) => '<button type="button" data-l="' + l + '" aria-pressed="' + ((ex.layout || "default") === l) + '">' + esc(t("lay_" + l)) + "</button>").join("") + "</div>" +
+      '<div class="cops"><button type="button" class="c-up" title="' + esc(t("ed_prev")) + '"' + (i === 0 ? " disabled" : "") + '>↑</button><button type="button" class="c-down" title="' + esc(t("ed_next")) + '"' + (i === slides.length - 1 ? " disabled" : "") + ">↓</button>" +
+      '<button type="button" class="c-add">' + esc(t("c_add")) + '</button><button type="button" class="c-del">' + esc(t("c_del")) + "</button></div>";
+    row.appendChild(f);
+    const title = f.querySelector(".c-title"), body = f.querySelector(".c-body");
+    title.addEventListener("input", () => { slides[i].title = title.value.replace(/\n/g, " "); syncText(); renderThumb(i); audit(); saveDraft(); });
+    body.addEventListener("input", () => { slides[i].body = body.value.replace(/\n[ \t]*\n+/g, "\n"); autoGrow(body); syncText(); renderThumb(i); audit(); saveDraft(); });
+    f.querySelector(".chips").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; ext(i).layout = b.dataset.l; f.querySelectorAll(".chips button").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); renderThumb(i); saveDraft(); });
+    f.querySelector(".c-edit").addEventListener("click", () => openEditor(i));
+    f.querySelector(".c-up").addEventListener("click", () => { const x = slides[i]; slides[i] = slides[i - 1]; slides[i - 1] = x; remapExtras((k) => k === i ? i - 1 : k === i - 1 ? i : k); syncText(); render(); });
+    f.querySelector(".c-down").addEventListener("click", () => { const x = slides[i]; slides[i] = slides[i + 1]; slides[i + 1] = x; remapExtras((k) => k === i ? i + 1 : k === i + 1 ? i : k); syncText(); render(); });
+    f.querySelector(".c-add").addEventListener("click", () => { slides.splice(i + 1, 0, { title: t("new_slide"), body: "" }); remapExtras((k) => k > i ? k + 1 : k); syncText(); render(); const n = els.grid.children[i + 1]; if (n) { n.querySelector(".c-title").focus(); n.querySelector(".c-title").select(); } });
+    f.querySelector(".c-del").addEventListener("click", () => { slides.splice(i, 1); remapExtras((k) => k === i ? null : k > i ? k - 1 : k); syncText(); render(); });
+    setTimeout(() => autoGrow(body), 0);
+    return row;
+  }
   function render() {
     slides = parseSlides(els.text.value);
-    const opts = options();
-    const { w, h } = dims();
     els.grid.innerHTML = "";
     els.count.textContent = slides.length ? t("counting", slides.length) : "";
-    if (!slides.length) { els.grid.innerHTML = '<p class="status">' + t("empty") + "</p>"; els.zip.disabled = els.pdf.disabled = true; audit(); saveDraft(); return; }
+    if (!slides.length) { els.grid.innerHTML = '<p class="status">' + t("empty") + '</p><div class="cops"><button type="button" class="primary" id="add-first">' + esc(t("c_add")) + "</button></div>"; els.zip.disabled = els.pdf.disabled = true; $("#add-first").addEventListener("click", () => { els.text.value = t("new_slide"); render(); }); audit(); saveDraft(); return; }
     els.zip.disabled = els.pdf.disabled = false;
-    slides.forEach((s, i) => {
-      const th = document.createElement("div");
-      th.className = "thumb"; th.style.aspectRatio = w + "/" + h;
-      const stage = document.createElement("div"); stage.className = "stage";
-      stage.appendChild(buildSlide(s, i, slides.length, opts));
-      stage.addEventListener("click", () => openEditor(i));
-      th.appendChild(stage);
-      const ex = state.extras[i];
-      if (ex && ((ex.layers && ex.layers.length) || ex.bg)) { const m = document.createElement("span"); m.className = "has-img"; th.appendChild(m); }
-      const ed = document.createElement("button"); ed.type = "button"; ed.className = "edit"; ed.textContent = t("edit"); ed.addEventListener("click", () => openEditor(i)); th.appendChild(ed);
-      const dl = document.createElement("button"); dl.type = "button"; dl.className = "dl"; dl.textContent = "PNG"; dl.addEventListener("click", () => exportOne(i)); th.appendChild(dl);
-      els.grid.appendChild(th);
-    });
+    slides.forEach((_, i) => els.grid.appendChild(cardRow(i)));
     fit(); audit(); saveDraft();
   }
-  function fit() {
-    const { w } = dims();
-    els.grid.querySelectorAll(".thumb").forEach((th) => { th.querySelector(".stage").style.transform = "scale(" + (th.clientWidth / w) + ")"; });
-  }
+  function fitOne(th) { const { w } = dims(); th.querySelector(".stage").style.transform = "scale(" + (th.clientWidth / w) + ")"; }
+  function fit() { els.grid.querySelectorAll(".thumb").forEach(fitOne); }
   window.addEventListener("resize", fit);
   function audit() {
     if (!slides.length) { els.auditScore.textContent = "—"; els.auditScore.className = "score"; els.auditList.innerHTML = ""; return; }
@@ -1033,7 +1069,6 @@
     document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
     els.cta.placeholder = t("cta_default");
     applyPro(); render();
-    document.dispatchEvent(new CustomEvent("listai:lang"));
   }
   document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => {
     const wasSample = els.text.value === I18N[lang].sample;
@@ -1098,5 +1133,4 @@
   syncControls();
   verifyStored().finally(applyLang);
   document.fonts.ready.then(fit);
-  if (window.listaiStickersInit) window.listaiStickersInit();
 })();
