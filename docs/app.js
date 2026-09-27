@@ -293,6 +293,14 @@
   els.proBtn.addEventListener("click", () => openPro());
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
+  /* ───────── demo notice (hosted preview, downloads disabled there) ───────── */
+  if (/claude/i.test(location.hostname)) {
+    const n = document.createElement("p"); n.className = "status";
+    n.style.cssText = "margin:0 0 12px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel)";
+    n.textContent = lang === "ru" ? "Это демо-версия для просмотра. Скачивание PNG работает на основном сайте: yangorovet-lab.github.io/m20-" : "Preview copy. PNG download works on the main site: yangorovet-lab.github.io/m20-";
+    document.querySelector(".hero").appendChild(n);
+  }
+
   /* ───────── boot ───────── */
   try { const th = localStorage.getItem("listai.theme"); if (th && THEMES.some((x) => x.id === th)) state.theme = th; } catch (e) {}
   if (!els.text.value.trim()) els.text.value = I18N[lang].sample;
