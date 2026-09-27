@@ -64,7 +64,7 @@ window.LISTAI_I18N_EXT = {
     '<div class="row"><div class="field"><label data-i18n="st_pos"></label><div class="seg" id="st-pos"><button type="button" data-v="top" data-i18n="st_top"></button><button type="button" data-v="bottom" data-i18n="st_bottom"></button></div></div>' +
     '<div class="field"><label for="st-size"><span data-i18n="st_size"></span> <span id="st-size-v"></span></label><input type="range" id="st-size" min="0" max="120" value="0"></div></div>' +
     '<div class="row3"><label class="color"><input type="color" id="st-color" value="#ffffff"><span data-i18n="st_color"></span></label><label class="color"><input type="color" id="st-accent" value="#1F3DFF"><span data-i18n="st_accent"></span></label>' +
-    '<div class="field"><label for="st-out" data-i18n="st_out"></label><select id="st-out"><option value="512">512 · Telegram</option><option value="1024">1024</option></select></div></div>' +
+    '<div class="field"><label for="st-out" data-i18n="st_out"></label><select id="st-out"><option value="512">512 px</option><option value="1024">1024 px</option></select></div></div>' +
     '<div class="actions"><button type="button" class="btn primary" id="st-dl" data-i18n="st_dl"></button><button type="button" class="btn" id="st-add" data-i18n="st_add"></button></div>' +
     '<div class="status" id="st-status"></div>' +
     "</div></div>" +

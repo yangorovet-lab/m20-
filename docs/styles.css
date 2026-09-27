@@ -421,3 +421,53 @@ kbd{font-family:"IBM Plex Mono",monospace;font-size:12px;border:1px solid var(--
 .hist-row{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
 .hist-row b{display:block;font-size:14px}.hist-row .meta{font-size:12px;color:var(--muted)}
 #hooks{max-width:170px}
+
+/* QA pass: narrow screens */
+.row3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.color{min-width:0;padding:6px}
+.color span{font-size:12px;line-height:1.15;min-width:0}
+.theme .sw{overflow-wrap:anywhere;word-break:break-word}
+@media (max-width:420px){.theme .sw{font-size:10px;padding:4px}}
+.label-row .inline{min-width:0;max-width:100%;flex-wrap:wrap}
+.label-row select{max-width:100%}
+.cfields textarea.c-title{font-weight:800;padding:8px 10px;min-height:0;resize:none;overflow:hidden;line-height:1.3}
+.pfield select,.pfield input[type=text]{font-size:14px;max-width:100%}
+.ed-top h3{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+@media (max-width:640px){
+  .ed-top{padding:8px 10px;gap:6px}
+  .ed-top h3{font-size:13px}
+  .ed-top .btn{padding:7px 9px;font-size:12px}
+  .ed-top .btn .lbl{display:none}
+  .ed-canvas{padding:12px 12px 8px;min-height:0}
+  .ed-canvas-tools{position:static;transform:none;margin-top:10px;box-shadow:none}
+  .ed-canvas{flex-direction:column}
+  .ed-canvas-tools button{padding:6px 9px;font-size:11px}
+  .prow{grid-template-columns:1fr}
+  .ed-props{max-height:45vh}
+  .ed-film{padding:8px 10px}
+  .ed-film .ops .btn{padding:6px 8px;font-size:11px}
+}
+@media (max-width:860px){
+  .ed-main{grid-template-rows:auto auto auto;overflow:auto;align-content:start}
+  .ed-canvas{overflow:visible;min-height:0;height:auto;flex:none}
+  .ed-props{max-height:none;overflow:visible}
+}
+@media (max-width:860px){
+  .editor .box{grid-template-rows:auto auto auto;overflow:auto;height:100%}
+  .ed-main{overflow:visible;height:auto}
+  .ed-rail{overflow-x:auto;overflow-y:hidden;flex:none}
+  .ed-stage{flex:none}
+  .ed-film{position:sticky;bottom:0;background:var(--panel)}
+}
+@media (max-width:860px){
+  .editor .box{display:flex;flex-direction:column;height:100%;overflow:auto}
+  .ed-top,.ed-film,.ed-main{flex:none}
+  .ed-main{display:block}
+  .ed-rail{display:flex;height:auto}
+  .ed-rail button,.ed-rail label{flex:none}
+}
+@media (max-width:640px){
+  .ed-film{flex-wrap:wrap;gap:8px}
+  .ed-film .strip{flex:1 1 100%;overflow-x:auto;padding-bottom:2px}
+  .ed-film .ops{width:100%;justify-content:flex-end}
+}

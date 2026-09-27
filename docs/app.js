@@ -373,14 +373,16 @@
     const f = document.createElement("div"); f.className = "cfields";
     f.innerHTML =
       '<div class="c-n"><span>' + (i + 1) + " / " + slides.length + '</span><button type="button" class="link c-edit">' + esc(t("c_edit")) + "</button></div>" +
-      '<input type="text" class="c-title" value="' + esc(s.title) + '" placeholder="' + esc(t("p_ttl")) + '">' +
+      '<textarea class="c-title" rows="1" placeholder="' + esc(t("p_ttl")) + '">' + esc(s.title) + "</textarea>" +
       '<textarea class="c-body" placeholder="' + esc(t("c_body_ph")) + '">' + esc(s.body) + "</textarea>" +
       '<div class="chips">' + CARD_LAYOUTS.map((l) => '<button type="button" data-l="' + l + '" aria-pressed="' + ((ex.layout || "default") === l) + '">' + esc(t("lay_" + l)) + "</button>").join("") + "</div>" +
       '<div class="cops"><button type="button" class="c-up" title="' + esc(t("ed_prev")) + '"' + (i === 0 ? " disabled" : "") + '>↑</button><button type="button" class="c-down" title="' + esc(t("ed_next")) + '"' + (i === slides.length - 1 ? " disabled" : "") + ">↓</button>" +
       '<button type="button" class="c-add">' + esc(t("c_add")) + '</button><button type="button" class="c-del">' + esc(t("c_del")) + "</button></div>";
     row.appendChild(f);
     const title = f.querySelector(".c-title"), body = f.querySelector(".c-body");
-    title.addEventListener("input", () => { slides[i].title = title.value.replace(/\n/g, " "); syncText(); renderThumb(i); audit(); saveDraft(); });
+    const growT = () => { title.style.height = "auto"; title.style.height = title.scrollHeight + "px"; };
+    title.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); body.focus(); } });
+    title.addEventListener("input", () => { if (/\n/.test(title.value)) title.value = title.value.replace(/\n/g, " "); slides[i].title = title.value; growT(); syncText(); renderThumb(i); audit(); saveDraft(); });
     body.addEventListener("input", () => { slides[i].body = body.value.replace(/\n[ \t]*\n+/g, "\n"); autoGrow(body); syncText(); renderThumb(i); audit(); saveDraft(); });
     f.querySelector(".chips").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; ext(i).layout = b.dataset.l; f.querySelectorAll(".chips button").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); renderThumb(i); saveDraft(); });
     f.querySelector(".c-edit").addEventListener("click", () => openEditor(i));
@@ -388,7 +390,7 @@
     f.querySelector(".c-down").addEventListener("click", () => { const x = slides[i]; slides[i] = slides[i + 1]; slides[i + 1] = x; remapExtras((k) => k === i ? i + 1 : k === i + 1 ? i : k); syncText(); render(); });
     f.querySelector(".c-add").addEventListener("click", () => { slides.splice(i + 1, 0, { title: t("new_slide"), body: "" }); remapExtras((k) => k > i ? k + 1 : k); syncText(); render(); const n = els.grid.children[i + 1]; if (n) { n.querySelector(".c-title").focus(); n.querySelector(".c-title").select(); } });
     f.querySelector(".c-del").addEventListener("click", () => { slides.splice(i, 1); remapExtras((k) => k === i ? null : k > i ? k - 1 : k); syncText(); render(); });
-    setTimeout(() => autoGrow(body), 0);
+    setTimeout(() => { autoGrow(body); growT(); }, 0);
     return row;
   }
   function render() {
@@ -663,7 +665,7 @@
     M.innerHTML =
       '<div class="modal editor" role="dialog" aria-modal="true"><div class="box">' +
       '<div class="ed-top"><h3 id="ed-title">' + esc(t("ed_title", i + 1, slides.length)) + "</h3>" +
-      '<button type="button" class="btn ghost" id="ed-undo" title="Ctrl+Z">↶ ' + esc(t("tool_undo")) + '</button><button type="button" class="btn ghost" id="ed-redo" title="Ctrl+Y">↷ ' + esc(t("tool_redo")) + "</button>" +
+      '<button type="button" class="btn ghost" id="ed-undo" title="Ctrl+Z">↶ <span class="lbl">' + esc(t("tool_undo")) + '</span></button><button type="button" class="btn ghost" id="ed-redo" title="Ctrl+Y">↷ <span class="lbl">' + esc(t("tool_redo")) + "</span></button>" +
       '<button type="button" class="btn primary" id="ed-done">' + esc(t("ed_done")) + '</button><button class="close" type="button" aria-label="Close">×</button></div>' +
       '<div class="ed-main"><div class="ed-rail">' +
       rail("r-text", "T", t("tool_text")) + rail("r-head", "H", t("tool_head")) +
@@ -680,7 +682,8 @@
       "</div></div>";
     const q = (s) => M.querySelector(s);
     const canvas = q("#ed-canvas"), stageEl = q("#ed-stage"), inner = q("#ed-inner"), selBox = q("#ed-sel"), props = q("#ed-props"), gv = q("#ed-gv"), gh = q("#ed-gh");
-    const k = Math.max(0.1, Math.min((canvas.clientWidth - 48) / W, (canvas.clientHeight - 88) / H));
+    const narrow = window.innerWidth <= 860;
+    const k = Math.max(0.1, Math.min((canvas.clientWidth - (narrow ? 24 : 48)) / W, (narrow ? Math.min(window.innerHeight * 0.5, 520) : canvas.clientHeight - 88) / H));
     stageEl.style.width = (W * k) + "px"; stageEl.style.height = (H * k) + "px";
     inner.style.transform = "scale(" + k + ")";
     const GRID = W / 12;
@@ -863,7 +866,7 @@
         h += '<div class="pgroup"><h4>' + esc(t("p_sel")) + '<span class="tag">' + esc(kind) + "</span></h4>";
         if (L.type === "text") {
           h += fld(t("p_content"), '<textarea id="pp-text">' + esc(L.text || "") + "</textarea>") +
-            '<div class="prow">' + fld(t("p_size"), '<input type="range" id="pp-size" min="16" max="260" value="' + (L.size || 48) + '">') + fld(t("p_font"), '<select id="pp-font"><option value="">' + esc(t("font_theme")) + "</option>" + FONT_LIST.map((f) => '<option value="' + f + '"' + (L.font === f ? " selected" : "") + ">" + f + "</option>").join("") + "</select>") + "</div>" +
+            fld(t("p_size"), '<input type="range" id="pp-size" min="16" max="260" value="' + (L.size || 48) + '">') + fld(t("p_font"), '<select id="pp-font"><option value="">' + esc(t("font_theme")) + "</option>" + FONT_LIST.map((f) => '<option value="' + f + '"' + (L.font === f ? " selected" : "") + ">" + f + "</option>").join("") + "</select>") +
             fld(t("p_weight"), seg("pp-weight", [[500, t("w_500")], [700, t("w_700")], [800, t("w_800")]], L.weight || 700)) +
             fld(t("p_align"), seg("pp-align", [["left", t("a_left")], ["center", t("a_center")], ["right", t("a_right")]], L.align || "left")) +
             '<div class="prow">' + fld(t("p_color"), '<div class="pcolor"><input type="color" id="pp-color" value="' + (L.color || "#ffffff") + '"><button type="button" class="link" id="pp-color-reset">' + esc(t("p_theme_color")) + "</button></div>") +
