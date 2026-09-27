@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Листай — генератор каруселей для Instagram, Telegram и LinkedIn</title>
+<meta name="description" content="Вставьте текст — получите готовые слайды карусели в PNG. Форматы 4:5, 1:1 и сторис, 6 тем, без регистрации. Бесплатно.">
+<meta property="og:title" content="Листай — карусели из текста за минуту">
+<meta property="og:description" content="Текст → готовые PNG-слайды для Instagram, Telegram, LinkedIn и VK. Без регистрации.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0f9d6e">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f9d6e'/%3E%3Crect x='6' y='8' width='9' height='16' rx='2' fill='%23fff'/%3E%3Crect x='18' y='8' width='9' height='16' rx='2' fill='%23fff' opacity='.55'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Manrope:wght@500;700;800&family=Playfair+Display:wght@600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0f9d6e"/><rect x="6" y="8" width="9" height="16" rx="2" fill="#fff"/><rect x="18" y="8" width="9" height="16" rx="2" fill="#fff" opacity=".55"/></svg>
+      <span data-i18n="brand">Листай</span>
+    </div>
+    <div class="top-actions">
+      <span class="pill pro" id="pro-badge" hidden>Pro</span>
+      <button class="btn ghost" id="btn-pro" hidden></button>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1 data-i18n="h1">Карусель из текста за минуту</h1>
+    <p data-i18n="lead">Вставьте текст поста, выберите тему и скачайте готовые PNG-слайды для Instagram, Telegram, LinkedIn и VK. Без регистрации, всё считается в браузере.</p>
+  </section>
+
+  <main class="app">
+    <form class="panel" id="form" autocomplete="off">
+      <div class="field">
+        <label for="text" data-i18n="text_label">Текст карусели</label>
+        <textarea id="text" spellcheck="false"></textarea>
+        <span class="hint" data-i18n="text_hint">Пустая строка — новый слайд. Первая строка слайда — заголовок. Строки с «- » становятся списком.</span>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="handle" data-i18n="handle_label">Подпись / @ник</label>
+          <input type="text" id="handle" placeholder="@yourname">
+        </div>
+        <div class="field">
+          <label for="format" data-i18n="format_label">Формат</label>
+          <select id="format">
+            <option value="1080x1350">4:5 · 1080×1350 (Instagram)</option>
+            <option value="1080x1080">1:1 · 1080×1080 (LinkedIn, VK)</option>
+            <option value="1080x1920">9:16 · 1080×1920 (Stories, Shorts)</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label data-i18n="theme_label">Тема</label>
+        <div class="themes" id="themes"></div>
+      </div>
+      <div class="field">
+        <label for="cta" data-i18n="cta_label">Текст на последнем слайде</label>
+        <input type="text" id="cta">
+      </div>
+      <div class="toggles">
+        <label><input type="checkbox" id="opt-num" checked> <span data-i18n="opt_num">Нумерация</span></label>
+        <label><input type="checkbox" id="opt-arrow" checked> <span data-i18n="opt_arrow">Стрелка «листай»</span></label>
+        <label><input type="checkbox" id="opt-cover" checked> <span data-i18n="opt_cover">Первый слайд — обложка</span></label>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn primary" id="btn-zip" data-i18n="btn_zip">Скачать все (ZIP)</button>
+        <button type="button" class="btn ghost" id="btn-sample" data-i18n="btn_sample">Пример</button>
+      </div>
+      <div class="status" id="status" aria-live="polite"></div>
+    </form>
+
+    <section>
+      <div class="preview-head">
+        <h2 data-i18n="preview">Предпросмотр</h2>
+        <span class="count" id="count"></span>
+      </div>
+      <div class="grid" id="grid"></div>
+    </section>
+  </main>
+
+  <section class="section">
+    <h2 data-i18n="how">Как это работает</h2>
+    <div class="steps">
+      <div class="step"><b data-i18n="s1t">1. Вставьте текст</b><p data-i18n="s1p">Пост, заметку из Telegram, тезисы из поста в LinkedIn. Слайды разделяются пустой строкой.</p></div>
+      <div class="step"><b data-i18n="s2t">2. Выберите тему и формат</b><p data-i18n="s2p">Шесть тем и три формата. Размер шрифта подбирается автоматически под объём текста.</p></div>
+      <div class="step"><b data-i18n="s3t">3. Скачайте PNG</b><p data-i18n="s3p">Все слайды одним архивом в 1080 px. Ничего не загружается на сервер: файлы собираются в вашем браузере.</p></div>
+    </div>
+  </section>
+
+  <section class="section faq">
+    <h2>FAQ</h2>
+    <details><summary data-i18n="q1">Это бесплатно?</summary><p data-i18n="a1">Да. Бесплатная версия делает карусели без ограничений по количеству. Pro убирает водяной знак и открывает дополнительные темы.</p></details>
+    <details><summary data-i18n="q2">Куда попадает мой текст?</summary><p data-i18n="a2">Никуда. Картинки собираются прямо в браузере, на сервер ничего не отправляется.</p></details>
+    <details><summary data-i18n="q3">Какие форматы подходят для Telegram?</summary><p data-i18n="a3">Для альбомов в Telegram лучше 1:1 или 4:5. Для сторис и Shorts — 9:16.</p></details>
+    <details><summary data-i18n="q4">Можно ли использовать слайды в коммерческих целях?</summary><p data-i18n="a4">Да, всё что вы сделали — ваше. Ссылка на сервис не обязательна.</p></details>
+  </section>
+
+  <footer>
+    <span>© 2026 <span data-i18n="brand">Листай</span></span>
+    <span data-i18n="foot">Работает в браузере · без регистрации</span>
+  </footer>
+</div>
+
+<div id="export-stage" aria-hidden="true"></div>
+<div id="modal-root"></div>
+
+<script src="vendor/html2canvas.min.js"></script>
+<script src="vendor/jszip.min.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yangorovet-lab.github.io/m20-/sitemap.xml
