@@ -2,25 +2,25 @@
 window.LISTAI_I18N_EXT = {
   ru: {
     st_nav: "Стикеры", st_title: "Стикеры из фото", st_lead: "Загрузите фото, обрежьте, добавьте надпись в одном из шаблонов и скачайте PNG 512×512 для Telegram и WhatsApp. Или соберите целый пак архивом.",
-    st_upload: "Загрузить фото", st_replace: "Другое фото", st_shape: "Форма", sh_square: "Квадрат", sh_round: "Скругление", sh_circle: "Круг", sh_cut: "Вырезать фон",
+    st_upload: "Загрузить фото", st_replace: "Другое фото", st_shape: "Форма", sh_square: "Квадрат", sh_round: "Скругление", sh_circle: "Круг", st_bg: "Фон", bg_ai: "Убрать фон: ИИ", bg_ai_hint: "Нейросеть для фото людей. Модель 6 МБ загрузится один раз.", bg_flat: "Убрать однотонный фон", bg_restore: "Вернуть фон", bg_loading: "Загружаю модель…", bg_working: "Убираю фон…", bg_done: "Фон убран. Поправьте кистью, если нужно.", bg_err: "Не получилось убрать фон в этом браузере. Попробуйте Chrome или второй способ.", bg_empty: "Нейросеть не нашла человека на фото. Попробуйте «однотонный фон» или кисть.",
     st_zoom: "Масштаб", st_tol: "Чувствительность выреза", st_outline: "Белая обводка", st_outline_w: "Толщина обводки", st_tpl: "Шаблон надписи",
     tp_none: "Без надписи", tp_meme: "Мем", tp_pill: "Плашка", tp_neuro: "Нейро", tp_bubble: "Пузырь", tp_stamp: "Штамп", tp_bar: "Полоса",
     st_text: "Надпись", st_label: "Метка (маленький текст)", st_pos: "Положение", st_top: "Сверху", st_bottom: "Снизу", st_size: "Размер текста", st_auto: "авто",
     st_color: "Цвет текста", st_accent: "Цвет плашки", st_out: "Размер", st_dl: "Скачать PNG", st_add: "В пак", st_pack: "Пак стикеров", st_pack_empty: "Добавляйте стикеры сюда и скачайте пак одним архивом. В Telegram пак загружают через @Stickers.",
     st_pack_dl: "Скачать пак (ZIP)", st_pack_clear: "Очистить пак", st_remove: "Убрать", st_hint: "Тяните фото, чтобы сдвинуть кадр. Колесо мыши или ползунок — масштаб.",
     st_ready: (kb) => "Готово: 512×512, " + kb + " КБ", st_big: (kb) => "PNG " + kb + " КБ. Telegram принимает до 512 КБ: уменьшите обводку или выберите форму без прозрачности.",
-    st_err: "Не удалось прочитать файл. Нужна картинка PNG, JPG или WebP.", st_brush: "Кисть", br_off: "Выкл", br_erase: "Стереть", br_restore: "Вернуть", st_brush_size: "Размер кисти", st_feather: "Мягкость края", st_brush_hint: "Кисть работает в режиме «Вырезать фон»: сотрите лишнее или верните то, что срезалось.", st_back: "← Карусели", st_page_title: "Стикеры из фото", st_added: (n) => "В паке: " + n, st_demo: "Пример", st_placeholder: "Загрузите фото, чтобы начать"
+    st_err: "Не удалось прочитать файл. Нужна картинка PNG, JPG или WebP.", st_brush: "Кисть", br_off: "Выкл", br_erase: "Стереть", br_restore: "Вернуть", st_brush_size: "Размер кисти", st_feather: "Мягкость края", st_brush_hint: "Сотрите лишнее или верните то, что срезалось.", st_back: "← Карусели", st_page_title: "Стикеры из фото", st_added: (n) => "В паке: " + n, st_demo: "Пример", st_placeholder: "Загрузите фото, чтобы начать"
   },
   en: {
     st_nav: "Stickers", st_title: "Stickers from photos", st_lead: "Upload a photo, crop it, add a caption in one of the templates and download a 512×512 PNG for Telegram and WhatsApp. Or build a whole pack as an archive.",
-    st_upload: "Upload photo", st_replace: "Another photo", st_shape: "Shape", sh_square: "Square", sh_round: "Rounded", sh_circle: "Circle", sh_cut: "Cut out background",
+    st_upload: "Upload photo", st_replace: "Another photo", st_shape: "Shape", sh_square: "Square", sh_round: "Rounded", sh_circle: "Circle", st_bg: "Background", bg_ai: "Remove background: AI", bg_ai_hint: "Neural model for photos of people. 6 MB, loaded once.", bg_flat: "Remove flat background", bg_restore: "Restore background", bg_loading: "Loading model…", bg_working: "Removing background…", bg_done: "Background removed. Touch up with the brush if needed.", bg_err: "Could not remove the background in this browser. Try Chrome or the second method.", bg_empty: "The model found no person in the photo. Try “flat background” or the brush.",
     st_zoom: "Zoom", st_tol: "Cut-out sensitivity", st_outline: "White outline", st_outline_w: "Outline width", st_tpl: "Caption template",
     tp_none: "No caption", tp_meme: "Meme", tp_pill: "Pill", tp_neuro: "Neuro", tp_bubble: "Bubble", tp_stamp: "Stamp", tp_bar: "Bar",
     st_text: "Caption", st_label: "Label (small text)", st_pos: "Position", st_top: "Top", st_bottom: "Bottom", st_size: "Text size", st_auto: "auto",
     st_color: "Text color", st_accent: "Pill color", st_out: "Size", st_dl: "Download PNG", st_add: "Add to pack", st_pack: "Sticker pack", st_pack_empty: "Add stickers here and download the pack as one archive. Telegram packs are uploaded via @Stickers.",
     st_pack_dl: "Download pack (ZIP)", st_pack_clear: "Clear pack", st_remove: "Remove", st_hint: "Drag the photo to move the crop. Mouse wheel or the slider zooms.",
     st_ready: (kb) => "Done: 512×512, " + kb + " KB", st_big: (kb) => "PNG is " + kb + " KB. Telegram accepts up to 512 KB: reduce the outline or pick a shape without transparency.",
-    st_err: "Could not read the file. Use a PNG, JPG or WebP image.", st_brush: "Brush", br_off: "Off", br_erase: "Erase", br_restore: "Restore", st_brush_size: "Brush size", st_feather: "Edge softness", st_brush_hint: "The brush works in “Cut out background” mode: erase leftovers or bring back what was trimmed.", st_back: "← Carousels", st_page_title: "Stickers from photos", st_added: (n) => "In pack: " + n, st_demo: "Example", st_placeholder: "Upload a photo to start"
+    st_err: "Could not read the file. Use a PNG, JPG or WebP image.", st_brush: "Brush", br_off: "Off", br_erase: "Erase", br_restore: "Restore", st_brush_size: "Brush size", st_feather: "Edge softness", st_brush_hint: "Erase leftovers or bring back what was trimmed.", st_back: "← Carousels", st_page_title: "Stickers from photos", st_added: (n) => "In pack: " + n, st_demo: "Example", st_placeholder: "Upload a photo to start"
   }
 };
 (function () {
@@ -41,7 +41,7 @@ window.LISTAI_I18N_EXT = {
   const PREVIEW = 320;
   const st = { img: null, cut: null, shape: "round", zoom: 1, ox: 0, oy: 0, tol: 40, feather: 2, brush: "off", bsize: 24, outline: true, ow: 12, tpl: "meme", text: "", label: "", pos: "bottom", size: 0, color: "#ffffff", accent: "#1F3DFF", out: 512, pack: [] };
   const TPLS = ["none", "meme", "pill", "neuro", "bubble", "stamp", "bar"];
-  const SHAPES = ["square", "round", "circle", "cut"];
+  const SHAPES = ["square", "round", "circle"];
 
   root.innerHTML =
     '<div class="st-wrap"><div class="panel st-panel">' +
@@ -50,7 +50,8 @@ window.LISTAI_I18N_EXT = {
     '<span class="hint" data-i18n="st_hint"></span>' +
     '<div class="field"><label data-i18n="st_shape"></label><div class="seg" id="st-shape"></div></div>' +
     '<div class="field"><label for="st-zoom" data-i18n="st_zoom"></label><input type="range" id="st-zoom" min="100" max="400" value="100"></div>' +
-    '<div id="st-cut-f" hidden><div class="field"><label for="st-tol" data-i18n="st_tol"></label><input type="range" id="st-tol" min="5" max="120" value="40"></div>' +
+    '<div class="field"><label data-i18n="st_bg"></label><div class="inline"><button type="button" class="btn" id="st-bg-ai" data-i18n="bg_ai"></button><button type="button" class="btn ghost" id="st-bg-flat" data-i18n="bg_flat"></button><button type="button" class="btn ghost" id="st-bg-restore" data-i18n="bg_restore" hidden></button></div><span class="hint" data-i18n="bg_ai_hint"></span></div>' +
+    '<div id="st-cut-f" hidden><div class="field" id="st-tol-f"><label for="st-tol" data-i18n="st_tol"></label><input type="range" id="st-tol" min="5" max="120" value="40"></div>' +
     '<div class="field"><label for="st-feather" data-i18n="st_feather"></label><input type="range" id="st-feather" min="0" max="6" value="2"></div>' +
     '<div class="field"><label data-i18n="st_brush"></label><div class="seg" id="st-brush"><button type="button" data-v="off"></button><button type="button" data-v="erase"></button><button type="button" data-v="restore"></button></div></div>' +
     '<div class="field"><label for="st-bsize" data-i18n="st_brush_size"></label><input type="range" id="st-bsize" min="6" max="80" value="24"></div><span class="hint" data-i18n="st_brush_hint"></span></div>' +
@@ -71,7 +72,7 @@ window.LISTAI_I18N_EXT = {
     '<div class="actions"><button type="button" class="btn primary" id="st-pack-dl" data-i18n="st_pack_dl"></button><button type="button" class="btn ghost" id="st-pack-clear" data-i18n="st_pack_clear"></button></div></div>';
 
   const cv = $("#st-canvas"), ctx = cv.getContext("2d");
-  const E = { file: $("#st-file"), zoom: $("#st-zoom"), tol: $("#st-tol"), tolF: $("#st-cut-f"), feather: $("#st-feather"), bsize: $("#st-bsize"), outline: $("#st-outline"), ow: $("#st-ow"), text: $("#st-text"), label: $("#st-label"), labelF: $("#st-label-f"), size: $("#st-size"), sizeV: $("#st-size-v"), color: $("#st-color"), accent: $("#st-accent"), out: $("#st-out"), status: $("#st-status"), pack: $("#st-pack"), packN: $("#st-pack-n"), packEmpty: $("#st-pack-empty"), empty: $("#st-empty") };
+  const E = { file: $("#st-file"), zoom: $("#st-zoom"), tol: $("#st-tol"), tolF: $("#st-cut-f"), tolOnly: $("#st-tol-f"), bgAi: $("#st-bg-ai"), bgFlat: $("#st-bg-flat"), bgRestore: $("#st-bg-restore"), feather: $("#st-feather"), bsize: $("#st-bsize"), outline: $("#st-outline"), ow: $("#st-ow"), text: $("#st-text"), label: $("#st-label"), labelF: $("#st-label-f"), size: $("#st-size"), sizeV: $("#st-size-v"), color: $("#st-color"), accent: $("#st-accent"), out: $("#st-out"), status: $("#st-status"), pack: $("#st-pack"), packN: $("#st-pack-n"), packEmpty: $("#st-pack-empty"), empty: $("#st-empty") };
 
   /* ── i18n-dependent UI ── */
   function labels() {
@@ -81,9 +82,9 @@ window.LISTAI_I18N_EXT = {
     document.querySelectorAll("#st-pos button").forEach((b) => { b.setAttribute("aria-pressed", String(b.dataset.v === st.pos)); b.textContent = t(b.dataset.i18n); });
     E.sizeV.textContent = st.size ? st.size : t("st_auto");
     E.labelF.hidden = st.tpl !== "neuro" && st.tpl !== "stamp";
-    E.tolF.hidden = st.shape !== "cut";
+    E.tolF.hidden = !st.cut; E.tolOnly.hidden = st.cutMode !== "flat"; E.bgRestore.hidden = !st.cut;
     document.querySelectorAll("#st-brush button").forEach((b) => { b.setAttribute("aria-pressed", String(b.dataset.v === st.brush)); b.textContent = t("br_" + b.dataset.v); });
-    cv.style.cursor = st.brush !== "off" && st.shape === "cut" ? "crosshair" : "grab";
+    cv.style.cursor = st.brush !== "off" && st.cut ? "crosshair" : "grab";
     E.packN.textContent = st.pack.length ? t("st_added", st.pack.length) : "";
     E.packEmpty.hidden = st.pack.length > 0;
     thumbs();
@@ -102,7 +103,7 @@ window.LISTAI_I18N_EXT = {
     const k = Math.min(1, 1400 / Math.max(im.width, im.height));
     const c = document.createElement("canvas"); c.width = Math.round(im.width * k); c.height = Math.round(im.height * k);
     c.getContext("2d").drawImage(im, 0, 0, c.width, c.height);
-    st.img = c; st.cut = null; st.zoom = 1; st.ox = st.oy = 0; E.zoom.value = 100;
+    st.img = c; st.cut = null; st.cutMode = ""; st.zoom = 1; st.ox = st.oy = 0; E.zoom.value = 100;
     E.empty.hidden = true; labels(); draw();
   }
   function cutout() {
@@ -163,7 +164,7 @@ window.LISTAI_I18N_EXT = {
     return { x: (px - ((S - w) / 2 + st.ox * S)) / bs, y: (py - ((S - h) / 2 + st.oy * S)) / bs, r: st.bsize / 2 / bs };
   }
   function brushAt(px, py) {
-    if (st.shape !== "cut" || st.brush === "off") return false;
+    if (!st.cut || st.brush === "off") return false;
     const c = source(); if (!c) return false;
     const m = toSource(px, py), x = c.getContext("2d");
     x.save();
@@ -172,7 +173,49 @@ window.LISTAI_I18N_EXT = {
     x.restore();
     return true;
   }
-  function source() { if (st.shape === "cut") { if (!st.cut) st.cut = cutout(); return st.cut; } return st.img; }
+  function source() { return st.cut || st.img; }
+
+  /* ── AI background removal (MediaPipe selfie segmentation, loaded on demand, runs offline) ── */
+  let segPromise = null;
+  function loadSeg() {
+    return segPromise || (segPromise = new Promise((res, rej) => {
+      const sc = document.createElement("script"); sc.src = "vendor/mp/selfie_segmentation.js";
+      sc.onload = () => { try { const seg = new window.SelfieSegmentation({ locateFile: (f) => "vendor/mp/" + f }); seg.setOptions({ modelSelection: 0, selfieMode: false }); res(seg); } catch (e) { segPromise = null; rej(e); } };
+      sc.onerror = () => { segPromise = null; rej(new Error("load")); };
+      document.head.appendChild(sc);
+    }));
+  }
+  async function cutoutAI() {
+    const seg = await loadSeg();
+    const w = st.img.width, h = st.img.height;
+    const mask = await new Promise((res, rej) => {
+      const timer = setTimeout(() => rej(new Error("timeout")), 60000);
+      seg.onResults((r) => { clearTimeout(timer); res(r.segmentationMask); });
+      seg.send({ image: st.img }).catch((e) => { clearTimeout(timer); rej(e); });
+    });
+    const mc = document.createElement("canvas"); mc.width = w; mc.height = h; const mx = mc.getContext("2d");
+    mx.imageSmoothingEnabled = true; mx.imageSmoothingQuality = "high";
+    try { mx.filter = "blur(" + Math.max(1, Math.round(w / 400)) + "px)"; } catch (e) {}
+    mx.drawImage(mask, 0, 0, w, h);
+    const md = mx.getImageData(0, 0, w, h).data; let on = 0; for (let i = 3; i < md.length; i += 4) if (md[i] > 100) on++;
+    if (on / (w * h) < 0.01) return null;
+    const c = document.createElement("canvas"); c.width = w; c.height = h; const x = c.getContext("2d");
+    x.drawImage(st.img, 0, 0); x.globalCompositeOperation = "destination-in"; x.drawImage(mc, 0, 0);
+    return c;
+  }
+  async function removeBg(mode) {
+    if (!st.img) return;
+    E.bgAi.disabled = E.bgFlat.disabled = true;
+    try {
+      if (mode === "ai") { E.status.textContent = t(segPromise ? "bg_working" : "bg_loading"); const c = await cutoutAI(); if (!c) { E.status.textContent = t("bg_empty"); } else { st.cut = c; st.cutMode = "ai"; E.status.textContent = t("bg_done"); } }
+      else { E.status.textContent = t("bg_working"); await new Promise((r) => setTimeout(r, 20)); st.cut = cutout(); st.cutMode = "flat"; E.status.textContent = t("bg_done"); }
+    } catch (e) { console.error(e); E.status.textContent = t("bg_err"); }
+    E.bgAi.disabled = E.bgFlat.disabled = false;
+    labels(); draw();
+  }
+  E.bgAi.addEventListener("click", () => removeBg("ai"));
+  E.bgFlat.addEventListener("click", () => removeBg("flat"));
+  E.bgRestore.addEventListener("click", () => { st.cut = null; st.cutMode = ""; st.brush = "off"; labels(); draw(); E.status.textContent = ""; });
 
   /* ── rendering ── */
   function wrapLines(x, text, font, maxW) {
@@ -208,7 +251,7 @@ window.LISTAI_I18N_EXT = {
       const photo = document.createElement("canvas"); photo.width = photo.height = S; const px = photo.getContext("2d");
       px.save(); clipShape(px, S); drawPhoto(px, S, src); px.restore();
       // white outline: silhouette dilated
-      if (st.outline && st.ow > 0 && st.shape !== "square") {
+      if (st.outline && st.ow > 0 && (st.shape !== "square" || st.cut)) {
         const sil = document.createElement("canvas"); sil.width = sil.height = S; const sx = sil.getContext("2d");
         sx.drawImage(photo, 0, 0); sx.globalCompositeOperation = "source-in"; sx.fillStyle = "#fff"; sx.fillRect(0, 0, S, S);
         const r = st.ow * S / 512;
@@ -301,13 +344,13 @@ window.LISTAI_I18N_EXT = {
   document.addEventListener("click", (e) => {
     const b = e.target.closest("#st-shape button, #st-tpls .st-tpl, #st-pos button, #st-brush button"); if (!b) return;
     if (b.closest("#st-brush")) st.brush = b.dataset.v;
-    else if (b.closest("#st-shape")) { st.shape = b.dataset.v; st.cut = null; }
+    else if (b.closest("#st-shape")) st.shape = b.dataset.v;
     else if (b.closest("#st-tpls")) st.tpl = b.dataset.v; else st.pos = b.dataset.v;
     labels(); draw();
   });
   E.zoom.addEventListener("input", () => { st.zoom = Number(E.zoom.value) / 100; draw(); });
-  E.tol.addEventListener("change", () => { st.tol = Number(E.tol.value); st.cut = null; draw(); });
-  E.feather.addEventListener("change", () => { st.feather = Number(E.feather.value); st.cut = null; draw(); });
+  E.tol.addEventListener("change", () => { st.tol = Number(E.tol.value); if (st.cutMode === "flat") removeBg("flat"); });
+  E.feather.addEventListener("change", () => { st.feather = Number(E.feather.value); if (st.cutMode === "flat") removeBg("flat"); });
   E.bsize.addEventListener("input", () => { st.bsize = Number(E.bsize.value); });
   E.outline.addEventListener("change", () => { st.outline = E.outline.checked; draw(); });
   E.ow.addEventListener("input", () => { st.ow = Number(E.ow.value); draw(); });

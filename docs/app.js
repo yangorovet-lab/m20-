@@ -815,8 +815,9 @@
     /* popovers (shapes, objects, emoji) */
     function closePop() { const p = M.querySelector(".ed-pop"); if (p) p.remove(); }
     function openPop(title, html, onClick) {
-      closePop();
-      const p = document.createElement("div"); p.className = "ed-pop"; p.innerHTML = "<h5>" + esc(title) + "</h5>" + html;
+      const cur = M.querySelector(".ed-pop"); closePop();
+      if (cur && cur.dataset.title === title) return;
+      const p = document.createElement("div"); p.className = "ed-pop"; p.dataset.title = title; p.innerHTML = "<h5>" + esc(title) + "</h5>" + html;
       p.addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { onClick(b); closePop(); } });
       canvas.appendChild(p);
     }
@@ -961,10 +962,13 @@
       }
     };
     document.addEventListener("keydown", onKey);
+    const onOutside = (e) => { const pop = M.querySelector(".ed-pop"); if (pop && !pop.contains(e.target) && !e.target.closest(".ed-rail")) closePop(); };
+    document.addEventListener("pointerdown", onOutside, true);
 
     /* slide ops + finish */
-    const finish = () => { commitEdit(); document.removeEventListener("keydown", onKey); closeModal(); render(); };
-    const reopen = (j) => { commitEdit(); document.removeEventListener("keydown", onKey); closeModal(); render(); openEditor(j); };
+    const teardown = () => { commitEdit(); document.removeEventListener("keydown", onKey); document.removeEventListener("pointerdown", onOutside, true); closeModal(); render(); };
+    const finish = () => teardown();
+    const reopen = (j) => { teardown(); openEditor(j); };
     q("#ed-prev").onclick = () => { const s = slides[i]; slides[i] = slides[i - 1]; slides[i - 1] = s; els.text.value = serialize(slides); remapExtras((k2) => k2 === i ? i - 1 : k2 === i - 1 ? i : k2); reopen(i - 1); };
     q("#ed-next").onclick = () => { const s = slides[i]; slides[i] = slides[i + 1]; slides[i + 1] = s; els.text.value = serialize(slides); remapExtras((k2) => k2 === i ? i + 1 : k2 === i + 1 ? i : k2); reopen(i + 1); };
     q("#ed-dupslide").onclick = () => { slides.splice(i + 1, 0, Object.assign({}, slides[i])); els.text.value = serialize(slides); remapExtras((k2) => k2 > i ? k2 + 1 : k2); state.extras[i + 1] = JSON.parse(JSON.stringify(ex)); reopen(i + 1); };
