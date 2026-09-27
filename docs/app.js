@@ -40,15 +40,17 @@
       act_contact: (c) => "Вопросы по ключу: " + c, locked: "Эта тема доступна в Pro.", locked_pdf: "Экспорт в PDF доступен в Pro.", lock: "PRO",
       edit: "Редактор", ed_title: (i, n) => "Слайд " + i + " из " + n,
       tool_text: "Текст", tool_head: "Заголовок", tool_img: "Картинка", tool_rect: "Прямоугольник", tool_circle: "Круг", tool_line: "Линия", tool_emoji: "Стикер",
+      tool_shape: "Фигура", tool_obj: "3D-объект", tool_bg: "Фон", obj_sphere: "Шар", obj_torus: "Тор", obj_pill: "Капсула", obj_cube: "Куб", obj_spring: "Пружина", obj_chrome: "Хром",
+      p_obj_color: "Цвет объекта", p_text: "Текст слайда", p_free: "свободно", box_label: "ГЛАВНОЕ", cta_sub: "ссылка в шапке профиля",
       tool_grid: "Сетка", tool_safe: "Безопасная зона", tool_snap: "Привязка", tool_undo: "Отменить", tool_redo: "Вернуть",
       p_slide: "Слайд", p_layout: "Компоновка", p_layout_all: "Применить компоновку ко всем", p_textpos: "Положение текста", tp_top: "Сверху", tp_middle: "По центру", tp_bottom: "Снизу",
-      p_below: "Текст под слоями", p_bg: "Фоновая картинка", p_bg_add: "Добавить фон", p_bg_replace: "Заменить фон", p_dim: "Затемнение", p_bg_remove: "Убрать фон",
+      p_top: "Текст поверх слоёв", p_bg: "Фоновая картинка", p_bg_add: "Добавить фон", p_bg_replace: "Заменить фон", p_dim: "Затемнение", p_bg_remove: "Убрать фон",
       p_ttl: "Заголовок", p_body: "Текст", p_sel: "Выбранный элемент", p_scale: "Размер текста", p_reflow: "Вернуть в поток",
       p_content: "Содержимое", p_size: "Кегль", p_color: "Цвет", p_theme_color: "Как в теме", p_weight: "Начертание", p_align: "Выравнивание", p_font: "Шрифт", p_hl: "Плашка под текстом",
       p_replace: "Заменить картинку", p_round: "Скруглить углы", p_as_bg: "Сделать фоном", p_fill: "Заливка", p_radius: "Скругление", p_thick: "Толщина", p_opacity: "Прозрачность", p_rot: "Поворот",
       p_up: "Выше", p_down: "Ниже", p_dup: "Дублировать", p_all: "На все слайды", p_del: "Удалить", p_applied: "Добавлено на все слайды.",
       ed_prev: "← Раньше", ed_next: "Позже →", ed_dup: "Дублировать слайд", ed_del: "Удалить слайд", ed_done: "Готово",
-      ed_hint: "Тяните элементы, чтобы двигать. Уголки меняют размер, ручка сверху — поворот. Стрелки на клавиатуре двигают выбранное, Delete удаляет.",
+      ed_hint: "Тяните заголовок, текст и слои прямо на холсте. Уголки меняют размер, ручка сверху — поворот. Стрелки двигают, Delete удаляет, Ctrl+Z отменяет.",
       ed_img_err: "Не удалось прочитать файл. Нужна картинка PNG, JPG или WebP.",
       lay_default: "Стандарт", lay_number: "С номером", lay_split: "Две колонки", lay_quote: "Цитата", lay_stat: "Крупная цифра", lay_check: "Чеклист", lay_card: "Карточка", lay_frame: "Рамка", lay_rules: "Линейки",
       w_500: "Обычный", w_700: "Жирный", w_800: "Очень жирный", a_left: "Слева", a_center: "Центр", a_right: "Справа", new_text: "Новый текст", new_head: "Заголовок",
@@ -70,7 +72,7 @@
         story: "Как я [результат] за [срок]\nЧестная история без прикрас\n\nБыло\n[Точка А: цифры, состояние, проблема]\n\nЧто мешало\n[Главное препятствие]\n\nЧто изменил\n- [решение 1]\n- [решение 2]\n- [решение 3]\n\nСтало\n[Точка Б: цифры, состояние]\n\nВывод\n[Что бы посоветовал себе в начале]",
         quotes: "[Тема] в 5 тезисах\nСохраните, чтобы перечитать\n\n1\n«[Тезис или цитата]»\n\n2\n«[Тезис или цитата]»\n\n3\n«[Тезис или цитата]»\n\n4\n«[Тезис или цитата]»\n\n5\n«[Тезис или цитата]»"
       },
-      ideas: {
+      ideaBank: {
         smm: ["5 признаков, что ваш контент никто не читает", "Почему охваты падают и как их вернуть за 2 недели", "Контент-план на месяц за 1 час: система", "7 форматов постов, которые собирают сохранения", "Как писать заголовки, которые останавливают скролл", "Что публиковать, когда нечего сказать"],
         marketing: ["5 ошибок в рекламе, которые сливают бюджет", "Как проверить идею продукта за неделю без вложений", "Воронка продаж на пальцах: 4 этапа", "Почему клиенты не покупают, даже когда им нравится", "7 триггеров, которые двигают к покупке", "Как поднять средний чек без скидок"],
         business: ["5 ошибок первого года бизнеса", "Как считать юнит-экономику: простой пример", "Найм первого сотрудника: чек-лист", "Почему выручка растёт, а денег нет", "7 привычек предпринимателей, которые выживают кризисы", "Как перестать быть узким местом в своём бизнесе"],
@@ -113,15 +115,17 @@
       act_contact: (c) => "Questions about your key: " + c, locked: "This theme is available in Pro.", locked_pdf: "PDF export is available in Pro.", lock: "PRO",
       edit: "Edit", ed_title: (i, n) => "Slide " + i + " of " + n,
       tool_text: "Text", tool_head: "Heading", tool_img: "Image", tool_rect: "Rectangle", tool_circle: "Circle", tool_line: "Line", tool_emoji: "Sticker",
+      tool_shape: "Shape", tool_obj: "3D object", tool_bg: "Background", obj_sphere: "Sphere", obj_torus: "Torus", obj_pill: "Pill", obj_cube: "Cube", obj_spring: "Spring", obj_chrome: "Chrome",
+      p_obj_color: "Object color", p_text: "Slide text", p_free: "free", box_label: "KEY POINT", cta_sub: "link in bio",
       tool_grid: "Grid", tool_safe: "Safe zone", tool_snap: "Snap", tool_undo: "Undo", tool_redo: "Redo",
       p_slide: "Slide", p_layout: "Layout", p_layout_all: "Apply layout to all slides", p_textpos: "Text position", tp_top: "Top", tp_middle: "Middle", tp_bottom: "Bottom",
-      p_below: "Text under layers", p_bg: "Background image", p_bg_add: "Add background", p_bg_replace: "Replace background", p_dim: "Darken", p_bg_remove: "Remove background",
+      p_top: "Text above layers", p_bg: "Background image", p_bg_add: "Add background", p_bg_replace: "Replace background", p_dim: "Darken", p_bg_remove: "Remove background",
       p_ttl: "Heading", p_body: "Text", p_sel: "Selected element", p_scale: "Text size", p_reflow: "Back to flow",
       p_content: "Content", p_size: "Font size", p_color: "Color", p_theme_color: "Theme color", p_weight: "Weight", p_align: "Alignment", p_font: "Font", p_hl: "Highlight box",
       p_replace: "Replace image", p_round: "Rounded corners", p_as_bg: "Use as background", p_fill: "Fill", p_radius: "Corner radius", p_thick: "Thickness", p_opacity: "Opacity", p_rot: "Rotation",
       p_up: "Bring forward", p_down: "Send backward", p_dup: "Duplicate", p_all: "To all slides", p_del: "Delete", p_applied: "Added to every slide.",
       ed_prev: "← Earlier", ed_next: "Later →", ed_dup: "Duplicate slide", ed_del: "Delete slide", ed_done: "Done",
-      ed_hint: "Drag elements to move. Corners resize, the top handle rotates. Arrow keys nudge the selection, Delete removes it.",
+      ed_hint: "Drag the heading, text and layers right on the canvas. Corners resize, the top handle rotates. Arrows nudge, Delete removes, Ctrl+Z undoes.",
       ed_img_err: "Could not read the file. Use a PNG, JPG or WebP image.",
       lay_default: "Default", lay_number: "Numbered", lay_split: "Two columns", lay_quote: "Quote", lay_stat: "Big number", lay_check: "Checklist", lay_card: "Card", lay_frame: "Frame", lay_rules: "Rules",
       w_500: "Regular", w_700: "Bold", w_800: "Extra bold", a_left: "Left", a_center: "Center", a_right: "Right", new_text: "New text", new_head: "Heading",
@@ -143,7 +147,7 @@
         story: "How I [result] in [time]\nAn honest story\n\nBefore\n[Point A: numbers, state, problem]\n\nWhat was in the way\n[The main obstacle]\n\nWhat I changed\n- [decision 1]\n- [decision 2]\n- [decision 3]\n\nAfter\n[Point B: numbers, state]\n\nTakeaway\n[What I would tell myself at the start]",
         quotes: "[Topic] in 5 takeaways\nSave to re-read\n\n1\n“[Takeaway or quote]”\n\n2\n“[Takeaway or quote]”\n\n3\n“[Takeaway or quote]”\n\n4\n“[Takeaway or quote]”\n\n5\n“[Takeaway or quote]”"
       },
-      ideas: {
+      ideaBank: {
         smm: ["5 signs nobody reads your content", "Why reach drops and how to get it back in 2 weeks", "A month of content in 1 hour: the system", "7 post formats that get saved", "How to write headlines that stop the scroll", "What to post when you have nothing to say"],
         marketing: ["5 ad mistakes that burn your budget", "How to test a product idea in a week for free", "The sales funnel in 4 plain steps", "Why people like you but don't buy", "7 triggers that move people to buy", "How to raise your average order without discounts"],
         business: ["5 mistakes of the first year in business", "Unit economics with one simple example", "Hiring your first employee: a checklist", "Why revenue grows but cash doesn't", "7 habits of founders who survive downturns", "How to stop being the bottleneck of your own business"],
@@ -159,6 +163,7 @@
 
   /* ───────── themes, fonts, layouts ───────── */
   const THEMES = [
+    { id: "neuro", name: { ru: "Нейро", en: "Neuro" }, sw: "background:radial-gradient(120% 90% at 50% -10%,#FBFBFE,#E8E8EE 55%,#D8D8E2);color:#1F3DFF", c: ["#E8E8EE", "#0E0E14", "#1F3DFF"] },
     { id: "coal", name: { ru: "Уголь", en: "Coal" }, sw: "background:#0d0d0f;color:#f5f5f2", c: ["#0d0d0f", "#f5f5f2", "#22c38a"] },
     { id: "paper", name: { ru: "Бумага", en: "Paper" }, sw: "background:#f7f4ec;color:#1b1a17;font-family:'Playfair Display',serif", c: ["#f7f4ec", "#1b1a17", "#1b1a17"] },
     { id: "mint", name: { ru: "Мята", en: "Mint" }, sw: "background:#d9f4e6;color:#0b3d2e", c: ["#d9f4e6", "#0b3d2e", "#0b3d2e"] },
@@ -185,7 +190,7 @@
   const proThemes = new Set(monetized ? (CFG.proThemes || []) : []);
 
   /* ───────── state ───────── */
-  const state = { theme: "coal", format: "1080x1350", pro: false, extras: {}, logo: null, avatar: null, brand: { bg: "", ink: "", accent: "", font: "" }, pattern: "", align: "left", id: null };
+  const state = { theme: "neuro", format: "1080x1350", pro: false, extras: {}, logo: null, avatar: null, brand: { bg: "", ink: "", accent: "", font: "" }, pattern: "", align: "left", id: null };
   try { const s = JSON.parse(localStorage.getItem("listai.pro") || "null"); if (s && s.email && s.key) state.pro = true; state._lic = s; } catch (e) {}
   const els = {
     text: $("#text"), handle: $("#handle"), name: $("#name"), format: $("#format"), cta: $("#cta"), themes: $("#themes"), tpl: $("#tpl"),
@@ -209,14 +214,16 @@
   function fmt(s) { return esc(s).replace(/==(.+?)==/g, "<mark>$1</mark>").replace(/\*\*(.+?)\*\*/g, "<b>$1</b>"); }
   function bodyHtml(body) {
     if (!body) return "";
-    let out = "", list = [];
-    const flush = () => { if (list.length) { out += "<ul>" + list.map((l) => "<li>" + fmt(l) + "</li>").join("") + "</ul>"; list = []; } };
-    for (const raw of body.split("\n")) {
+    const lines = body.split("\n");
+    let lead = "", rest = "", list = [];
+    const flush = () => { if (list.length) { rest += "<ul>" + list.map((l) => "<li>" + fmt(l) + "</li>").join("") + "</ul>"; list = []; } };
+    lines.forEach((raw, idx) => {
       const m = raw.match(/^\s*[-•*]\s+(.*)$/);
-      if (m) list.push(m[1]); else { flush(); out += (out && !out.endsWith("</ul>") ? "\n" : "") + fmt(raw); }
-    }
+      if (idx === 0 && !m) { lead = fmt(raw); return; }
+      if (m) list.push(m[1]); else { flush(); rest += (rest && !rest.endsWith("</ul>") ? "\n" : "") + fmt(raw); }
+    });
     flush();
-    return out;
+    return (lead ? '<p class="lead">' + lead + "</p>" : "") + (rest ? '<div class="rest" data-label="' + esc(t("box_label")) + '">' + rest + "</div>" : "");
   }
 
   /* ───────── slide DOM ───────── */
@@ -262,12 +269,13 @@
     const ex = state.extras[i] || {};
     const layout = LAYOUTS.includes(ex.layout) ? ex.layout : "default";
     const el = document.createElement("div");
-    el.className = "slide t-" + state.theme + " l-" + layout + (isCover ? " cover" : "") + (state.align === "center" ? " center" : "") + (ex.textBelow ? " text-below" : "");
+    el.className = "slide t-" + state.theme + " l-" + layout + (isCover ? " cover" : "") + (state.align === "center" ? " center" : "") + (ex.textTop ? " text-top" : "");
     el.style.cssText = "width:" + W + "px;height:" + H + "px;--t:" + tt + "px;--b:" + bb + "px" + brandVars();
     const handle = esc(opts.handle || "");
     const ava = state.avatar ? '<img class="s-ava" src="' + state.avatar + '" alt="">' : "";
     const num = opts.num ? (i + 1) + "/" + n : "";
-    const hint = isLast ? fmt(opts.cta || "") : (opts.arrow ? t("swipe") + " →" : "");
+    const hint = isLast ? "" : (opts.arrow ? t("swipe") + " →" : "");
+    const cta = isLast && opts.cta ? '<div><span class="s-cta">' + fmt(opts.cta) + "</span>" + (opts.handle ? '<div class="s-cta-sub">' + esc(opts.handle) + "</div>" : "") + "</div>" : "";
     const logo = state.logo ? '<img class="s-logo" src="' + state.logo.src + '" style="height:' + (state.logo.size || 80) + 'px" alt="">' : "";
     const lp = state.logo ? (state.logo.pos || "br") : "";
     let layers = "";
@@ -287,8 +295,8 @@
     let main = "";
     if (layout === "number" && !isCover) main += '<div class="s-bignum">' + String(i + 1).padStart(2, "0") + "</div>";
     if (layout === "quote") main += '<div class="s-quote">“</div>';
-    main += titleFlow + bodyFlow + author;
-    const mainEmpty = !titleFlow && !bodyFlow && !author && layout !== "quote";
+    main += titleFlow + bodyFlow + author + cta;
+    const mainEmpty = !titleFlow && !bodyFlow && !author && !cta && layout !== "quote";
     el.innerHTML =
       layers + '<div class="s-bar"></div>' +
       '<div class="s-top"><span class="grp">' + (lp === "tl" ? logo : "") + ava + '<span class="s-handle">' + handle + '</span></span><span class="grp"><span class="s-num">' + num + "</span>" + (lp === "tr" ? logo : "") + "</span></div>" +
@@ -552,6 +560,34 @@
   els.brandReset.addEventListener("click", () => { state.brand = { bg: "", ink: "", accent: "", font: "" }; state.pattern = ""; syncControls(); render(); });
   els.brandSave.addEventListener("click", () => { if (lsSet("listai.brand", brandKit())) status(t("brand_saved")); });
 
+  /* ───────── 3D objects as SVG (from the neuro-cards design system) ───────── */
+  function hexToRgb(h) { h = h.replace("#", ""); if (h.length === 3) h = h.split("").map((c) => c + c).join(""); const n = parseInt(h, 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; }
+  function mix(h, to, k) { const a = hexToRgb(h), b = hexToRgb(to); return "#" + a.map((v, i) => Math.round(v + (b[i] - v) * k).toString(16).padStart(2, "0")).join(""); }
+  function lum(h) { const [r, g, b] = hexToRgb(h); return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255; }
+  function objectColor() { const c = state.brand.accent || (THEMES.find((x) => x.id === state.theme) || THEMES[0]).c[2]; return lum(c) > 0.85 || lum(c) < 0.08 ? "#1F3DFF" : c; }
+  function svgObject(kind, color) {
+    const c = color || "#1F3DFF", light = mix(c, "#ffffff", 0.45), deep = mix(c, "#000000", 0.42), deeper = mix(c, "#000000", 0.6);
+    const defs = '<defs>' +
+      '<radialGradient id="hl" cx="32%" cy="24%" r="40%"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="base" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="' + light + '"/><stop offset=".55" stop-color="' + c + '"/><stop offset="1" stop-color="' + deeper + '"/></radialGradient>' +
+      '<radialGradient id="sh" cx="62%" cy="72%" r="60%"><stop offset="0" stop-color="' + deep + '" stop-opacity=".9"/><stop offset="1" stop-color="' + deep + '" stop-opacity="0"/></radialGradient>' +
+      '<linearGradient id="lin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="' + light + '"/><stop offset=".45" stop-color="' + c + '"/><stop offset="1" stop-color="' + deeper + '"/></linearGradient>' +
+      '<radialGradient id="chrome" cx="45%" cy="35%" r="70%"><stop offset="0" stop-color="#F2F3F8"/><stop offset=".55" stop-color="#C7C9D4"/><stop offset="1" stop-color="#7A7E92"/></radialGradient>' +
+      '<radialGradient id="shadow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#0e0e1e" stop-opacity=".32"/><stop offset=".7" stop-color="#0e0e1e" stop-opacity="0"/></radialGradient>' +
+      '<filter id="blur" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="5"/></filter></defs>';
+    const shadow = (cx, cy, rx) => '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + rx + '" ry="' + (rx * 0.18) + '" fill="url(#shadow)" filter="url(#blur)"/>';
+    let body = "", vb = "0 0 240 260";
+    if (kind === "sphere") body = shadow(120, 236, 95) + '<circle cx="120" cy="112" r="100" fill="url(#base)"/><circle cx="120" cy="112" r="100" fill="url(#sh)"/><circle cx="120" cy="112" r="100" fill="url(#hl)"/>';
+    else if (kind === "chrome") body = shadow(120, 236, 90) + '<circle cx="120" cy="112" r="100" fill="url(#chrome)"/><circle cx="120" cy="112" r="100" fill="url(#hl)"/>';
+    else if (kind === "torus") body = shadow(120, 236, 95) + '<circle cx="120" cy="112" r="72" fill="none" stroke="url(#lin)" stroke-width="52"/><circle cx="120" cy="112" r="72" fill="none" stroke="url(#hl)" stroke-width="52"/>';
+    else if (kind === "pill") body = shadow(120, 236, 105) + '<g transform="rotate(-18 120 112)"><rect x="10" y="60" width="220" height="104" rx="52" fill="url(#lin)"/><rect x="10" y="60" width="220" height="104" rx="52" fill="url(#hl)"/></g>';
+    else if (kind === "cube") body = shadow(120, 236, 90) + '<g transform="rotate(10 120 120)"><polygon points="62,30 200,30 158,96 20,96" fill="' + light + '"/><polygon points="20,96 158,96 158,210 20,210" fill="url(#lin)"/><polygon points="158,96 200,30 200,150 158,210" fill="' + deeper + '"/></g>';
+    else if (kind === "spring") body = shadow(120, 250, 80) + [0, 38, 76, 114].map((y) => '<ellipse cx="120" cy="' + (46 + y) + '" rx="66" ry="24" fill="none" stroke="url(#lin)" stroke-width="16"/>').join("");
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="' + vb + '">' + defs + body + "</svg>";
+    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+  }
+  const OBJECTS = ["sphere", "torus", "pill", "cube", "spring", "chrome"];
+
   /* ───────── slide editor ───────── */
   const edPrefs = lsGet("listai.editor", { grid: false, safe: false, snap: true });
   function remapExtras(map) { const out = {}; Object.keys(state.extras).forEach((k) => { const j = map(Number(k)); if (j != null) out[j] = state.extras[k]; }); state.extras = out; }
@@ -560,60 +596,48 @@
     const ex = ext(i);
     const { w: W, h: H } = dims();
     const isCover = els.cover.checked && i === 0;
-    let sel = null, history = [], future = [], editing = false;
+    let sel = null, history = [], future = [], pending = null;
     const M = els.modal;
+    const rail = (id, ic, label, extra) => '<button type="button" id="' + id + '"' + (extra || "") + '><span class="ic">' + ic + "</span>" + esc(label) + "</button>";
     M.innerHTML =
       '<div class="modal editor" role="dialog" aria-modal="true"><div class="box">' +
-      '<div class="ed-head"><h3>' + esc(t("ed_title", i + 1, slides.length)) + '</h3><button class="close" type="button" aria-label="Close">×</button></div>' +
-      '<div class="ed-tools">' +
-      '<button type="button" class="btn ghost" data-add="text">+ ' + esc(t("tool_text")) + '</button>' +
-      '<button type="button" class="btn ghost" data-add="head">+ ' + esc(t("tool_head")) + '</button>' +
-      '<label class="btn ghost file-btn">+ ' + esc(t("tool_img")) + '<input type="file" id="ed-add-img" accept="image/*" hidden></label>' +
-      '<button type="button" class="btn ghost" data-add="rect">▭ ' + esc(t("tool_rect")) + '</button>' +
-      '<button type="button" class="btn ghost" data-add="ellipse">○ ' + esc(t("tool_circle")) + '</button>' +
-      '<button type="button" class="btn ghost" data-add="line">— ' + esc(t("tool_line")) + '</button>' +
-      '<button type="button" class="btn ghost" id="ed-emoji">☺ ' + esc(t("tool_emoji")) + '</button>' +
-      '<span class="sep"></span>' +
-      '<button type="button" class="btn ghost" id="ed-grid" aria-pressed="' + edPrefs.grid + '">▦ ' + esc(t("tool_grid")) + '</button>' +
-      '<button type="button" class="btn ghost" id="ed-safe" aria-pressed="' + edPrefs.safe + '">▤ ' + esc(t("tool_safe")) + '</button>' +
-      '<button type="button" class="btn ghost" id="ed-snap" aria-pressed="' + edPrefs.snap + '">⌗ ' + esc(t("tool_snap")) + '</button>' +
-      '<span class="sep"></span>' +
-      '<button type="button" class="btn ghost" id="ed-undo" title="Ctrl+Z">↶ ' + esc(t("tool_undo")) + '</button>' +
-      '<button type="button" class="btn ghost" id="ed-redo" title="Ctrl+Y">↷ ' + esc(t("tool_redo")) + '</button>' +
-      '</div>' +
-      '<div class="editor-body"><div class="ed-stage-wrap"><div class="ed-stage" id="ed-stage"><div class="stage" id="ed-inner"></div><div class="ed-grid" id="ed-gridov" hidden></div><div class="ed-safe" id="ed-safe-top" hidden></div><div class="ed-safe" id="ed-safe-bot" hidden></div>' +
+      '<div class="ed-top"><h3 id="ed-title">' + esc(t("ed_title", i + 1, slides.length)) + "</h3>" +
+      '<button type="button" class="btn ghost" id="ed-undo" title="Ctrl+Z">↶ ' + esc(t("tool_undo")) + '</button><button type="button" class="btn ghost" id="ed-redo" title="Ctrl+Y">↷ ' + esc(t("tool_redo")) + "</button>" +
+      '<button type="button" class="btn primary" id="ed-done">' + esc(t("ed_done")) + '</button><button class="close" type="button" aria-label="Close">×</button></div>' +
+      '<div class="ed-main"><div class="ed-rail">' +
+      rail("r-text", "T", t("tool_text")) + rail("r-head", "H", t("tool_head")) +
+      '<label><span class="ic">🖼</span>' + esc(t("tool_img")) + '<input type="file" id="ed-add-img" accept="image/*" hidden></label>' +
+      rail("r-shape", "▭", t("tool_shape")) + rail("r-obj", "◉", t("tool_obj")) + rail("r-emoji", "☺", t("tool_emoji")) +
+      '<label><span class="ic">▨</span>' + esc(t("tool_bg")) + '<input type="file" id="pp-bgfile" accept="image/*" hidden></label>' +
+      "</div>" +
+      '<div class="ed-canvas" id="ed-canvas"><div class="ed-stage" id="ed-stage"><div class="stage" id="ed-inner"></div><div class="ed-grid" id="ed-gridov" hidden></div><div class="ed-safe" id="ed-safe-top" hidden></div><div class="ed-safe" id="ed-safe-bot" hidden></div>' +
       '<div class="ed-guide v" id="ed-gv" hidden></div><div class="ed-guide h" id="ed-gh" hidden></div>' +
-      '<div class="ed-sel" id="ed-sel" hidden><div class="hnd nw" data-h="nw"></div><div class="hnd ne" data-h="ne"></div><div class="hnd sw" data-h="sw"></div><div class="hnd se" data-h="se"></div><div class="hnd rot" data-h="rot"></div></div></div></div>' +
+      '<div class="ed-sel" id="ed-sel" hidden><div class="hnd nw" data-h="nw"></div><div class="hnd ne" data-h="ne"></div><div class="hnd sw" data-h="sw"></div><div class="hnd se" data-h="se"></div><div class="hnd rot" data-h="rot"></div></div></div>' +
+      '<div class="ed-canvas-tools"><button type="button" id="ed-grid" aria-pressed="' + edPrefs.grid + '">▦ ' + esc(t("tool_grid")) + '</button><button type="button" id="ed-safe" aria-pressed="' + edPrefs.safe + '">▤ ' + esc(t("tool_safe")) + '</button><button type="button" id="ed-snap" aria-pressed="' + edPrefs.snap + '">⌗ ' + esc(t("tool_snap")) + "</button></div></div>" +
       '<div class="ed-props" id="ed-props"></div></div>' +
-      '<div class="ed-ops"><button type="button" class="btn ghost" id="ed-prev">' + esc(t("ed_prev")) + '</button><button type="button" class="btn ghost" id="ed-next">' + esc(t("ed_next")) + '</button><button type="button" class="btn ghost" id="ed-dupslide">' + esc(t("ed_dup")) + '</button><button type="button" class="btn ghost" id="ed-delslide">' + esc(t("ed_del")) + '</button><span style="flex:1"></span><button type="button" class="btn" id="ed-done">' + esc(t("ed_done")) + "</button></div>" +
-      '<p class="ed-hint">' + esc(t("ed_hint")) + "</p>" +
+      '<div class="ed-film"><div class="strip" id="ed-strip"></div><div class="ops"><button type="button" class="btn ghost" id="ed-prev" title="' + esc(t("ed_prev")) + '">←</button><button type="button" class="btn ghost" id="ed-next" title="' + esc(t("ed_next")) + '">→</button><button type="button" class="btn ghost" id="ed-dupslide">' + esc(t("ed_dup")) + '</button><button type="button" class="btn ghost" id="ed-delslide">' + esc(t("ed_del")) + "</button></div></div>" +
       "</div></div>";
     const q = (s) => M.querySelector(s);
-    const stageEl = q("#ed-stage"), inner = q("#ed-inner"), selBox = q("#ed-sel"), props = q("#ed-props"), gv = q("#ed-gv"), gh = q("#ed-gh");
-    const wrapW = Math.min(q(".ed-stage-wrap").clientWidth - 24, 680);
-    const k = Math.min(wrapW / W, Math.max(360, window.innerHeight - 330) / H);
+    const canvas = q("#ed-canvas"), stageEl = q("#ed-stage"), inner = q("#ed-inner"), selBox = q("#ed-sel"), props = q("#ed-props"), gv = q("#ed-gv"), gh = q("#ed-gh");
+    const k = Math.max(0.1, Math.min((canvas.clientWidth - 48) / W, (canvas.clientHeight - 88) / H));
     stageEl.style.width = (W * k) + "px"; stageEl.style.height = (H * k) + "px";
     inner.style.transform = "scale(" + k + ")";
     const GRID = W / 12;
     q("#ed-gridov").style.backgroundSize = (GRID * k) + "px " + (GRID * k) + "px";
     q("#ed-prev").disabled = i === 0; q("#ed-next").disabled = i === slides.length - 1;
 
-    /* history */
+    /* history: one entry per completed gesture or field edit */
     const snapNow = () => JSON.stringify({ ex: ex, t: slides[i].title, b: slides[i].body });
-    function push() { history.push(snapNow()); if (history.length > 60) history.shift(); future = []; }
-    function beginEdit() { if (!editing) { push(); editing = true; } }
-    function endEdit() { editing = false; }
-    function applySnap(s) { const d = JSON.parse(s); Object.keys(ex).forEach((key) => delete ex[key]); Object.assign(ex, d.ex); slides[i].title = d.t; slides[i].body = d.b; els.text.value = serialize(slides); if (sel && sel.type === "layer" && !layersOf(ex)[sel.idx]) sel = null; paint(); renderProps(); }
-    function undo() { if (!history.length) return; future.push(snapNow()); applySnap(history.pop()); }
+    function push() { history.push(snapNow()); if (history.length > 60) history.shift(); future = []; pending = null; }
+    function beginEdit() { if (pending == null) pending = snapNow(); }
+    function commitEdit() { if (pending != null) { const now = snapNow(); if (pending !== now) { history.push(pending); if (history.length > 60) history.shift(); future = []; } pending = null; saveDraft(); } }
+    function applySnap(s) { const d = JSON.parse(s); Object.keys(ex).forEach((key) => delete ex[key]); Object.assign(ex, d.ex); slides[i].title = d.t; slides[i].body = d.b; els.text.value = serialize(slides); if (sel && sel.type === "layer" && !layersOf(ex)[sel.idx]) sel = null; if (sel && sel.type !== "layer" && !ex[sel.type]) { /* keep flow selection */ } pending = null; paint(); renderProps(); }
+    function undo() { commitEdit(); if (!history.length) return; future.push(snapNow()); applySnap(history.pop()); }
     function redo() { if (!future.length) return; history.push(snapNow()); applySnap(future.pop()); }
 
     /* painting */
     function slideEl() { return inner.firstChild; }
-    function elFor(s) {
-      if (!s) return null;
-      if (s.type === "layer") return inner.querySelector('[data-el="layer"][data-idx="' + s.idx + '"]');
-      return inner.querySelector('[data-el="' + s.type + '"]');
-    }
+    function elFor(s) { if (!s) return null; return s.type === "layer" ? inner.querySelector('[data-el="layer"][data-idx="' + s.idx + '"]') : inner.querySelector('[data-el="' + s.type + '"]'); }
     function boxOf(s) {
       const el = elFor(s); if (!el) return null;
       const L = s.type === "layer" ? layersOf(ex)[s.idx] : ex[s.type];
@@ -626,9 +650,10 @@
       q("#ed-gridov").hidden = !edPrefs.grid; q("#ed-grid").setAttribute("aria-pressed", String(edPrefs.grid));
       q("#ed-safe").setAttribute("aria-pressed", String(edPrefs.safe)); q("#ed-snap").setAttribute("aria-pressed", String(edPrefs.snap));
       const st = q("#ed-safe-top"), sb = q("#ed-safe-bot");
-      st.hidden = sb.hidden = !edPrefs.safe;
-      if (edPrefs.safe) { const top = H >= 1900 ? 250 : 0, bot = H >= 1900 ? 340 : 0; st.style.top = "0"; st.style.height = (top * k) + "px"; st.hidden = !top; sb.style.bottom = "0"; sb.style.height = (bot * k) + "px"; sb.hidden = !bot; if (!top && !bot) { st.hidden = false; st.style.height = "0"; st.style.top = "0"; } }
-      drawSel();
+      const top = H >= 1900 ? 250 : 0, bot = H >= 1900 ? 340 : 0;
+      st.hidden = !(edPrefs.safe && top); sb.hidden = !(edPrefs.safe && bot);
+      st.style.top = "0"; st.style.height = (top * k) + "px"; sb.style.bottom = "0"; sb.style.height = (bot * k) + "px";
+      drawSel(); paintStrip();
     }
     function drawSel() {
       const b = boxOf(sel);
@@ -636,10 +661,25 @@
       selBox.hidden = false;
       selBox.style.left = (b.x * k) + "px"; selBox.style.top = (b.y * k) + "px"; selBox.style.width = (b.w * k) + "px"; selBox.style.height = (b.h * k) + "px";
       selBox.style.transform = b.rot ? "rotate(" + b.rot + "deg)" : ""; selBox.style.transformOrigin = "center";
-      const rotatable = sel.type === "layer";
-      selBox.querySelector(".rot").hidden = !rotatable;
+      selBox.querySelector(".rot").hidden = sel.type !== "layer";
     }
-    function select(s) { sel = s; drawSel(); renderProps(); }
+    function select(s) { commitEdit(); sel = s; drawSel(); renderProps(); }
+    let stripTimer;
+    function paintStrip() {
+      clearTimeout(stripTimer);
+      stripTimer = setTimeout(() => {
+        const strip = q("#ed-strip"); if (!strip) return;
+        strip.innerHTML = "";
+        const fk = 64 / W;
+        slides.forEach((s, j) => {
+          const ft = document.createElement("div"); ft.className = "ft"; ft.style.height = (H * fk) + "px"; ft.setAttribute("aria-current", String(j === i)); ft.title = t("ed_title", j + 1, slides.length);
+          const st = document.createElement("div"); st.className = "stage"; st.style.transform = "scale(" + fk + ")"; st.appendChild(buildSlide(s, j, slides.length, options()));
+          ft.appendChild(st); const n = document.createElement("span"); n.className = "n"; n.textContent = j + 1; ft.appendChild(n);
+          if (j !== i) ft.addEventListener("click", () => reopen(j));
+          strip.appendChild(ft);
+        });
+      }, 120);
+    }
 
     /* detaching flow text */
     function detach(type) {
@@ -663,15 +703,16 @@
     /* pointer interactions */
     let drag = null;
     stageEl.addEventListener("pointerdown", (e) => {
+      closePop();
       const hnd = e.target.closest(".hnd");
       if (hnd) {
         if (!sel) return;
         e.preventDefault(); stageEl.setPointerCapture(e.pointerId);
-        const b = boxOf(sel), L = target(sel);
-        drag = { mode: hnd.dataset.h, sx: e.clientX, sy: e.clientY, box: b, L: L ? Object.assign({}, L) : null, moved: false, cx: b.x + b.w / 2, cy: b.y + b.h / 2 };
+        const b = boxOf(sel);
+        drag = { mode: hnd.dataset.h, sx: e.clientX, sy: e.clientY, box: b, moved: false, cx: b.x + b.w / 2, cy: b.y + b.h / 2 };
         return;
       }
-      if (e.target === selBox) { e.preventDefault(); stageEl.setPointerCapture(e.pointerId); const b = boxOf(sel); drag = { mode: "move", sx: e.clientX, sy: e.clientY, box: b, moved: false }; return; }
+      if (e.target === selBox) { e.preventDefault(); stageEl.setPointerCapture(e.pointerId); drag = { mode: "move", sx: e.clientX, sy: e.clientY, box: boxOf(sel), moved: false }; return; }
       const hit = e.target.closest("[data-el]");
       if (!hit || !inner.contains(hit)) { select(null); return; }
       const s = hit.dataset.el === "layer" ? { type: "layer", idx: Number(hit.dataset.idx) } : { type: hit.dataset.el };
@@ -702,91 +743,96 @@
         if (h.includes("s")) nh = b.h + dy; if (h.includes("n")) { nh = b.h - dy; ny = b.y + dy; }
         if (isImg) { const ar = L.ar || 1; nh = nw / ar; if (h.includes("n")) ny = b.y + b.h - nh; }
         nw = Math.max(0.06 * W, nw); if (!isImg && !isText && !isLine) nh = Math.max(0.03 * H, nh);
-        L.x = nx / W; L.w = nw / W;
-        if (isImg) L.y = ny / H; else if (isLine) L.y = ny / H; else if (isText) { L.y = ny / H; } else { L.y = ny / H; L.h = nh / H; }
+        L.x = nx / W; L.w = nw / W; L.y = ny / H;
+        if (!isImg && !isText && !isLine) L.h = nh / H;
       }
       paint();
     });
     const endDrag = () => { if (drag && drag.moved) saveDraft(); drag = null; gv.hidden = gh.hidden = true; };
     stageEl.addEventListener("pointerup", endDrag); stageEl.addEventListener("pointercancel", endDrag);
 
-    /* adding layers */
+    /* popovers (shapes, objects, emoji) */
+    function closePop() { const p = M.querySelector(".ed-pop"); if (p) p.remove(); }
+    function openPop(title, html, onClick) {
+      closePop();
+      const p = document.createElement("div"); p.className = "ed-pop"; p.innerHTML = "<h5>" + esc(title) + "</h5>" + html;
+      p.addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { onClick(b); closePop(); } });
+      canvas.appendChild(p);
+    }
     function addLayer(L) { push(); L.id = uid(); layersOf(ex).push(L); paint(); select({ type: "layer", idx: layersOf(ex).length - 1 }); }
-    M.querySelectorAll("[data-add]").forEach((b) => b.addEventListener("click", () => {
-      const kind = b.dataset.add;
-      if (kind === "text") addLayer({ type: "text", text: t("new_text"), size: 44, weight: 700, align: "left", x: 0.1, y: 0.42, w: 0.6 });
-      if (kind === "head") addLayer({ type: "text", text: t("new_head"), size: 84, weight: 800, align: "left", font: (FONTS[state.brand.font] || ["Unbounded"])[0], x: 0.08, y: 0.3, w: 0.8 });
+    q("#r-text").onclick = () => addLayer({ type: "text", text: t("new_text"), size: 44, weight: 700, align: "left", x: 0.1, y: 0.42, w: 0.6 });
+    q("#r-head").onclick = () => addLayer({ type: "text", text: t("new_head"), size: 84, weight: 800, align: "left", font: (FONTS[state.brand.font] || ["Unbounded"])[0], x: 0.08, y: 0.3, w: 0.8 });
+    q("#r-shape").onclick = () => openPop(t("tool_shape"), '<div class="pops"><button type="button" class="btn ghost" data-k="rect">▭ ' + esc(t("tool_rect")) + '</button><button type="button" class="btn ghost" data-k="ellipse">○ ' + esc(t("tool_circle")) + '</button><button type="button" class="btn ghost" data-k="line">— ' + esc(t("tool_line")) + "</button></div>", (b) => {
+      const kind = b.dataset.k;
       if (kind === "rect") addLayer({ type: "rect", x: 0.1, y: 0.15, w: 0.45, h: 0.22, r: 24 });
       if (kind === "ellipse") addLayer({ type: "ellipse", x: 0.55, y: 0.12, w: 0.3, h: 0.3 * W / H });
       if (kind === "line") addLayer({ type: "line", x: 0.08, y: 0.5, w: 0.84, th: 8 });
-    }));
+    });
+    q("#r-obj").onclick = () => { const c = objectColor(); openPop(t("tool_obj"), '<div class="obj-grid">' + OBJECTS.map((o) => '<button type="button" data-k="' + o + '"><img src="' + svgObject(o, c) + '" alt="">' + esc(t("obj_" + o)) + "</button>").join("") + "</div>", (b) => {
+      addLayer({ type: "image", src: svgObject(b.dataset.k, c), ar: 240 / 260, obj: b.dataset.k, color: c, x: 0.55, y: 0.08, w: 0.38 });
+    }); };
+    q("#r-emoji").onclick = () => openPop(t("tool_emoji"), '<div class="emoji-grid">' + EMOJIS.map((e) => '<button type="button">' + e + "</button>").join("") + "</div>", (b) => addLayer({ type: "text", text: b.textContent, size: 180, align: "center", x: 0.35, y: 0.3, w: 0.3 }));
     q("#ed-add-img").addEventListener("change", async (e) => {
       const f = e.target.files[0]; e.target.value = ""; if (!f) return;
       try { const im = await readImage(f, 2160); const w = 0.6; addLayer({ type: "image", src: im.src, ar: im.ar, x: 0.2, y: Math.max(0.05, 0.4 - (w * W / im.ar) / H / 2), w: w }); }
-      catch (err) { q(".ed-hint").textContent = t("ed_img_err"); }
+      catch (err) { status(t("ed_img_err"), true); }
     });
-    q("#ed-emoji").addEventListener("click", () => {
-      const pop = document.createElement("div"); pop.className = "emoji-grid"; pop.style.cssText = "margin-top:6px";
-      pop.innerHTML = EMOJIS.map((e) => '<button type="button">' + e + "</button>").join("");
-      pop.addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; addLayer({ type: "text", text: b.textContent, size: 180, align: "center", x: 0.35, y: 0.3, w: 0.3 }); pop.remove(); });
-      const old = M.querySelector(".emoji-grid"); if (old) { old.remove(); return; }
-      q(".ed-tools").after(pop);
-    });
+    q("#pp-bgfile").addEventListener("change", async (e) => { const f = e.target.files[0]; e.target.value = ""; if (!f) return; try { const im = await readImage(f, 2160); push(); ex.bg = { img: im.src, dim: ex.bg ? ex.bg.dim : 0.5 }; paint(); renderProps(); } catch (err) { status(t("ed_img_err"), true); } });
     q("#ed-grid").addEventListener("click", () => { edPrefs.grid = !edPrefs.grid; lsSet("listai.editor", edPrefs); paint(); });
     q("#ed-safe").addEventListener("click", () => { edPrefs.safe = !edPrefs.safe; lsSet("listai.editor", edPrefs); paint(); });
     q("#ed-snap").addEventListener("click", () => { edPrefs.snap = !edPrefs.snap; lsSet("listai.editor", edPrefs); paint(); });
     q("#ed-undo").addEventListener("click", undo); q("#ed-redo").addEventListener("click", redo);
 
     /* properties panel */
-    function seg(id, items, cur) { return '<div class="seg" id="' + id + '">' + items.map((it) => '<button type="button" data-v="' + it[0] + '" aria-pressed="' + (String(it[0]) === String(cur)) + '">' + esc(it[1]) + "</button>").join("") + "</div>"; }
+    const seg = (id, items, cur) => '<div class="seg" id="' + id + '">' + items.map((it) => '<button type="button" data-v="' + it[0] + '" aria-pressed="' + (String(it[0]) === String(cur)) + '">' + esc(it[1]) + "</button>").join("") + "</div>";
+    const fld = (label, inner) => '<div class="pfield"><label>' + esc(label) + "</label>" + inner + "</div>";
     function renderProps() {
       const L = sel ? target(sel) : null;
       let h = "";
       if (sel && sel.type === "layer" && L) {
-        h += "<h4>" + esc(t("p_sel")) + "</h4>";
+        const kind = L.obj ? t("tool_obj") : L.type === "text" ? t("tool_text") : L.type === "image" ? t("tool_img") : L.type === "line" ? t("tool_line") : L.type === "ellipse" ? t("tool_circle") : t("tool_rect");
+        h += '<div class="pgroup"><h4>' + esc(t("p_sel")) + '<span class="tag">' + esc(kind) + "</span></h4>";
         if (L.type === "text") {
-          h += '<div class="field"><label>' + esc(t("p_content")) + '</label><textarea id="pp-text">' + esc(L.text || "") + "</textarea></div>" +
-            '<div class="field"><label>' + esc(t("p_size")) + '</label><input type="range" id="pp-size" min="16" max="260" value="' + (L.size || 48) + '"></div>' +
-            '<div class="field"><label>' + esc(t("p_color")) + '</label><div class="inline"><input type="color" id="pp-color" value="' + (L.color || "#ffffff") + '"><button type="button" class="link" id="pp-color-reset">' + esc(t("p_theme_color")) + "</button></div></div>" +
-            '<div class="field"><label>' + esc(t("p_weight")) + "</label>" + seg("pp-weight", [[500, t("w_500")], [700, t("w_700")], [800, t("w_800")]], L.weight || 700) + "</div>" +
-            '<div class="field"><label>' + esc(t("p_align")) + "</label>" + seg("pp-align", [["left", t("a_left")], ["center", t("a_center")], ["right", t("a_right")]], L.align || "left") + "</div>" +
-            '<div class="field"><label>' + esc(t("p_font")) + '</label><select id="pp-font"><option value="">' + esc(t("font_theme")) + "</option>" + FONT_LIST.map((f) => '<option value="' + f + '"' + (L.font === f ? " selected" : "") + ">" + f + "</option>").join("") + "</select></div>" +
-            '<label class="toggles"><input type="checkbox" id="pp-hl"' + (L.hl ? " checked" : "") + "> " + esc(t("p_hl")) + "</label>";
+          h += fld(t("p_content"), '<textarea id="pp-text">' + esc(L.text || "") + "</textarea>") +
+            '<div class="prow">' + fld(t("p_size"), '<input type="range" id="pp-size" min="16" max="260" value="' + (L.size || 48) + '">') + fld(t("p_font"), '<select id="pp-font"><option value="">' + esc(t("font_theme")) + "</option>" + FONT_LIST.map((f) => '<option value="' + f + '"' + (L.font === f ? " selected" : "") + ">" + f + "</option>").join("") + "</select>") + "</div>" +
+            fld(t("p_weight"), seg("pp-weight", [[500, t("w_500")], [700, t("w_700")], [800, t("w_800")]], L.weight || 700)) +
+            fld(t("p_align"), seg("pp-align", [["left", t("a_left")], ["center", t("a_center")], ["right", t("a_right")]], L.align || "left")) +
+            '<div class="prow">' + fld(t("p_color"), '<div class="pcolor"><input type="color" id="pp-color" value="' + (L.color || "#ffffff") + '"><button type="button" class="link" id="pp-color-reset">' + esc(t("p_theme_color")) + "</button></div>") +
+            '<label class="toggles" style="align-self:end"><input type="checkbox" id="pp-hl"' + (L.hl ? " checked" : "") + "> " + esc(t("p_hl")) + "</label></div>";
         } else if (L.type === "image") {
-          h += '<label class="btn ghost small file-btn">' + esc(t("p_replace")) + '<input type="file" id="pp-replace" accept="image/*" hidden></label>' +
-            '<label class="toggles"><input type="checkbox" id="pp-round"' + (L.round ? " checked" : "") + "> " + esc(t("p_round")) + "</label>" +
-            '<button type="button" class="btn ghost small" id="pp-asbg">' + esc(t("p_as_bg")) + "</button>";
+          h += '<div class="pops"><label class="btn ghost file-btn">' + esc(t("p_replace")) + '<input type="file" id="pp-replace" accept="image/*" hidden></label><button type="button" class="btn ghost" id="pp-asbg">' + esc(t("p_as_bg")) + "</button></div>" +
+            (L.obj ? fld(t("p_obj_color"), '<div class="pcolor"><input type="color" id="pp-objcolor" value="' + (L.color || "#1F3DFF") + '"></div>') : "") +
+            '<label class="toggles"><input type="checkbox" id="pp-round"' + (L.round ? " checked" : "") + "> " + esc(t("p_round")) + "</label>";
         } else {
-          h += '<div class="field"><label>' + esc(t("p_fill")) + '</label><div class="inline"><input type="color" id="pp-fill" value="' + (L.fill || "#22c38a") + '"><button type="button" class="link" id="pp-fill-reset">' + esc(t("p_theme_color")) + "</button></div></div>";
-          if (L.type === "rect") h += '<div class="field"><label>' + esc(t("p_radius")) + '</label><input type="range" id="pp-radius" min="0" max="200" value="' + (L.r || 0) + '"></div>';
-          if (L.type === "line") h += '<div class="field"><label>' + esc(t("p_thick")) + '</label><input type="range" id="pp-thick" min="2" max="60" value="' + (L.th || 8) + '"></div>';
+          h += fld(t("p_fill"), '<div class="pcolor"><input type="color" id="pp-fill" value="' + (L.fill || "#1F3DFF") + '"><button type="button" class="link" id="pp-fill-reset">' + esc(t("p_theme_color")) + "</button></div>");
+          if (L.type === "rect") h += fld(t("p_radius"), '<input type="range" id="pp-radius" min="0" max="200" value="' + (L.r || 0) + '">');
+          if (L.type === "line") h += fld(t("p_thick"), '<input type="range" id="pp-thick" min="2" max="60" value="' + (L.th || 8) + '">');
         }
-        h += '<div class="field"><label>' + esc(t("p_opacity")) + '</label><input type="range" id="pp-op" min="10" max="100" value="' + Math.round((L.op == null ? 1 : L.op) * 100) + '"></div>' +
-          '<div class="field"><label>' + esc(t("p_rot")) + '</label><input type="range" id="pp-rot" min="0" max="359" value="' + (L.rot || 0) + '"></div>' +
-          '<div class="ed-ops"><button type="button" class="btn ghost" id="pp-up">' + esc(t("p_up")) + '</button><button type="button" class="btn ghost" id="pp-down">' + esc(t("p_down")) + '</button><button type="button" class="btn ghost" id="pp-dup">' + esc(t("p_dup")) + '</button><button type="button" class="btn ghost" id="pp-all">' + esc(t("p_all")) + '</button><button type="button" class="btn ghost" id="pp-del">' + esc(t("p_del")) + "</button></div>";
+        h += '<div class="prow">' + fld(t("p_opacity"), '<input type="range" id="pp-op" min="10" max="100" value="' + Math.round((L.op == null ? 1 : L.op) * 100) + '">') + fld(t("p_rot"), '<input type="range" id="pp-rot" min="0" max="359" value="' + (L.rot || 0) + '">') + "</div>" +
+          '<div class="pops"><button type="button" class="btn ghost" id="pp-up">' + esc(t("p_up")) + '</button><button type="button" class="btn ghost" id="pp-down">' + esc(t("p_down")) + '</button><button type="button" class="btn ghost" id="pp-dup">' + esc(t("p_dup")) + '</button><button type="button" class="btn ghost" id="pp-all">' + esc(t("p_all")) + '</button><button type="button" class="btn ghost danger" id="pp-del">' + esc(t("p_del")) + "</button></div></div>";
       } else if (sel && (sel.type === "title" || sel.type === "body")) {
-        h += "<h4>" + esc(t(sel.type === "title" ? "p_ttl" : "p_body")) + "</h4>" +
-          '<div class="field"><textarea id="pp-flow">' + esc(sel.type === "title" ? slides[i].title : slides[i].body) + "</textarea></div>";
-        if (L) h += '<div class="field"><label>' + esc(t("p_scale")) + '</label><input type="range" id="pp-scale" min="50" max="220" value="' + Math.round((L.s || 1) * 100) + '"></div><button type="button" class="btn ghost small" id="pp-reflow">' + esc(t("p_reflow")) + "</button>";
+        h += '<div class="pgroup"><h4>' + esc(t(sel.type === "title" ? "p_ttl" : "p_body")) + (L ? '<span class="tag">' + esc(t("p_free")) + "</span>" : "") + "</h4>" +
+          fld(t("p_content"), '<textarea id="pp-flow">' + esc(sel.type === "title" ? slides[i].title : slides[i].body) + "</textarea>");
+        if (L) h += fld(t("p_scale"), '<input type="range" id="pp-scale" min="50" max="220" value="' + Math.round((L.s || 1) * 100) + '">') + '<div class="pops"><button type="button" class="btn ghost" id="pp-reflow">' + esc(t("p_reflow")) + "</button></div>";
+        h += "</div>";
       } else {
-        h += "<h4>" + esc(t("p_ttl")) + '</h4><div class="field"><input type="text" id="pp-ttl" value="' + esc(slides[i].title) + '"></div>' +
-          "<h4>" + esc(t("p_body")) + '</h4><div class="field"><textarea id="pp-body">' + esc(slides[i].body) + "</textarea></div>";
+        h += '<div class="pgroup"><h4>' + esc(t("p_text")) + "</h4>" + fld(t("p_ttl"), '<input type="text" id="pp-ttl" value="' + esc(slides[i].title) + '">') + fld(t("p_body"), '<textarea id="pp-body">' + esc(slides[i].body) + "</textarea>") + "</div>";
       }
-      h += "<h4>" + esc(t("p_slide")) + "</h4>" +
-        '<div class="field"><label>' + esc(t("p_layout")) + '</label><select id="pp-layout">' + LAYOUTS.map((l) => '<option value="' + l + '"' + ((ex.layout || "default") === l ? " selected" : "") + ">" + esc(t("lay_" + l)) + "</option>").join("") + "</select><button type=\"button\" class=\"link\" id=\"pp-layout-all\">" + esc(t("p_layout_all")) + "</button></div>" +
-        '<div class="field"><label>' + esc(t("p_textpos")) + '</label><select id="pp-tp"><option value="top">' + esc(t("tp_top")) + '</option><option value="middle">' + esc(t("tp_middle")) + '</option><option value="bottom">' + esc(t("tp_bottom")) + "</option></select></div>" +
-        '<label class="toggles"><input type="checkbox" id="pp-below"' + (ex.textBelow ? " checked" : "") + "> " + esc(t("p_below")) + "</label>" +
-        '<div class="field"><label>' + esc(t("p_bg")) + '</label><label class="btn ghost small file-btn">' + esc(t(ex.bg ? "p_bg_replace" : "p_bg_add")) + '<input type="file" id="pp-bgfile" accept="image/*" hidden></label>' +
-        (ex.bg ? '<label>' + esc(t("p_dim")) + '</label><input type="range" id="pp-dim" min="0" max="85" value="' + Math.round((ex.bg.dim == null ? 0.5 : ex.bg.dim) * 100) + '"><button type="button" class="link" id="pp-bgremove">' + esc(t("p_bg_remove")) + "</button>" : "") + "</div>";
+      h += '<div class="pgroup"><h4>' + esc(t("p_slide")) + "</h4>" +
+        fld(t("p_layout"), '<select id="pp-layout">' + LAYOUTS.map((l) => '<option value="' + l + '"' + ((ex.layout || "default") === l ? " selected" : "") + ">" + esc(t("lay_" + l)) + "</option>").join("") + "</select>") +
+        '<button type="button" class="link" id="pp-layout-all" style="align-self:flex-start">' + esc(t("p_layout_all")) + "</button>" +
+        fld(t("p_textpos"), '<select id="pp-tp"><option value="top">' + esc(t("tp_top")) + '</option><option value="middle">' + esc(t("tp_middle")) + '</option><option value="bottom">' + esc(t("tp_bottom")) + "</option></select>") +
+        '<label class="toggles"><input type="checkbox" id="pp-top"' + (ex.textTop ? " checked" : "") + "> " + esc(t("p_top")) + "</label>" +
+        (ex.bg ? fld(t("p_bg") + " · " + t("p_dim"), '<input type="range" id="pp-dim" min="0" max="85" value="' + Math.round((ex.bg.dim == null ? 0.5 : ex.bg.dim) * 100) + '">') + '<button type="button" class="link" id="pp-bgremove" style="align-self:flex-start">' + esc(t("p_bg_remove")) + "</button>" : "") +
+        "</div>" + '<p class="ed-hint">' + esc(t("ed_hint")) + "</p>";
       props.innerHTML = h;
       const P = (s) => props.querySelector(s);
-      props.querySelectorAll("input,textarea,select").forEach((inp) => { inp.addEventListener("pointerdown", beginEdit); inp.addEventListener("focus", beginEdit); inp.addEventListener("change", () => { endEdit(); saveDraft(); }); });
+      props.querySelectorAll("input,textarea,select").forEach((inp) => { inp.addEventListener("pointerdown", beginEdit); inp.addEventListener("focus", beginEdit); inp.addEventListener("change", commitEdit); inp.addEventListener("blur", commitEdit); });
       P("#pp-tp").value = ex.textPos || (isCover ? "bottom" : "middle");
       P("#pp-layout").onchange = (e) => { ex.layout = e.target.value; paint(); };
-      P("#pp-layout-all").onclick = () => { slides.forEach((_, j) => { ext(j).layout = ex.layout || "default"; }); status(t("p_applied")); };
+      P("#pp-layout-all").onclick = () => { slides.forEach((_, j) => { ext(j).layout = ex.layout || "default"; }); paintStrip(); status(t("p_applied")); };
       P("#pp-tp").onchange = (e) => { ex.textPos = e.target.value; paint(); };
-      P("#pp-below").onchange = (e) => { ex.textBelow = e.target.checked; paint(); };
-      P("#pp-bgfile").onchange = async (e) => { const f = e.target.files[0]; e.target.value = ""; if (!f) return; try { const im = await readImage(f, 2160); push(); ex.bg = { img: im.src, dim: ex.bg ? ex.bg.dim : 0.5 }; paint(); renderProps(); } catch (err) { q(".ed-hint").textContent = t("ed_img_err"); } };
+      P("#pp-top").onchange = (e) => { ex.textTop = e.target.checked; paint(); };
       if (P("#pp-dim")) P("#pp-dim").oninput = (e) => { ex.bg.dim = Number(e.target.value) / 100; paint(); };
       if (P("#pp-bgremove")) P("#pp-bgremove").onclick = () => { push(); delete ex.bg; paint(); renderProps(); };
       const commit = () => { els.text.value = serialize(slides); paint(); };
@@ -804,6 +850,7 @@
       bind("#pp-font", (e) => { L.font = e.target.value; }, "onchange");
       bind("#pp-hl", (e) => { L.hl = e.target.checked; }, "onchange");
       bind("#pp-round", (e) => { L.round = e.target.checked; }, "onchange");
+      bind("#pp-objcolor", (e) => { L.color = e.target.value; L.src = svgObject(L.obj, L.color); });
       bind("#pp-fill", (e) => { L.fill = e.target.value; });
       bind("#pp-fill-reset", () => { push(); delete L.fill; }, "onclick");
       bind("#pp-radius", (e) => { L.r = Number(e.target.value); });
@@ -811,13 +858,13 @@
       bind("#pp-op", (e) => { L.op = Number(e.target.value) / 100; });
       bind("#pp-rot", (e) => { L.rot = Number(e.target.value); });
       ["#pp-weight", "#pp-align"].forEach((id) => { const n = P(id); if (n) n.onclick = (e) => { const b = e.target.closest("button"); if (!b) return; push(); if (id === "#pp-weight") L.weight = Number(b.dataset.v); else L.align = b.dataset.v; paint(); renderProps(); }; });
-      if (P("#pp-replace")) P("#pp-replace").onchange = async (e) => { const f = e.target.files[0]; e.target.value = ""; if (!f) return; try { const im = await readImage(f, 2160); push(); L.src = im.src; L.ar = im.ar; paint(); } catch (err) { q(".ed-hint").textContent = t("ed_img_err"); } };
+      if (P("#pp-replace")) P("#pp-replace").onchange = async (e) => { const f = e.target.files[0]; e.target.value = ""; if (!f) return; try { const im = await readImage(f, 2160); push(); L.src = im.src; L.ar = im.ar; delete L.obj; paint(); renderProps(); } catch (err) { status(t("ed_img_err"), true); } };
       if (P("#pp-asbg")) P("#pp-asbg").onclick = () => { push(); ex.bg = { img: L.src, dim: 0.5 }; layersOf(ex).splice(sel.idx, 1); sel = null; paint(); renderProps(); };
       const ls = layersOf(ex);
       P("#pp-up").onclick = () => { if (sel.idx < ls.length - 1) { push(); [ls[sel.idx], ls[sel.idx + 1]] = [ls[sel.idx + 1], ls[sel.idx]]; sel.idx++; paint(); renderProps(); } };
       P("#pp-down").onclick = () => { if (sel.idx > 0) { push(); [ls[sel.idx], ls[sel.idx - 1]] = [ls[sel.idx - 1], ls[sel.idx]]; sel.idx--; paint(); renderProps(); } };
       P("#pp-dup").onclick = dupLayer;
-      P("#pp-all").onclick = () => { slides.forEach((_, j) => { if (j !== i) { const c = JSON.parse(JSON.stringify(L)); c.id = uid(); layersOf(ext(j)).push(c); } }); status(t("p_applied")); };
+      P("#pp-all").onclick = () => { slides.forEach((_, j) => { if (j !== i) { const c = JSON.parse(JSON.stringify(L)); c.id = uid(); layersOf(ext(j)).push(c); } }); paintStrip(); status(t("p_applied")); };
       P("#pp-del").onclick = delSel;
     }
     function dupLayer() { if (!sel || sel.type !== "layer") return; push(); const c = JSON.parse(JSON.stringify(layersOf(ex)[sel.idx])); c.id = uid(); c.x += 0.03; c.y += 0.03; layersOf(ex).splice(sel.idx + 1, 0, c); paint(); select({ type: "layer", idx: sel.idx + 1 }); }
@@ -830,7 +877,7 @@
     /* keyboard */
     const onKey = (e) => {
       const inField = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName);
-      if (e.key === "Escape") { e.preventDefault(); if (sel) select(null); else finish(); return; }
+      if (e.key === "Escape") { e.preventDefault(); if (M.querySelector(".ed-pop")) closePop(); else if (sel) select(null); else finish(); return; }
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z") { e.preventDefault(); e.shiftKey ? redo() : undo(); return; }
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "y") { e.preventDefault(); redo(); return; }
       if (inField) return;
@@ -839,23 +886,22 @@
       if ((e.key === "Delete" || e.key === "Backspace") && sel) { e.preventDefault(); delSel(); return; }
       if (sel && /^Arrow/.test(e.key)) {
         e.preventDefault();
-        let L = target(sel); if (!L) L = detach(sel.type); if (!L) return;
+        let L = target(sel); if (!L) { beginEdit(); L = detach(sel.type); } if (!L) return;
         beginEdit(); const step = (e.shiftKey ? 20 : 4);
         if (e.key === "ArrowLeft") L.x -= step / W; if (e.key === "ArrowRight") L.x += step / W; if (e.key === "ArrowUp") L.y -= step / H; if (e.key === "ArrowDown") L.y += step / H;
-        paint(); clearTimeout(onKey.t); onKey.t = setTimeout(() => { endEdit(); saveDraft(); }, 400);
+        paint(); clearTimeout(onKey.t); onKey.t = setTimeout(commitEdit, 500);
       }
     };
     document.addEventListener("keydown", onKey);
 
     /* slide ops + finish */
-    const finish = () => { document.removeEventListener("keydown", onKey); closeModal(); render(); };
-    const reopen = (j) => { document.removeEventListener("keydown", onKey); closeModal(); render(); openEditor(j); };
+    const finish = () => { commitEdit(); document.removeEventListener("keydown", onKey); closeModal(); render(); };
+    const reopen = (j) => { commitEdit(); document.removeEventListener("keydown", onKey); closeModal(); render(); openEditor(j); };
     q("#ed-prev").onclick = () => { const s = slides[i]; slides[i] = slides[i - 1]; slides[i - 1] = s; els.text.value = serialize(slides); remapExtras((k2) => k2 === i ? i - 1 : k2 === i - 1 ? i : k2); reopen(i - 1); };
     q("#ed-next").onclick = () => { const s = slides[i]; slides[i] = slides[i + 1]; slides[i + 1] = s; els.text.value = serialize(slides); remapExtras((k2) => k2 === i ? i + 1 : k2 === i + 1 ? i : k2); reopen(i + 1); };
     q("#ed-dupslide").onclick = () => { slides.splice(i + 1, 0, Object.assign({}, slides[i])); els.text.value = serialize(slides); remapExtras((k2) => k2 > i ? k2 + 1 : k2); state.extras[i + 1] = JSON.parse(JSON.stringify(ex)); reopen(i + 1); };
     q("#ed-delslide").onclick = () => { slides.splice(i, 1); els.text.value = serialize(slides); remapExtras((k2) => k2 === i ? null : k2 > i ? k2 - 1 : k2); finish(); };
     q(".close").onclick = finish; q("#ed-done").onclick = finish;
-    q(".modal").addEventListener("pointerdown", (e) => { if (e.target === e.currentTarget) finish(); });
     paint(); renderProps();
   }
 
@@ -934,18 +980,18 @@
     });
   }
   function openIdeas() {
-    const niches = Object.keys(I18N[lang].ideas);
+    const niches = Object.keys(I18N[lang].ideaBank);
     let cur = niches[0];
     const q = modalShell("<h3>" + esc(t("ideas_title")) + "</h3><p>" + esc(t("ideas_hint")) + '</p><div class="ideas"><div class="niche" id="niche"></div><ul id="idea-list"></ul></div>', true);
     const paintIdeas = () => {
       q("#niche").innerHTML = niches.map((n) => '<button type="button" data-n="' + n + '" aria-pressed="' + (n === cur) + '">' + esc(t("niche_" + n)) + "</button>").join("");
-      q("#idea-list").innerHTML = I18N[lang].ideas[cur].map((h, idx) => '<li><button type="button" data-i="' + idx + '">' + esc(h) + "</button></li>").join("");
+      q("#idea-list").innerHTML = I18N[lang].ideaBank[cur].map((h, idx) => '<li><button type="button" data-i="' + idx + '">' + esc(h) + "</button></li>").join("");
     };
     paintIdeas();
     q("#niche").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; cur = b.dataset.n; paintIdeas(); });
     q("#idea-list").addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
-      const hook = I18N[lang].ideas[cur][Number(b.dataset.i)];
+      const hook = I18N[lang].ideaBank[cur][Number(b.dataset.i)];
       const rest = I18N[lang].tpls.list.split("\n\n").slice(1).join("\n\n");
       const txt = hook + "\n" + t("idea_sub") + "\n\n" + rest;
       if (!isTemplateText(els.text.value)) newProject();
